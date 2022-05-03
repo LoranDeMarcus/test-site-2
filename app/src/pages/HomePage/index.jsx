@@ -3,6 +3,7 @@ import Header from '../../components/Header'
 import Container from '../../components/Container'
 import * as s from './styles'
 import Main from '../../assets/main.jpg'
+import Card from '../../components/Card/Card'
 
 export const HomePage = () => {
   return (
@@ -33,6 +34,36 @@ export const HomePage = () => {
           </s.Wrapper>
         </Container>
       </s.Section>
+      <s.TestsSection>
+        <Container>
+          <s.SmallTitle>
+            Цифровой двойник включает в себя диагностику по следующим общепризнанным методикам
+          </s.SmallTitle>
+          <s.CardsWrapper>
+            <Card>
+              Диагностика состояния агрессии: Опросник Басса-Дарка
+            </Card>
+            <Card>
+              Тест темперамента В.М. Русалова
+            </Card>
+            <Card>
+              Личностный опросник Кеттела
+            </Card>
+            <Card>
+              Тест-опросник самоотношения (Столин, Пантелеев)
+            </Card>
+            <Card>
+              Краткий отборочный тест КОТ, форма А
+            </Card>
+            <Card>
+              Цветовой тест Люшера
+            </Card>
+            <Card>
+              Опросник Vark
+            </Card>
+          </s.CardsWrapper>
+        </Container>
+      </s.TestsSection>
     </>
   )
 }

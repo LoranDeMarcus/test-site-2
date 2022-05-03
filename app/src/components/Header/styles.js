@@ -18,6 +18,7 @@ export const Image = css`
 `
 
 export const Navbar = styled.nav`
+  margin-left: 40px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -42,6 +43,6 @@ export const link = css`
   text-decoration: none;
 
   &:hover {
-    color: ${colors.blue};
+    color: ${colors.orange};
   }
 `
