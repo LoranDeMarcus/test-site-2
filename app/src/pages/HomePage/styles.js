@@ -4,20 +4,21 @@ import { colors } from '../../assets/constants'
 
 export const Section = styled.div`
   padding: 80px 0;
-  height: 70vh;
+  height: 760px;
   background-color: ${colors.blue};
 `
 
 export const Wrapper = styled.div`
+  margin-top: 40px;
   display: flex;
-  gap: 20px;
+  gap: 80px;
 `
 
 export const TextWrapper = styled.div`
-  width: 50%;
 `
 
 export const image = css`
+  margin: 0 auto;
   height: 350px;
 `
 
@@ -30,7 +31,7 @@ export const Title = styled.h1`
 `
 
 export const Text = styled.p`
-  margin-top: 15px;
+  margin-top: 0;
   font-size: 18px;
   line-height: 24px;
   color: ${colors.white};
