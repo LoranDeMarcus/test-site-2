@@ -1,0 +1,9 @@
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #4f4f4f;
+  font-family: 'Montserrat', sans-serif;
+}

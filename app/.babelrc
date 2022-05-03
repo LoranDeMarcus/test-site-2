@@ -1,0 +1,10 @@
+{
+  "presets": [
+    [
+      "react-app", {
+        "flow": false
+      }
+    ],
+    "@linaria"
+  ]
+}
