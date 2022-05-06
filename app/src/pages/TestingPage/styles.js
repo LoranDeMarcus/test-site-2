@@ -19,7 +19,7 @@ export const Title = styled.h3`
   font-weight: 700;
   color: ${colors.white};
   text-align: center;
-  border-bottom: 1px solid ${colors.blue};
+  border-bottom: 1px solid ${colors.white};
 `
 
 export const CardsWrapper = styled.div`
