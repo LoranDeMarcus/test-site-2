@@ -27,6 +27,7 @@ export const Title = styled.h1`
   line-height: 55px;
   font-weight: 700;
   color: ${colors.white};
+  text-align: center;
 `
 
 export const Text = styled.p`
