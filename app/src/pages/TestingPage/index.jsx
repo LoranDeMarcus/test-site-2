@@ -2,45 +2,42 @@ import React from 'react'
 import Header from '../../components/Header'
 import Container from '../../components/Container'
 import * as s from './styles'
-import { NavLink } from 'react-router-dom'
+import Card from '../../components/Card/Card'
 
 export const TestingPage = () => {
   return (
     <div>
       <Header />
-      <Container>
-        <s.Wrapper>
+      <s.Section>
+        <Container>
           <s.Title>
-            Тестирование
+            Цифровой двойник включает в себя диагностику по следующим общепризнанным методикам
           </s.Title>
-          <s.Text>
-            Данный тест предназначен для оценки цифровых компетенций преподавателей,
-            который включает в себя 7 разделов.
-          </s.Text>
-          <s.Text>
-            Предлагаем вам проанализировать ваши сильные стороны и определить, в каком направлении вам
-            следует совершенствовать навыки использования цифровых технологий в образовательном процессе.
-          </s.Text>
-          <s.Text>
-            После тестирования вы узнаете свой профиль компетенций,
-            определите ключевые задачи и найдете свои точки роста!
-          </s.Text>
-        </s.Wrapper>
-        <s.LinkWrapper>
-          <s.Text>
-            <b>Выберите раздел тестирования:</b>
-          </s.Text>
-          <NavLink to="/testing/1" className={s.link}>
-            1. Безопасность в сети интернет
-          </NavLink>
-          <NavLink to="/testing/2" className={s.link}>
-            2. Управление информацией и данными
-          </NavLink>
-          <NavLink to="/testing/3" className={s.link}>
-            3. Управление цифровой идентичностью
-          </NavLink>
-        </s.LinkWrapper>
-      </Container>
+          <s.CardsWrapper>
+            <Card>
+              Диагностика состояния агрессии: Опросник Басса-Дарка
+            </Card>
+            <Card>
+              Тест темперамента В.М. Русалова
+            </Card>
+            <Card>
+              Личностный опросник Кеттела
+            </Card>
+            <Card>
+              Тест-опросник самоотношения (Столин, Пантелеев)
+            </Card>
+            <Card>
+              Краткий отборочный тест КОТ, форма А
+            </Card>
+            <Card>
+              Цветовой тест Люшера
+            </Card>
+            <Card>
+              Опросник Vark
+            </Card>
+          </s.CardsWrapper>
+        </Container>
+      </s.Section>
     </div>
   )
 }

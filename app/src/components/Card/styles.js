@@ -5,9 +5,9 @@ export const Wrapper = css`
   display: block;
   width: 320px;
   padding: 25px;
-  background-color: ${colors.blue};
-  border: 1px solid ${colors.blue};
-  color: ${colors.white};
+  background-color: ${colors.white};
+  border: 1px solid ${colors.white};
+  color: ${colors.blue};
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;

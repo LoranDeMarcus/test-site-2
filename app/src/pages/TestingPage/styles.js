@@ -1,39 +1,35 @@
 import { styled } from '@linaria/react'
-import { css } from '@linaria/core'
 import { colors } from '../../assets/constants'
 
 export const Wrapper = styled.div`
   margin-top: 80px;
 `
 
-export const Title = styled.h1`
-  margin-top: 20px;
-  font-size: 40px;
-  line-height: 55px;
+export const Section = styled.section`
+  padding: 90px 0;
+  background-color: ${colors.blue};
+`
+
+export const Title = styled.h3`
+  display: inline-block;
+  padding-bottom: 40px;
+  width: 100%;
+  font-size: 30px;
+  line-height: 38px;
   font-weight: 700;
-  color: ${colors.dark};
+  color: ${colors.white};
+  text-align: center;
+  border-bottom: 1px solid ${colors.blue};
 `
 
-export const Text = styled.p`
-  margin-top: 0;
-  margin-bottom: 15px;
-  font-size: 18px;
-  line-height: 24px;
-`
-
-export const LinkWrapper = styled.div`
-  margin-top: 25px;
-`
-
-export const link = css`
-  display: block;
-  font-size: 16px;
-  line-height: 24px;
-  color: ${colors.blue};
-  text-decoration: none;
-  transition: all 0.3s ease;
+export const CardsWrapper = styled.div`
+  margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
   
-  &:hover {
-    color: ${colors.dark}
+  & > a {
+    width: 32%;
   }
 `
