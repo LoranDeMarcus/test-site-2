@@ -13,9 +13,7 @@ const Radio = ({ children, name, value, id, size = 's', ref, disabled = false })
     <s.RadioWrapper>
       <input
         id={id}
-        onChange={() => {
-          onChange(value)
-        }}
+        onChange={() => onChange(value)}
         ref={ref}
         checked={value === _value}
         type="radio"

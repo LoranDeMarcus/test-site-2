@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 const Card = ({ children }) => {
   return (
-    <NavLink to='/' className={s.Wrapper}>
+    <NavLink to='/testing/buss-durkee' className={s.Wrapper}>
       {children}
     </NavLink>
   )
