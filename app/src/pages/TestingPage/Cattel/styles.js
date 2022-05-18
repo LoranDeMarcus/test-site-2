@@ -10,6 +10,22 @@ export const Tittle = styled.h1`
   color: ${colors.white};
 `
 
+export const Subtitle = styled.p`
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 28px;
+  color: ${colors.white};
+`
+
+export const StartButton = css`
+  margin-top: 20px;
+`
+
+export const ReturnButton = css`
+  margin-top: 20px;
+  margin-bottom: 20px;
+`
+
 export const form = css`
   margin-top: 30px;
 
@@ -19,7 +35,7 @@ export const form = css`
 `
 
 export const QuestionWrapper = styled.div`
-  padding: 30px 0;
+  margin-bottom: 60px;
 `
 
 export const Question = styled.p`

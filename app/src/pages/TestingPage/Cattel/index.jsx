@@ -8,7 +8,7 @@ import { PageWrapper, Wrapper } from '../styles'
 import * as s from './styles'
 import { Radio, RadioGroup } from '../../../components/Radio'
 
-export const BussDurkee = () => {
+export const Cattel = () => {
   const [hasReadDescription, setHasReadDescription] = useState(true)
   const { control, handleSubmit, formState: { errors } } = useForm()
 
@@ -24,16 +24,24 @@ export const BussDurkee = () => {
       <Container>
         <Wrapper>
           <s.Tittle>
-            Опросник Басса-Дарки
+            Личностный опросник Кеттела
           </s.Tittle>
           {hasReadDescription
             ? (
               <>
                 <s.Subtitle>
-                  Данный опросник делает диагностику по состоянию агрессии личности.
-                  Опросник включает в себя 56 утверждений, на которые необходимо ответить «ДА» или «НЕТ».
-                  Ответы на утверждения человек дает, основываясь на себя, своей реакции на других людей или же на какие-то события.
-                  Отметьте «да», если вы согласны с утверждением, и «нет» - если не согласны. Старайтесь долго над вопросами не раздумывать.
+                  Bам будет задан ряд вопросов, на каждый из которых Вы должны выбрать один из трех предлагаемых ответов,
+                  - тот, который в наибольшей степени соответствует Вашим взглядам, Вашему мнению о себе.
+                  Обязательно отвечайте на все вопросы подряд, ничего не пропуская. Не нужно много времени тратить на обдумывание ответов.
+                  Давайте тот ответ, который первым приходит Вам в голову. Отвечать надо приблизительно на 5-6 вопросов за минуту.
+                  Прохождение теста должно занять у Вас около 50 мин. Возможно, некоторые вопросы покажутся вам неясными
+                  или сформулированными не так подробно, как Вам хотелось бы. В таких случаях, отвечая, старайтесь
+                  представить "среднюю", наиболее обычную ситуацию, которая соответствует смыслу вопроса, и на основе
+                  этого выбирайте свой ответ. Старайтесь не прибегать слишком часто к промежуточным, неопределенным ответам,
+                  типа "не знаю", "нечто среднее" и т.п. Отвечайте честно и искренне. Не стремитесь произвести хорошее
+                  впечатление своими ответами. Здесь не может быть ответов "правильных" или "ошибочных". Люди различны,
+                  и каждый может высказать свое мнение. Ваши ответы должны соответствовать действительности - в этом случае
+                  Вы сможете лучше узнать себя.
                 </s.Subtitle>
                 <Button onClick={() => setHasReadDescription(false)} className={s.StartButton}>
                   Начать тестирование
@@ -47,7 +55,7 @@ export const BussDurkee = () => {
                 <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
                   <s.QuestionWrapper>
                     <s.Question>
-                      1. Временами я не могу справиться с желанием причинить вред другим
+                      1.	Я хорошо понял инструкцию к этому опроснику
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -56,10 +64,13 @@ export const BussDurkee = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="1" value="true" id="1_true">
-                              Да
+                              да
+                            </Radio>
+                            <Radio name="1" value="half" id="1_half">
+                              не уверен
                             </Radio>
                             <Radio name="1" value="false" id="1_false">
-                              Нет
+                              нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -68,7 +79,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      2. Иногда сплетничаю о людях, которых не люблю
+                      2.	Я готов как можно искренней ответить на вопросы
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -77,10 +88,13 @@ export const BussDurkee = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="2" value="true" id="2_true">
-                              Да
+                              да
+                            </Radio>
+                            <Radio name="2" value="half" id="2_half">
+                              не уверен
                             </Radio>
                             <Radio name="2" value="false" id="2_false">
-                              Нет
+                              нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -89,7 +103,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      3. Я легко раздражаюсь, но быстро успокаиваюсь
+                      3.	Я предпочел бы иметь дачу
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -98,10 +112,13 @@ export const BussDurkee = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="3" value="true" id="3_true">
-                              Да
+                              в оживленном дачном поселке
+                            </Radio>
+                            <Radio name="3" value="half" id="3_half">
+                              нечто среднее
                             </Radio>
                             <Radio name="3" value="false" id="3_false">
-                              Нет
+                              уединенную, в лесу
                             </Radio>
                           </RadioGroup>
                         )}
@@ -110,7 +127,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      4. Если меня не попросят по-хорошему, я не выполню
+                      4. Я могу найти в себе достаточно сил, чтобы справиться с жизненными трудностями.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -119,10 +136,13 @@ export const BussDurkee = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="4" value="true" id="4_true">
-                              Да
+                              всегда
+                            </Radio>
+                            <Radio name="4" value="half" id="4_half">
+                              обычно
                             </Radio>
                             <Radio name="4" value="false" id="4_false">
-                              Нет
+                              редко
                             </Radio>
                           </RadioGroup>
                         )}
@@ -131,7 +151,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      5. Я не всегда получаю то, что мне положено
+                      5. При виде диких животных мне становится несколько не по себе, даже если они надежно заперты в клетках.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -140,10 +160,13 @@ export const BussDurkee = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="5" value="true" id="5_true">
-                              Да
+                              да, это верно
+                            </Radio>
+                            <Radio name="5" value="half" id="5_half">
+                              не уверен
                             </Radio>
                             <Radio name="5" value="false" id="5_false">
-                              Нет
+                              нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -152,7 +175,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      6. Я не знаю, что люди говорят обо мне за моей спиной
+                      6.	Я воздерживаюсь от критики людей и их взглядов
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -161,10 +184,13 @@ export const BussDurkee = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="6" value="true" id="6_true">
-                              Да
+                              да
+                            </Radio>
+                            <Radio name="6" value="half" id="6_half">
+                              иногда
                             </Radio>
                             <Radio name="6" value="false" id="6_false">
-                              Нет
+                              нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -173,7 +199,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      7. Если я не одобряю поведение друзей, я даю им это почувствовать
+                      7.	Я делаю людям резкие, критические замечания, если мне кажется, что они этого заслуживают
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -182,10 +208,13 @@ export const BussDurkee = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="7" value="true" id="7_true">
-                              Да
+                              обычно
+                            </Radio>
+                            <Radio name="7" value="half" id="7_half">
+                              иногда
                             </Radio>
                             <Radio name="7" value="false" id="7_false">
-                              Нет
+                              никогда не делаю
                             </Radio>
                           </RadioGroup>
                         )}
@@ -194,7 +223,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      8. Когда мне случалось обмануть кого-нибудь, я испытывал мучительные угрызения совести
+                      8. Я предпочитаю несложную классическую музыку современным популярным мелодиям
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -203,10 +232,13 @@ export const BussDurkee = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="8" value="true" id="8_true">
-                              Да
+                              верно
+                            </Radio>
+                            <Radio name="8" value="half" id="8_half">
+                              не уверен
                             </Radio>
                             <Radio name="8" value="false" id="8_false">
-                              Нет
+                              неверно
                             </Radio>
                           </RadioGroup>
                         )}
@@ -215,7 +247,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      9. Мне кажется, что я не способен ударить человека
+                      9. Если бы я увидел ссорящихся не на шутку соседских детей
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -224,10 +256,13 @@ export const BussDurkee = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="9" value="true" id="9_true">
-                              Да
+                              я предоставил бы им самим выяснить свои отношения
+                            </Radio>
+                            <Radio name="9" value="half" id="9_half">
+                              не знаю, что предпринял бы
                             </Radio>
                             <Radio name="9" value="false" id="9_false">
-                              Нет
+                              я постарался бы разобраться в их ссоре
                             </Radio>
                           </RadioGroup>
                         )}
@@ -236,7 +271,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      10. Я никогда не раздражаюсь настолько, чтобы кидаться предметами
+                      10. На собраниях и в компаниях:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -245,10 +280,13 @@ export const BussDurkee = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="10" value="true" id="10_true">
-                              Да
+                              я легко выхожу вперед
+                            </Radio>
+                            <Radio name="10" value="half" id="10_half">
+                              верно нечто среднее
                             </Radio>
                             <Radio name="10" value="false" id="10_false">
-                              Нет
+                              я предпочитаю держаться в стороне
                             </Radio>
                           </RadioGroup>
                         )}
@@ -257,7 +295,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      11. Я всегда снисходителен к чужим недостаткам
+                      11. По-моему, интереснее быть:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -266,10 +304,13 @@ export const BussDurkee = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="11" value="true" id="11_true">
-                              Да
+                              инженером – конструктором
+                            </Radio>
+                            <Radio name="11" value="half" id="11_false">
+                              не знаю, что предпочесть
                             </Radio>
                             <Radio name="11" value="false" id="11_false">
-                              Нет
+                              драматургом
                             </Radio>
                           </RadioGroup>
                         )}
@@ -278,7 +319,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      12. Если мне не нравится установленное правило, мне хочется нарушить его
+                      12. На улице я скорее остановлюсь, чтобы посмотреть, как работает художник, чем стану наблюдать за уличной ссорой.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -287,10 +328,13 @@ export const BussDurkee = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="12" value="true" id="12_true">
-                              Да
+                              да, это верно
+                            </Radio>
+                            <Radio name="12" value="half" id="12_half">
+                              не уверен
                             </Radio>
                             <Radio name="12" value="false" id="12_false">
-                              Нет
+                              нет, это не верно
                             </Radio>
                           </RadioGroup>
                         )}
@@ -299,7 +343,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      13. Другие умеют почти всегда пользоваться благоприятными обстоятельствами
+                      13. Обычно я спокойно переношу самодовольство людей, даже когда они хвастаются или другим образом показывают, что они высокого мнения о себе
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -308,10 +352,13 @@ export const BussDurkee = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="13" value="true" id="13_true">
-                              Да
+                              да
+                            </Radio>
+                            <Radio name="13" value="half" id="13_half">
+                              верно нечто среднее
                             </Radio>
                             <Radio name="13" value="false" id="13_false">
-                              Нет
+                              нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -320,7 +367,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      14. Я держусь настороженно с людьми, которые относятся ко мне несколько более дружественно, чем я ожидал
+                      14. Если человек обманывает, я почти всегда могу заметить это по выражению его лицаю
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -329,10 +376,13 @@ export const BussDurkee = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="14" value="true" id="14_true">
-                              Да
+                              да
+                            </Radio>
+                            <Radio name="14" value="half" id="14_half">
+                              верно нечто среднее
                             </Radio>
                             <Radio name="14" value="false" id="14_false">
-                              Нет
+                              нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -341,7 +391,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      15. Я часто бываю не согласен с людьми
+                      15. Легко ли Вам выполнять работу, требующую длительного внимания и большой сосредоточенности?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -350,10 +400,13 @@ export const BussDurkee = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="15" value="true" id="15_true">
-                              Да
+                              согласен
+                            </Radio>
+                            <Radio name="15" value="half" id="15_half">
+                              не уверен
                             </Radio>
                             <Radio name="15" value="false" id="15_false">
-                              Нет
+                              не согласен
                             </Radio>
                           </RadioGroup>
                         )}
@@ -362,7 +415,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      16. Иногда мне на ум приходят мысли, которых я стыжусь
+                      16. Я предпочел бы взяться за работу:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -371,10 +424,13 @@ export const BussDurkee = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="16" value="true" id="16_true">
-                              Да
+                              где можно много зарабатывать, даже если заработки не постоянны
+                            </Radio>
+                            <Radio name="16" value="half" id="16_half">
+                              не знаю, что выбрать
                             </Radio>
                             <Radio name="16" value="false" id="16_false">
-                              Нет
+                              с постоянной, но относительно невысокой зарплатой
                             </Radio>
                           </RadioGroup>
                         )}
@@ -383,7 +439,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      17. Если кто-нибудь первым ударит меня, я не отвечу ему
+                      17. Я говорю о своих чувствах:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -392,10 +448,13 @@ export const BussDurkee = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="17" value="true" id="17_true">
-                              Да
+                              только в случае необходимости
+                            </Radio>
+                            <Radio name="17" value="half" id="17_half">
+                              верно нечто среднее
                             </Radio>
                             <Radio name="17" value="false" id="17_false">
-                              Нет
+                              охотно, когда предоставляется возможность
                             </Radio>
                           </RadioGroup>
                         )}
@@ -404,7 +463,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      18. Когда я раздражаюсь, я хлопаю дверьми
+                      18. Изредка я испытываю чувство внезапного страха или неопределенного беспокойства, сам не знаю от чего
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -413,10 +472,13 @@ export const BussDurkee = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="18" value="true" id="18_true">
-                              Да
+                              да
+                            </Radio>
+                            <Radio name="18" value="half" id="18_half">
+                              верно нечто среднее
                             </Radio>
                             <Radio name="18" value="false" id="18_false">
-                              Нет
+                              нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -425,7 +487,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      19. Я гораздо более раздражителен, чем кажется
+                      19. Когда меня несправедливо критикуют за то, в чем я не виноват:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -434,10 +496,13 @@ export const BussDurkee = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="19" value="true" id="19_true">
-                              Да
+                              никакого чувства вины у меня не возникает
+                            </Radio>
+                            <Radio name="19" value="half" id="19_half">
+                              верно нечто среднее
                             </Radio>
                             <Radio name="19" value="false" id="19_false">
-                              Нет
+                              я все же чувствую себя немного виноватым
                             </Radio>
                           </RadioGroup>
                         )}
@@ -446,7 +511,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      20. Если кто-то воображает себя начальником, я всегда поступаю ему наперекор
+                      20. На работе у меня бывает больше затруднений с людьми, которые:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -455,10 +520,13 @@ export const BussDurkee = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="20" value="true" id="20_true">
-                              Да
+                              отказываюсь использовать современные методы
+                            </Radio>
+                            <Radio name="20" value="half" id="20_half">
+                              не знаю, что выбрать
                             </Radio>
                             <Radio name="20" value="false" id="20_false">
-                              Нет
+                              постоянно пытаюсь что-то изменить в работе, которая и так идет нормально
                             </Radio>
                           </RadioGroup>
                         )}
@@ -467,7 +535,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      21. Меня немного огорчает моя судьба
+                      21.  Принимая решения, я руководствуюсь больше:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -476,10 +544,13 @@ export const BussDurkee = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="21" value="true" id="21_true">
-                              Да
+                              сердцем
+                            </Radio>
+                            <Radio name="21" value="half" id="21_half">
+                              сердцем и рассудком в равной иерее
                             </Radio>
                             <Radio name="21" value="false" id="21_false">
-                              Нет
+                              рассудком
                             </Radio>
                           </RadioGroup>
                         )}
@@ -488,7 +559,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      22. Я думаю, что многие люди не любят меня
+                      22. Люди были бы счастливее, если бы они больше времени проводили в обществе своих друзей.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -497,10 +568,13 @@ export const BussDurkee = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="22" value="true" id="22_true">
-                              Да
+                              да
+                            </Radio>
+                            <Radio name="22" value="half" id="22_half">
+                              верно нечто среднее
                             </Radio>
                             <Radio name="22" value="false" id="22_false">
-                              Нет
+                              нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -509,7 +583,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      23. Я не могу удержаться от спора, если люди не согласны со мной
+                      23. Строя планы на будущее, я часто рассчитываю на удачу.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -518,10 +592,13 @@ export const BussDurkee = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="23" value="true" id="23_true">
-                              Да
+                              да
+                            </Radio>
+                            <Radio name="23" value="half" id="23_half">
+                              затрудняюсь ответить
                             </Radio>
                             <Radio name="23" value="false" id="23_false">
-                              Нет
+                              нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -530,7 +607,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      24. Люди, увиливающие от работы, должны испытывать чувство вины
+                      24. Разговаривая, я склонен:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -538,16 +615,15 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="24" value="true" id="24_true">
-                              Да
+                              высказывать свои мысли сразу, как только они приходят
                             </Radio>
-
-
+                            <Radio name="24" value="half" id="24_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="24" value="false" id="24_false">
-                              Нет
+                              прежде хорошенько собраться с мыслями
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -555,7 +631,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      25. Тот, кто оскорбляет меня и мою семью, напрашивается на драку
+                      25. Даже если я чем-нибудь сильно взбешен, я успокаиваюсь довольно быстро.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -563,16 +639,15 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="25" value="true" id="25_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="25" value="half" id="25_half">
+                              верно
+                            </Radio>
                             <Radio name="25" value="false" id="25_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -580,7 +655,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      26. Я не способен на грубые шутки
+                      26. Возникают ли у Вас конфликты с Вашими друзьями из-за того, что Вы сказали им что-то, не подумав заранее?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -588,16 +663,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="26" value="true" id="26_true">
                               Да
                             </Radio>
-
-
                             <Radio name="26" value="false" id="26_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -605,7 +676,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      27. Меня охватывает ярость, когда надо мной насмехаются
+                      27. Вы предпочитаете делать несложные дела, не требующие от Вас большой энергии?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -630,7 +701,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      28. Когда люди строят из себя начальников, я делаю все, чтобы они не зазнавались
+                      28. Легко ли Вы расстраиваетесь, когда обнаруживаете незначительные недостатки в своей работе?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -655,7 +726,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      29. Почти каждую неделю я вижу кого-нибудь, кто мне не нравится
+                      29. Любите ли Вы сидячую работу?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -680,7 +751,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      30. Довольно многие люди завидуют мне
+                      30. Легко ли Вам общаться с разными людьми?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -705,7 +776,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      31. Я требую, чтобы люди уважали меня
+                      31. Вы обычно предпочитаете подумать, взвесить и лишь потом высказаться?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -730,7 +801,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      32. Меня угнетает то, что я мало делаю для своих родителей
+                      32. Все ли Ваши привычки хороши и желательны?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -755,7 +826,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      33. Люди, которые постоянно изводят вас, стоят того, чтобы их "щелкнули по носу"
+                      33. Быстры ли у Вас движения рук?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -780,7 +851,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      34. Я никогда не бываю мрачен от злости
+                      34. Вы обычно молчите и не вступаете в контакты, когда находитесь в обществе малознакомых людей?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -805,7 +876,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      35. Если ко мне относятся хуже, чем я того заслуживаю, я не расстраиваюсь
+                      35. Легко ли Вам переключиться от одного варианта решения задачи на другой?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -830,7 +901,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      36. Если кто-то выводит меня из себя, я не обращаю внимания
+                      36. Склонны ли Вы иногда преувеличивать в своем воображении негативное отношение близких Вам людей?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -855,7 +926,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      37. Хотя я и не показываю этого, меня иногда гложет зависть
+                      37. Разговорчивый ли Вы человек?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -880,7 +951,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      38. Иногда мне кажется, что надо мной смеются
+                      38. Вам обычно легко выполнять дело, требующее мгновенных реакций?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -905,7 +976,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      39. Даже если я злюсь, я не прибегаю к "сильным" выражениям
+                      40. Беспокоят ли Вас страхи, что Вы не справитесь с работой?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -930,7 +1001,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      40. Мне хочется, чтобы мои грехи были прощены
+                      41. Легко ли Вы обижаетесь, когда близкие люди указывают на Ваши личные недостатки?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -955,7 +1026,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      41. Я редко даю сдачи, даже если кто-нибудь ударит меня
+                      42. Испытываете ли Вы тягу к напряженной, ответственной деятельности?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -980,7 +1051,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      42. Когда получается не по-моему, я иногда обижаюсь
+                      43. Считаете ли Вы свои движения медленными и неторопливыми?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1005,32 +1076,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      43. Иногда люди раздражают меня одним своим присутствием
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="43"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="43" value="true" id="43_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="43" value="false" id="43_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      44. Нет людей, которых бы я по-настоящему ненавидел
+                      44. Бывают ли у Вас мысли, которые Вы хотели бы скрыть от других?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1055,7 +1101,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      45. Мой принцип: "Никогда не доверять "чужакам"
+                      45. Можете ли Вы без долгих раздумий задать щекотливый вопрос другому человеку?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1080,7 +1126,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      46. Если кто-нибудь раздражает меня, я готов сказать, что я о нем думаю
+                      46. Доставляют ли Вам удовольствие быстрые движения?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1105,7 +1151,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      47. Я делаю много такого, о чем впоследствии жалею
+                      47. Легко ли Вы "генерируете" новые идеи?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1130,7 +1176,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      48. Если я разозлюсь, я могу ударить кого-нибудь
+                      48. Сосет ли у Вас под ложечкой перед ответственным разговором?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1155,7 +1201,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      49. С детства я никогда не проявлял вспышек гнева
+                      49. Можно ли сказать, что Вы быстро выполняете порученное Вам дело?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1180,7 +1226,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      50. Я часто чувствую себя как пороховая бочка, готовая взорваться
+                      50. Любите ли Вы браться за большие дела самостоятельно?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1205,7 +1251,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      51. Если бы все знали, что я чувствую, меня бы считали человеком, с которым нелегко
+                      51. Богатая ли у Вас мимика в разговоре?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1230,7 +1276,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      52. Я всегда думаю о том, какие тайные причины заставляют людей делать что-нибудь приятное для меня
+                      52. Если Вы обещали что-то сделать, всегда ли Вы выполняете свое обещание независимо от того, удобно Вам это или нет
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1255,7 +1301,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      53. Когда на меня кричат, я начинаю кричать в ответ
+                      53. Испытываете ли Вы чувство обиды от того, что окружающие Вас люди обходятся с Вами хуже, чем следовало бы?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1280,7 +1326,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      54. Неудачи огорчают меня
+                      54. Вы обычно предпочитаете выполнять одновременно только одну операцию?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1305,7 +1351,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      55. Я дерусь не реже и не чаще, чем другие
+                      55. Любите ли Вы игры в быстром темпе?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1330,8 +1376,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      56. Я могу вспомнить случаи, когда я был настолько зол, что хватал попавшуюся мне под руку вещь и ломал
-                      ее
+                      56. Много ли в Вашей речи длительных пауз?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1356,7 +1401,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      57. Иногда я чувствую, что готов первым начать драку
+                      57. Легко ли Вам внести оживление в компанию?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1381,7 +1426,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      58. Иногда я чувствую, что жизнь поступает со мной несправедливо
+                      58. Вы обычно чувствуете в себе избыток сил, и Вам хочется заняться каким-нибудь трудным делом?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1406,7 +1451,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      59. Раньше я думал, что большинство людей говорит правду, но теперь я в это не верю
+                      59. Обычно Вам трудно переключить внимание с одного дела на другое?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1431,7 +1476,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      60. Я ругаюсь только со злости
+                      60. Бывает ли, что у Вас надолго портится настроение от того, что сорвалось запланированное дело?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1456,7 +1501,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      61. Когда я поступаю неправильно, меня мучает совесть
+                      61. Часто ли Вам не спится из-за того, что не ладятся дела, связанные непосредственно с работой?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1481,7 +1526,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      62. Если для защиты своих прав мне нужно применить физическую силу, я применяю ее
+                      62. Любите ли Вы бывать в большой компании?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1506,7 +1551,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      63. Иногда я выражаю свой гнев тем, что стучу кулаком по столу
+                      63. Волнуетесь ли Вы, выясняя отношения с друзьями?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1531,7 +1576,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      64. Я бываю грубоват по отношению к людям, которые мне не нравятся
+                      64. Испытываете ли Вы потребность в работе, требующей полной отдачи сил?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1556,7 +1601,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      65. У меня нет врагов, которые бы хотели мне навредить
+                      65. Выходите ли Вы иногда из себя, злитесь?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1581,7 +1626,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      66. Я не умею поставить человека на место, даже если он того заслуживает
+                      66. Склонны ли Вы решать много задач одновременно?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1606,7 +1651,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      67. Я часто думаю, что жил неправильно
+                      67. Держитесь ли Вы свободно в большой компании?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1631,7 +1676,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      68. Я знаю людей, которые способны довести меня до драки
+                      68. Часто ли Вы высказываете свое первое впечатление, не подумав?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1656,7 +1701,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      Я не огорчаюсь из-за мелочей
+                      69. Беспокоит ли Вас чувство неуверенности в процессе выполнения работы?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1681,7 +1726,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      70. Мне редко приходит в голову, что люди пытаются разозлить или оскорбить меня
+                      70. Медленны ли Ваши движения, когда Вы что-то мастерите?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1706,7 +1751,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      71. Я часто только угрожаю людям, хотя и не собираюсь приводить угрозы в исполнение
+                      71. Легко ли Вы переключаетесь с одной работы на другую?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1731,7 +1776,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      72. В последнее время я стал занудой
+                      72. Быстро ли Вы читаете вслух?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1756,7 +1801,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      73. В споре я часто повышаю голос
+                      73. Вы иногда сплетничаете?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1781,7 +1826,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      74. Я стараюсь обычно скрывать свое плохое отношение к людям
+                      74. Молчаливы ли Вы, находясь в кругу друзей?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1806,7 +1851,7 @@ export const BussDurkee = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      75. Я лучше соглашусь с чем-либо, чем стану спорить
+                      75. Нуждаетесь ли Вы в людях, которые бы Вас ободрили и утешили?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1821,6 +1866,756 @@ export const BussDurkee = () => {
 
 
                             <Radio name="75" value="false" id="75_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      76. Охотно ли Вы выполняете множество разных поручений одновременно?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="76"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="76" value="true" id="76_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="76" value="false" id="76_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      77. Охотно ли Вы выполняете работу в быстром темпе?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="77"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="77" value="true" id="77_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="77" value="false" id="77_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      78. В свободное время Вас обычно тянет пообщаться с людьми?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="78"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="78" value="true" id="78_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="78" value="false" id="78_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      79. Часто ли у Вас бывает бессонница при неудачах на работе?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="79"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="79" value="true" id="79_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="79" value="false" id="79_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      80. Дрожат ли у Вас иногда руки во время ссоры?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="80"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="80" value="true" id="80_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="80" value="false" id="80_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      81. Долго ли Вы мысленно готовитесь перед тем, как высказать свое мнение?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="81"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="81" value="true" id="81_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="81" value="false" id="81_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      82. Есть ли среди Ваших знакомых люди, которые Вам явно не нравятся?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="82"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="82" value="true" id="82_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="82" value="false" id="82_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      83. Обычно Вы предпочитаете легкую работу?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="83"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="83" value="true" id="83_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="83" value="false" id="83_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      84. Легко ли Вас обидеть в разговоре по пустякам?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="84"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="84" value="true" id="84_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="84" value="false" id="84_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      85. Обычно Вы первым в компании решаетесь начать разговор?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="85"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="85" value="true" id="85_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="85" value="false" id="85_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      86. Испытываете ли Вы тягу к людям?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="86"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="86" value="true" id="86_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="86" value="false" id="86_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      87. Склонны ли Вы вначале поразмыслить, а потом говорить?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="87"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="87" value="true" id="87_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="87" value="false" id="87_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      88. Часто ли Вы волнуетесь по поводу своей работы?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="88"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="88" value="true" id="88_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="88" value="false" id="88_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      89. Всегда ли Вы платили бы за провоз багажа на транспорте, если бы не опасались проверки?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="89"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="89" value="true" id="89_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="89" value="false" id="89_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      90. Держитесь ли Вы обычно обособленно на вечеринках или в компаниях?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="90"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="90" value="true" id="90_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="90" value="false" id="90_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      91. Склонны ли Вы преувеличивать в своем воображении неудачи, связанные с работой?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="91"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="91" value="true" id="91_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="91" value="false" id="91_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      92. Нравится ли Вам быстро говорить?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="92"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="92" value="true" id="92_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="92" value="false" id="92_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      93. Легко ли Вам удержаться от высказывания неожиданно возникшей идеи?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="93"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="93" value="true" id="93_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="93" value="false" id="93_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      94. Предпочитаете ли Вы работать медленно?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="94"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="94" value="true" id="94_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="94" value="false" id="94_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      95. Переживаете ли Вы из-за малейших неполадок на работе?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="95"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="95" value="true" id="95_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="95" value="false" id="95_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      96. Вы предпочитаете медленный? спокойный разговор?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="96"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="96" value="true" id="96_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="96" value="false" id="96_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      97. Часто ли Вы волнуетесь из-за ошибок в работе, которые были Вами допущены?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="97"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="97" value="true" id="97_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="97" value="false" id="97_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      98. Способны ли Вы успешно выполнять длительную трудовую работу?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="98"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="98" value="true" id="98_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="98" value="false" id="98_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      99. Можете ли Вы, не долго думая, обратиться с просьбой к другому человеку?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="99"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="99" value="true" id="99_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="99" value="false" id="99_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      100. Часто ли Вас беспокоит чувство неуверенности в себе при общении с людьми?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="100"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="100" value="true" id="100_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="100" value="false" id="100_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      101. Легко ли Вы беретесь за выполнение новых заданий?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="101"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="101" value="true" id="101_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="101" value="false" id="101_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      102. Устаете ли Вы, когда Вам приходится говорить долго?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="102"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="102" value="true" id="102_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="102" value="false" id="102_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      103. Вы предпочитаете работать с прохладцей, без особого напряжения?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="103"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="103" value="true" id="103_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="103" value="false" id="103_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      104. Нравится ли Вам разнообразная работа, требующая переключения внимания?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="104"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="104" value="true" id="104_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="104" value="false" id="104_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      105. Любите ли Вы подолгу бывать наедине с собой?
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="105"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="105" value="true" id="105_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="105" value="false" id="105_false">
                               Нет
                             </Radio>
 

@@ -1,10 +1,15 @@
 import React from 'react'
-import { button } from './styles'
+import { Wrapper } from './styles'
 
-export const Button = ({ type='button', onClick, children }) => {
+export const Button = ({
+  type='button',
+  onClick,
+  className,
+  children,
+}) => {
   return (
-    <button className={button} type={type} onClick={onClick}>
+    <Wrapper className={className} type={type} onClick={onClick}>
       {children}
-    </button>
+    </Wrapper>
   )
 }

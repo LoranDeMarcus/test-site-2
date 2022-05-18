@@ -30,6 +30,7 @@ export const RadioWrapper = styled.div`
 export const Label = styled.label`
   font-size: 16px;
   color: ${colors.black};
+  text-align: left;
   cursor: pointer;
   transition: all 0.3s ease;
   

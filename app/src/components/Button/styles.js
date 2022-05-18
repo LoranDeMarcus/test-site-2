@@ -1,7 +1,7 @@
-import { css } from '@linaria/core'
 import { colors } from '../../assets/constants'
+import { styled } from '@linaria/react'
 
-export const button = css`
+export const Wrapper = styled.div`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -18,6 +18,6 @@ export const button = css`
   text-decoration: none;
 
   &:hover {
-    background-color: ${colors.blue};
+    background-color: ${colors.lightOrange};
   }
 `

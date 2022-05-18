@@ -25,7 +25,7 @@ const Header = () => {
                   to='/testing'
                   className={s.link}
                 >
-                  Начать тестирование
+                  Тестирование
                 </NavLink>
               </li>
             </s.NavList>

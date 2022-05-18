@@ -5,7 +5,7 @@ import { TestingPage } from './pages/TestingPage'
 import { CabinetPage } from './pages/CabinetPage'
 import { BussDurkee } from './pages/TestingPage/BussDurkee'
 import { Rusalov } from './pages/TestingPage/Rusalov'
-import { Kettel } from './pages/TestingPage/Kettel'
+import { Cattel } from './pages/TestingPage/Cattel'
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <Route path='/testing' element={<TestingPage />} />
         <Route path='/testing/buss-durkee' element={<BussDurkee />} />
         <Route path='/testing/rusalov' element={<Rusalov />} />
-        <Route path='/testing/kettel' element={<Kettel />} />
+        <Route path='/testing/cattel' element={<Cattel />} />
       </Routes>
     </HashRouter>
   )
