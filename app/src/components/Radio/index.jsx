@@ -20,7 +20,6 @@ const Radio = ({ children, name, value, id, size = 's', ref, disabled = false })
         name={name}
         disabled={disabled}
       />
-
       <s.Label htmlFor={id} size={size}>
         {children}
       </s.Label>

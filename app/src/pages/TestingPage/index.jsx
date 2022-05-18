@@ -14,13 +14,13 @@ export const TestingPage = () => {
             Цифровой двойник включает в себя диагностику по следующим общепризнанным методикам
           </s.Title>
           <s.CardsWrapper>
-            <Card>
+            <Card to='/testing/buss-durkee'>
               Диагностика состояния агрессии: Опросник Басса-Дарка
             </Card>
-            <Card>
+            <Card to='/testing/rusalov'>
               Тест темперамента В.М. Русалова
             </Card>
-            <Card>
+            <Card to='/testing/kettel'>
               Личностный опросник Кеттела
             </Card>
             <Card>
