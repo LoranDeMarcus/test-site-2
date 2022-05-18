@@ -7,7 +7,7 @@ export const RadioWrapper = styled.div`
   align-items: center;
   padding: 15px 25px;
   background-color: ${colors.white};
-  border: 1px solid ${colors.white};
+  border: 1px solid ${({ checked }) => checked ? colors.orange : colors.white};
   border-radius: 6px;
   color: ${colors.blue};
   text-align: center;
@@ -29,7 +29,7 @@ export const RadioWrapper = styled.div`
 
 export const Label = styled.label`
   font-size: 16px;
-  color: ${colors.black};
+  color: ${({ checked }) => checked ? colors.orange : colors.black};
   text-align: left;
   cursor: pointer;
   transition: all 0.3s ease;
