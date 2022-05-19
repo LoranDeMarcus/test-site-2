@@ -23,7 +23,7 @@ export const TestingPage = () => {
             <Card to='/testing/cattel'>
               Личностный опросник Кеттела
             </Card>
-            <Card>
+            <Card to='/testing/pantileev'>
               Тест-опросник самоотношения (Столин, Пантелеев)
             </Card>
             <Card>
