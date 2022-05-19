@@ -48,5 +48,25 @@ export const Answers = styled.div`
   margin-top: 25px;
   padding-left: 5px;
   display: flex;
+  flex-direction: column;
   gap: 20px;
+`
+
+export const AnswerWrapper = styled.div`
+  padding: 15px 25px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background-color: ${colors.white};
+  border: 1px solid ${colors.white};
+  border-radius: 6px;
+`
+
+export const Input = styled.input`
+`
+
+export const Label = styled.label`
+  font-size: 16px;
+  color: ${colors.black};
+  cursor: pointer;
 `
