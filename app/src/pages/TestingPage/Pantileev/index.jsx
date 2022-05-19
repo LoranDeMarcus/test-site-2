@@ -2575,6 +2575,131 @@ export const Pantileev = () => {
                       />
                     </s.Answers>
                   </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      106. Мнение других обо мне вполне совпадает с моим собственным.
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="105"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="106" value="true" id="106_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="106" value="false" id="106_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      107. Мне бы очень хотелось во многом себя переделать.
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="107"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="107" value="true" id="107_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="107" value="false" id="107_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      108. Ко мне относятся так, как я того заслуживаю.
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="108"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="108" value="true" id="108_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="108" value="false" id="108_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      109. Думаю, что моя судьба сложится все равно не так, как бы мне хотелось теперь.
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="105"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="105" value="true" id="105_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="105" value="false" id="105_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      110. Уверен, что в жизни я на своем месте.
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="110"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="110" value="true" id="110_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="110" value="false" id="110_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
                   <Button type="submit" onClick={() => handleSubmit(onSubmit)}>
                     Показать результат
                   </Button>
