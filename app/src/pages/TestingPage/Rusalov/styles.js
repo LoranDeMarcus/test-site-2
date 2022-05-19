@@ -18,12 +18,12 @@ export const Subtitle = styled.p`
 `
 
 export const StartButton = css`
-  margin-top: 20px;
+  margin-top: 70px;
 `
 
 export const ReturnButton = css`
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 30px;
+  margin-bottom: 50px;
 `
 
 export const form = css`

@@ -26,13 +26,13 @@ export const TestingPage = () => {
             <Card to='/testing/pantileev'>
               Тест-опросник самоотношения (Столин, Пантелеев)
             </Card>
-            <Card>
+            <Card to='/testing/kott'>
               Краткий отборочный тест КОТ, форма А
             </Card>
-            <Card>
+            <Card to='/testing/luscher'>
               Цветовой тест Люшера
             </Card>
-            <Card>
+            <Card to='/testing/vark'>
               Опросник Vark
             </Card>
           </s.CardsWrapper>

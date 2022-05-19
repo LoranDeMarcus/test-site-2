@@ -7,6 +7,8 @@ import { BussDurkee } from './pages/TestingPage/BussDurkee'
 import { Rusalov } from './pages/TestingPage/Rusalov'
 import { Cattel } from './pages/TestingPage/Cattel'
 import { Pantileev } from './pages/TestingPage/Pantileev'
+import { KOT } from './pages/TestingPage/KOT'
+import { Vark } from './pages/TestingPage/Vark'
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path='/testing/rusalov' element={<Rusalov />} />
         <Route path='/testing/cattel' element={<Cattel />} />
         <Route path='/testing/pantileev' element={<Pantileev />} />
+        <Route path='/testing/kot' element={<KOT />} />
+        <Route path='/testing/vark' element={<Vark />} />
       </Routes>
     </HashRouter>
   )
