@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from '../../components/Header'
 import Container from '../../components/Container'
 import * as s from './styles'
 import Main from '../../assets/main.jpg'
@@ -7,7 +6,6 @@ import Main from '../../assets/main.jpg'
 export const HomePage = () => {
   return (
     <>
-      <Header />
       <s.Section>
         <Container>
           <s.Title>

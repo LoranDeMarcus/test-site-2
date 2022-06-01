@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { Button } from '../../../components/Button'
 import Container from '../../../components/Container'
-import Header from '../../../components/Header'
 
 import { PageWrapper, Wrapper } from '../styles'
 import * as s from './styles'
@@ -20,7 +19,6 @@ export const Vark = () => {
 
   return (
     <PageWrapper>
-      <Header />
       <Container>
         <Wrapper>
           <s.Tittle>

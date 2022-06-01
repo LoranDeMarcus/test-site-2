@@ -2,13 +2,12 @@ import React, { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { Button } from '../../../components/Button'
 import Container from '../../../components/Container'
-import Header from '../../../components/Header'
 
 import { PageWrapper, Wrapper } from '../styles'
 import * as s from './styles'
 import { Radio, RadioGroup } from '../../../components/Radio'
 
-export const Cattel = () => {
+export const Pantileev = () => {
   const [hasReadDescription, setHasReadDescription] = useState(true)
   const { control, handleSubmit, formState: { errors } } = useForm()
 
@@ -20,28 +19,16 @@ export const Cattel = () => {
 
   return (
     <PageWrapper>
-      <Header />
       <Container>
         <Wrapper>
           <s.Tittle>
-            Личностный опросник Кеттела
+            Опросник исследования самоотношения С.Р. Пантилеева
           </s.Tittle>
           {hasReadDescription
             ? (
               <>
                 <s.Subtitle>
-                  Bам будет задан ряд вопросов, на каждый из которых Вы должны выбрать один из трех предлагаемых ответов,
-                  - тот, который в наибольшей степени соответствует Вашим взглядам, Вашему мнению о себе.
-                  Обязательно отвечайте на все вопросы подряд, ничего не пропуская. Не нужно много времени тратить на обдумывание ответов.
-                  Давайте тот ответ, который первым приходит Вам в голову. Отвечать надо приблизительно на 5-6 вопросов за минуту.
-                  Прохождение теста должно занять у Вас около 50 мин. Возможно, некоторые вопросы покажутся вам неясными
-                  или сформулированными не так подробно, как Вам хотелось бы. В таких случаях, отвечая, старайтесь
-                  представить "среднюю", наиболее обычную ситуацию, которая соответствует смыслу вопроса, и на основе
-                  этого выбирайте свой ответ. Старайтесь не прибегать слишком часто к промежуточным, неопределенным ответам,
-                  типа "не знаю", "нечто среднее" и т.п. Отвечайте честно и искренне. Не стремитесь произвести хорошее
-                  впечатление своими ответами. Здесь не может быть ответов "правильных" или "ошибочных". Люди различны,
-                  и каждый может высказать свое мнение. Ваши ответы должны соответствовать действительности - в этом случае
-                  Вы сможете лучше узнать себя.
+                   text
                 </s.Subtitle>
                 <Button onClick={() => setHasReadDescription(false)} className={s.StartButton}>
                   Начать тестирование
@@ -55,7 +42,7 @@ export const Cattel = () => {
                 <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
                   <s.QuestionWrapper>
                     <s.Question>
-                      1.	Я хорошо понял инструкцию к этому опроснику
+                      1. Мои слова довольно редко расходятся с делом.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -64,13 +51,10 @@ export const Cattel = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="1" value="true" id="1_true">
-                              да
-                            </Radio>
-                            <Radio name="1" value="half" id="1_half">
-                              не уверен
+                              Да
                             </Radio>
                             <Radio name="1" value="false" id="1_false">
-                              нет
+                              Нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -79,7 +63,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      2.	Я готов как можно искренней ответить на вопросы
+                      2. Случайному человеку я скорее всего покажусь человеком приятным.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -88,13 +72,10 @@ export const Cattel = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="2" value="true" id="2_true">
-                              да
-                            </Radio>
-                            <Radio name="2" value="half" id="2_half">
-                              не уверен
+                              Да
                             </Radio>
                             <Radio name="2" value="false" id="2_false">
-                              нет
+                              Нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -103,7 +84,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      3.	Я предпочел бы иметь дачу
+                      3. К чужим проблемам я всегда отношусь с тем же пониманием, что и к своим.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -112,13 +93,10 @@ export const Cattel = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="3" value="true" id="3_true">
-                              в оживленном дачном поселке
-                            </Radio>
-                            <Radio name="3" value="half" id="3_half">
-                              нечто среднее
+                              Да
                             </Radio>
                             <Radio name="3" value="false" id="3_false">
-                              уединенную, в лесу
+                              Нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -127,7 +105,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      4. Я могу найти в себе достаточно сил, чтобы справиться с жизненными трудностями.
+                      4. У меня нередко возникает чувство, что то, о чем я с собой мысленно разговариваю, мне неприятно.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -136,13 +114,10 @@ export const Cattel = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="4" value="true" id="4_true">
-                              всегда
-                            </Radio>
-                            <Radio name="4" value="half" id="4_half">
-                              обычно
+                              Да
                             </Radio>
                             <Radio name="4" value="false" id="4_false">
-                              редко
+                              Нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -151,7 +126,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      5. При виде диких животных мне становится несколько не по себе, даже если они надежно заперты в клетках.
+                      5. Думаю, что все мои знакомые относятся ко мне с симпатией.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -160,13 +135,10 @@ export const Cattel = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="5" value="true" id="5_true">
-                              да, это верно
-                            </Radio>
-                            <Radio name="5" value="half" id="5_half">
-                              не уверен
+                              Да
                             </Radio>
                             <Radio name="5" value="false" id="5_false">
-                              нет
+                              Нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -175,7 +147,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      6.	Я воздерживаюсь от критики людей и их взглядов
+                      6. Самое разумное, что может сделать человек в своей жизни это не противиться своей судьбе.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -184,13 +156,10 @@ export const Cattel = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="6" value="true" id="6_true">
-                              да
-                            </Radio>
-                            <Radio name="6" value="half" id="6_half">
-                              иногда
+                              Да
                             </Radio>
                             <Radio name="6" value="false" id="6_false">
-                              нет
+                              Нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -199,7 +168,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      7.	Я делаю людям резкие, критические замечания, если мне кажется, что они этого заслуживают
+                      7. У меня достаточно способностей и энергии воплотить в жизнь задуманное.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -208,13 +177,10 @@ export const Cattel = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="7" value="true" id="7_true">
-                              обычно
-                            </Radio>
-                            <Radio name="7" value="half" id="7_half">
-                              иногда
+                              Да
                             </Radio>
                             <Radio name="7" value="false" id="7_false">
-                              никогда не делаю
+                              Нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -223,7 +189,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      8. Я предпочитаю несложную классическую музыку современным популярным мелодиям
+                      8. Если бы я раздвоился, то мне было бы довольно интересно общаться со своим двойником.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -232,13 +198,10 @@ export const Cattel = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="8" value="true" id="8_true">
-                              верно
-                            </Radio>
-                            <Radio name="8" value="half" id="8_half">
-                              не уверен
+                              Да
                             </Radio>
                             <Radio name="8" value="false" id="8_false">
-                              неверно
+                              Нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -247,7 +210,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      9. Если бы я увидел ссорящихся не на шутку соседских детей
+                      9. Я не способен причинять душевную боль самым родным и любимым мною людям.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -256,13 +219,10 @@ export const Cattel = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="9" value="true" id="9_true">
-                              я предоставил бы им самим выяснить свои отношения
-                            </Radio>
-                            <Radio name="9" value="half" id="9_half">
-                              не знаю, что предпринял бы
+                              Да
                             </Radio>
                             <Radio name="9" value="false" id="9_false">
-                              я постарался бы разобраться в их ссоре
+                              Нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -271,7 +231,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      10. На собраниях и в компаниях:
+                      10. Я считаю, что не грех пожалеть иногда самого себя.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -280,13 +240,10 @@ export const Cattel = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="10" value="true" id="10_true">
-                              я легко выхожу вперед
-                            </Radio>
-                            <Radio name="10" value="half" id="10_half">
-                              верно нечто среднее
+                              Да
                             </Radio>
                             <Radio name="10" value="false" id="10_false">
-                              я предпочитаю держаться в стороне
+                              Нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -295,7 +252,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      11. По-моему, интереснее быть:
+                      11. Совершив какой-то промах, я часто не могу понять, как мне могло прийти в голову, что из задуманного могло получиться что-то хорошее.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -304,13 +261,10 @@ export const Cattel = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="11" value="true" id="11_true">
-                              инженером – конструктором
-                            </Radio>
-                            <Radio name="11" value="half" id="11_false">
-                              не знаю, что предпочесть
+                              Да
                             </Radio>
                             <Radio name="11" value="false" id="11_false">
-                              драматургом
+                              Нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -319,7 +273,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      12. На улице я скорее остановлюсь, чтобы посмотреть, как работает художник, чем стану наблюдать за уличной ссорой.
+                      12. Чаще всего я одобряю свои планы и поступки.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -328,13 +282,10 @@ export const Cattel = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="12" value="true" id="12_true">
-                              да, это верно
-                            </Radio>
-                            <Radio name="12" value="half" id="12_half">
-                              не уверен
+                              Да
                             </Radio>
                             <Radio name="12" value="false" id="12_false">
-                              нет, это не верно
+                              Нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -343,7 +294,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      13. Обычно я спокойно переношу самодовольство людей, даже когда они хвастаются или другим образом показывают, что они высокого мнения о себе
+                      13. В моей личности есть, наверное, что-то такое, что способно вызвать у других острую неприязнь.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -352,13 +303,10 @@ export const Cattel = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="13" value="true" id="13_true">
-                              да
-                            </Radio>
-                            <Radio name="13" value="half" id="13_half">
-                              верно нечто среднее
+                              Да
                             </Radio>
                             <Radio name="13" value="false" id="13_false">
-                              нет
+                              Нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -367,7 +315,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      14. Если человек обманывает, я почти всегда могу заметить это по выражению его лицаю
+                      14. Когда я пытаюсь оценить себя, я прежде всего вижу свои недостатки.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -376,13 +324,10 @@ export const Cattel = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="14" value="true" id="14_true">
-                              да
-                            </Radio>
-                            <Radio name="14" value="half" id="14_half">
-                              верно нечто среднее
+                              Да
                             </Radio>
                             <Radio name="14" value="false" id="14_false">
-                              нет
+                              Нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -391,7 +336,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      15. Легко ли Вам выполнять работу, требующую длительного внимания и большой сосредоточенности?
+                      15. Я не могу быть для любимого человека интересным длительное время.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -400,13 +345,10 @@ export const Cattel = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="15" value="true" id="15_true">
-                              согласен
-                            </Radio>
-                            <Radio name="15" value="half" id="15_half">
-                              не уверен
+                              Да
                             </Radio>
                             <Radio name="15" value="false" id="15_false">
-                              не согласен
+                              Нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -415,7 +357,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      16. Я предпочел бы взяться за работу:
+                      16. Можно сказать, что я ценю себя достаточно высоко.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -424,13 +366,10 @@ export const Cattel = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="16" value="true" id="16_true">
-                              где можно много зарабатывать, даже если заработки не постоянны
-                            </Radio>
-                            <Radio name="16" value="half" id="16_half">
-                              не знаю, что выбрать
+                              Да
                             </Radio>
                             <Radio name="16" value="false" id="16_false">
-                              с постоянной, но относительно невысокой зарплатой
+                              Нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -439,7 +378,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      17. Я говорю о своих чувствах:
+                      17. Мой внутренний голос редко подсказывает мне то, с чем бы я в конце концов не согласился.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -448,13 +387,10 @@ export const Cattel = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="17" value="true" id="17_true">
-                              только в случае необходимости
-                            </Radio>
-                            <Radio name="17" value="half" id="17_half">
-                              верно нечто среднее
+                              Да
                             </Radio>
                             <Radio name="17" value="false" id="17_false">
-                              охотно, когда предоставляется возможность
+                              Нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -463,7 +399,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      18. Изредка я испытываю чувство внезапного страха или неопределенного беспокойства, сам не знаю от чего
+                      18. Многие мои знакомые не принимают меня всерьез.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -472,13 +408,10 @@ export const Cattel = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="18" value="true" id="18_true">
-                              да
-                            </Radio>
-                            <Radio name="18" value="half" id="18_half">
-                              верно нечто среднее
+                              Да
                             </Radio>
                             <Radio name="18" value="false" id="18_false">
-                              нет
+                              Нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -487,7 +420,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      19. Когда меня несправедливо критикуют за то, в чем я не виноват:
+                      19. Бывало и не раз, что я сам остро ненавидел себя.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -496,13 +429,10 @@ export const Cattel = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="19" value="true" id="19_true">
-                              никакого чувства вины у меня не возникает
-                            </Radio>
-                            <Radio name="19" value="half" id="19_half">
-                              верно нечто среднее
+                              Да
                             </Radio>
                             <Radio name="19" value="false" id="19_false">
-                              я все же чувствую себя немного виноватым
+                              Нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -511,7 +441,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      20. На работе у меня бывает больше затруднений с людьми, которые:
+                      20. Мне очень мешает недостаток энергии, волн и целеустремленности.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -520,13 +450,10 @@ export const Cattel = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="20" value="true" id="20_true">
-                              отказываюсь использовать современные методы
-                            </Radio>
-                            <Radio name="20" value="half" id="20_half">
-                              не знаю, что выбрать
+                              Да
                             </Radio>
                             <Radio name="20" value="false" id="20_false">
-                              постоянно пытаюсь что-то изменить в работе, которая и так идет нормально
+                              Нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -535,7 +462,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      21.  Принимая решения, я руководствуюсь больше:
+                      21. В моей жизни возникали такие обстоятельства, когда я шел на сделку с собственной совестью.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -544,13 +471,10 @@ export const Cattel = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="21" value="true" id="21_true">
-                              сердцем
-                            </Radio>
-                            <Radio name="21" value="half" id="21_half">
-                              сердцем и рассудком в равной иерее
+                              Да
                             </Radio>
                             <Radio name="21" value="false" id="21_false">
-                              рассудком
+                              Нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -559,7 +483,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      22. Люди были бы счастливее, если бы они больше времени проводили в обществе своих друзей.
+                      22. Иногда я сам себя плохо понимаю.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -568,13 +492,10 @@ export const Cattel = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="22" value="true" id="22_true">
-                              да
-                            </Radio>
-                            <Radio name="22" value="half" id="22_half">
-                              верно нечто среднее
+                              Да
                             </Radio>
                             <Radio name="22" value="false" id="22_false">
-                              нет
+                              Нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -583,7 +504,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      23. Строя планы на будущее, я часто рассчитываю на удачу.
+                      23. Порой бывает мучительно больно общаться с самим собой.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -592,13 +513,10 @@ export const Cattel = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="23" value="true" id="23_true">
-                              да
-                            </Radio>
-                            <Radio name="23" value="half" id="23_half">
-                              затрудняюсь ответить
+                              Да
                             </Radio>
                             <Radio name="23" value="false" id="23_false">
-                              нет
+                              Нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -607,7 +525,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      24. Разговаривая, я склонен:
+                      24. Думаю, что без труда смог бы найти общий язык с любым разумным и знающим человеком.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -615,15 +533,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="24" value="true" id="24_true">
-                              высказывать свои мысли сразу, как только они приходят
+                              Да
                             </Radio>
-                            <Radio name="24" value="half" id="24_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="24" value="false" id="24_false">
-                              прежде хорошенько собраться с мыслями
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -631,7 +550,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      25. Даже если я чем-нибудь сильно взбешен, я успокаиваюсь довольно быстро.
+                      25. Если я и отношусь к кому-нибудь с укоризной, то прежде всего к самому себе.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -639,15 +558,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="25" value="true" id="25_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="25" value="half" id="25_half">
-                              верно
-                            </Radio>
+
+
                             <Radio name="25" value="false" id="25_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -655,7 +575,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      26. При равной продолжительности рабочего дня и одинаковой зарплате мне было бы интереснее работать:
+                      26. Иногда я сомневаюсь, можно ли любить меня по-настоящему.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -663,15 +583,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="26" value="true" id="26_true">
-                              столяром или поваром
+                              Да
                             </Radio>
-                            <Radio name="26" value="half" id="26_half">
-                              не знаю, что выбрать
-                            </Radio>
+
+
                             <Radio name="26" value="false" id="26_false">
-                              официантом в хорошем ресторане
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -679,7 +600,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      27. У меня было:
+                      27. Нередко мои споры с самим собой обрываются мыслью, что все равно выйдет не так, как я решил.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -687,15 +608,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="27" value="true" id="27_true">
-                              очень мало выборных должностей
+                              Да
                             </Radio>
-                            <Radio name="27" value="half" id="27_half">
-                              несколько
-                            </Radio>
+
+
                             <Radio name="27" value="false" id="27_false">
-                              много выборных должностей
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -703,7 +625,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      28. Слово «Лопата» так относится к слову «копать», как слово «нож» к слову:
+                      28. Мое отношение к самому себе можно назвать дружеским.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -711,15 +633,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="28" value="true" id="28_true">
-                              острый
+                              Да
                             </Radio>
-                            <Radio name="28" value="half" id="28_half">
-                              резать
-                            </Radio>
+
+
                             <Radio name="28" value="false" id="28_false">
-                              точить
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -727,7 +650,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      29. Иногда какая-нибудь навязчивая мысль не дает мне заснуть.
+                      29. Вряд ли найдутся люди, которым я не по душе.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -735,15 +658,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="29" value="true" id="29_true">
-                              да, это верно
+                              Да
                             </Radio>
-                            <Radio name="29" value="half" id="29_half">
-                              не уверен
-                            </Radio>
+
+
                             <Radio name="29" value="false" id="29_false">
-                              нет, это не верно
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -751,7 +675,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      30. В своей жизни я, как правило, достигаю тех целей, которые ставлю перед собой.
+                      30. Часто я не без издевки подшучиваю над собой.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -759,15 +683,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="30" value="true" id="30_true">
-                              да, это верно
+                              Да
                             </Radio>
-                            <Radio name="30" value="half" id="30_half">
-                              не уверен
-                            </Radio>
+
+
                             <Radio name="30" value="false" id="30_false">
-                              нет, это не верно
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -775,7 +700,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      31.            Устаревший закон должен быть изменен:
+                      31. Если бы мое второе Я существовало, то для меня это был бы довольно скучный партнер в общении.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -783,15 +708,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="31" value="true" id="31_true">
-                              только после основательного обсуждения
+                              Да
                             </Radio>
-                            <Radio name="31" value="half" id="31_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="31" value="false" id="31_false">
-                              немедленно
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -799,7 +725,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      32.            Мне становится не по себе, когда дело требует от меня быстрых действий, которые как-то влияют на других людей.
+                      32. Мне представляется, что я сложился как личность и поэтому не трачу много сил на то, чтобы в чем-то стать другим.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -807,15 +733,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="32" value="true" id="32_true">
-                              да, это верно
+                              Да
                             </Radio>
-                            <Radio name="32" value="half" id="32_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="32" value="false" id="32_false">
-                              нет, это не верно
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -823,7 +750,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      33.            Большинство знакомых считают меня веселым собеседником.
+                      33. В целом меня устраивает то, какой я есть.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -831,15 +758,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="33" value="true" id="33_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="33" value="half" id="33_half">
-                              не уверен
-                            </Radio>
+
+
                             <Radio name="33" value="false" id="33_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -847,7 +775,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      34.  Когда я вижу неопрятных, неряшливых людей:
+                      34. К сожалению, слишком многие не разделяют моих взглядов на жизнь.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -855,15 +783,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="34" value="true" id="34_true">
-                              Меня это не волнует
+                              Да
                             </Radio>
-                            <Radio name="34" value="half" id="34_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="34" value="false" id="34_false">
-                              верно нечто среднее
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -871,7 +800,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      35. Я слегка теряюсь, неожиданно оказавшись в центре внимания.
+                      35. Я вполне могу сказать, что уважаю себя.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -879,15 +808,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="35" value="true" id="35_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="35" value="half" id="35_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="35" value="false" id="35_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -895,7 +825,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      36. Я всегда рад присоединиться к большой компании, например: встретится вечером с друзьями, пойти на танцы, принять участие в интересном общественном мероприятии.
+                      36. Я думаю, что имею умного и надежного советчика в своем лице.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -903,15 +833,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="36" value="true" id="36_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="36" value="half" id="36_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="36" value="false" id="36_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -919,7 +850,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      37. В школе я предпочитал:
+                      37. Сам у себя я довольно часто вызываю раздражение.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -927,15 +858,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="37" value="true" id="37_true">
-                              уроки музыки (пения)
+                              Да
                             </Radio>
-                            <Radio name="37" value="half" id="37_half">
-                              затрудняюсь сказать
-                            </Radio>
+
+
                             <Radio name="37" value="false" id="37_false">
-                              занятия в мастерских, ручной тру
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -943,7 +875,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      38. Если меня назначают ответственным за что-либо, я настаиваю, чтобы мои распоряжения строго выполнялись, а иначе я отказываюсь от поручения.
+                      38. Я часто, но довольно безуспешно, пытаюсь в себе что-то изменить.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -951,15 +883,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="38" value="true" id="38_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="38" value="half" id="38_half">
-                              иногда
-                            </Radio>
+
+
                             <Radio name="38" value="false" id="38_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -967,7 +900,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      39. Важнее, чтобы родители:
+                      39. Я думаю, что моя личность гораздо интереснее и богаче, чем это может показаться на первый взгляд.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -975,15 +908,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="39" value="true" id="39_true">
-                              способствовали тонкому развитию чувств у своих детей
+                              Да
                             </Radio>
-                            <Radio name="39" value="half" id="39_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="39" value="false" id="39_false">
-                              учили детей управлять своими чувствами
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -991,7 +925,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      40. Участвуя в коллективной работе, я предпочел бы:
+                      40. Мои достоинства более значительны, чем недостатки.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -999,15 +933,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="40" value="true" id="40_true">
-                              попытаться внести улучшения в организацию работы
+                              Да
                             </Radio>
-                            <Radio name="40" value="half" id="40_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="40" value="false" id="40_false">
-                              вести записи и следить за тем, чтобы соблюдались правила
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1015,7 +950,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      41. Время от времени я чувствую потребность заняться чем-нибудь, что требует значительных физических усилий
+                      41. Я редко остаюсь непонятным в самом важном для меня.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1023,15 +958,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="41" value="true" id="41_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="41" value="half" id="41_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="41" value="false" id="41_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1039,7 +975,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      42. Я предпочел бы общаться с людьми вежливыми и деликатными, чем с грубоватыми и прямолинейными.
+                      42. Думаю, что другие в целом оценивают меня достаточно высоко.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1047,15 +983,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="42" value="true" id="42_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="42" value="half" id="42_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="42" value="false" id="42_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1063,7 +1000,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      43. Когда меня критикуют на людях, это меня крайне угнетает.
+                      43. Ко всему, что со мной случается, я приложил старание.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1071,15 +1008,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="43" value="true" id="43_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="43" value="half" id="43_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="43" value="false" id="43_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1087,7 +1025,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      44. Если меня вызывает к себе начальник, я :
+                      44. Если я спорю с собой, то уверен, что найду единственно правильное решение.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1095,15 +1033,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="44" value="true" id="44_true">
-                              использую этот случай, чтобы попросить о том, что мне нужно
+                              Да
                             </Radio>
-                            <Radio name="44" value="half" id="44_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="44" value="false" id="44_false">
-                              беспокоюсь, что сделал что-то не так
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1111,7 +1050,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      45. Я считаю, что люди должны очень серьезно подумать прежде чем отказываться от опыта прошлых веков.
+                      45. Когда со мной случаются неприятности, я говорю: "И поделом тебе!".
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1119,15 +1058,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="45" value="true" id="45_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="45" value="half" id="45_half">
-                              не уверен
-                            </Radio>
+
+
                             <Radio name="45" value="false" id="45_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1135,7 +1075,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      46. Читая что-либо, я всегда хорошо осознаю скрытое намерение автора убедить меня в чем-то.
+                      46. Я не считаю, что достаточно интересен духовно для того, чтобы быть притягательным для многих людей.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1143,15 +1083,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="46" value="true" id="46_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="46" value="half" id="46_half">
-                              не уверен
-                            </Radio>
+
+
                             <Radio name="46" value="false" id="46_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1159,7 +1100,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      47. Когда я учился в 9 – 11 классах, я участвовал в спортивной жизни школы:
+                      47. У меня нередко возникает сомнение: таков ли я на самом деле, каким себе кажусь.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1167,15 +1108,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="47" value="true" id="47_true">
-                              очень редко
+                              Да
                             </Radio>
-                            <Radio name="47" value="half" id="47_half">
-                              от случая к случаю
-                            </Radio>
+
+
                             <Radio name="47" value="false" id="47_false">
-                              довольно часто
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1183,7 +1125,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      48. Я поддерживаю дома хороший порядок и почти всегда знаю, что где лежит.
+                      48. Я не способен на измену даже в мыслях.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1191,15 +1133,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="48" value="true" id="48_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="48" value="half" id="48_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="48" value="false" id="48_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1207,7 +1150,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      49. Когда я думаю о том, что произошло в течении дня, я нередко испытываю беспокойство.
+                      49. Чаще всего я думаю о себе с дружеской иронией.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1215,15 +1158,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="49" value="true" id="49_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="49" value="half" id="49_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="49" value="false" id="49_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1231,7 +1175,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      50. Иногда я сомневаюсь, действительно ли люди, с которыми я беседую, интересуются тем, что я говорю.
+                      50. Мне кажется, что мало кто может подумать обо мне плохо.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1239,15 +1183,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="50" value="true" id="50_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="50" value="half" id="50_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="50" value="false" id="50_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1255,7 +1200,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      51. Если бы мне пришлось выбирать, я предпочел бы быть:
+                      51. Уверен, что на меня можно положиться в самых ответственных делах.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1263,15 +1208,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="51" value="true" id="51_true">
-                              лесничим
+                              Да
                             </Radio>
-                            <Radio name="51" value="half" id="51_half">
-                              трудно выбрать
-                            </Radio>
+
+
                             <Radio name="51" value="false" id="51_false">
-                              учителем старших классов
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1279,7 +1225,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      52.  Ко дню рождения, к праздникам:
+                      52. Я могу сказать, что в целом контролирую свою судьбу.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1287,15 +1233,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="52" value="true" id="52_true">
-                              я люблю делать подарки
+                              Да
                             </Radio>
-                            <Radio name="52" value="half" id="52_half">
-                              затрудняюсь ответить
-                            </Radio>
+
+
                             <Radio name="52" value="false" id="52_false">
-                              считаю, что покупка подарков – несколько неприятная обязанность
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1303,7 +1250,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      53. Слово «усталый» так относится к слову «работа», как слово «гордый» к слову:
+                      53. Я никогда не выдаю чужие мысли за свои.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1311,15 +1258,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="53" value="true" id="53_true">
-                              улыбка
+                              Да
                             </Radio>
-                            <Radio name="53" value="half" id="53_half">
-                              успех
-                            </Radio>
+
+
                             <Radio name="53" value="false" id="53_false">
-                              счастливый
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1327,7 +1275,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      54. Какое из данных слов не подходит к двум остальным:
+                      54. Каким бы я ни казался окружающим, я-то знаю, что в глубине души я лучше, чем большинство других.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1335,15 +1283,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="54" value="true" id="54_true">
-                              свеча
+                              Да
                             </Radio>
-                            <Radio name="54" value="half" id="54_half">
-                              луна
-                            </Radio>
+
+
                             <Radio name="54" value="false" id="54_false">
-                              лампа
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1351,7 +1300,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      55. Мои друзья:
+                      55. Я хотел бы оставаться таким, какой есть.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1359,15 +1308,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="55" value="true" id="55_true">
-                              меня не подводили
+                              Да
                             </Radio>
-                            <Radio name="55" value="half" id="55_half">
-                              изредка
-                            </Radio>
+
+
                             <Radio name="55" value="false" id="55_false">
-                              подводили довольно часто
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1375,7 +1325,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      56. У меня есть такие качества, по которым я определенно превосхожу других людей.
+                      56. Я всегда рад критике в свой адрес, если она обоснована и справедлива.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1383,15 +1333,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="56" value="true" id="56_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="56" value="half" id="56_half">
-                              не уверен
-                            </Radio>
+
+
                             <Radio name="56" value="false" id="56_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1399,7 +1350,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      57. Когда я расстроен, я всячески стараюсь скрыть свои чувства от других.
+                      57. Мне кажется, что если бы таких людей, как я, было больше, то жизнь изменилась бы в лучшую сторону.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1407,15 +1358,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="57" value="true" id="57_true">
-                              да, это верно
+                              Да
                             </Radio>
-                            <Radio name="57" value="half" id="57_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="57" value="false" id="57_false">
-                              нет, это не верно
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1423,7 +1375,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      58. Мне хотелось бы ходить в кино, на разные представления и в другие места, где можно развлечься.
+                      58. Мое мнение имеет достаточный вес в глазах окружающих.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1431,15 +1383,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="58" value="true" id="58_true">
-                              чаще одного раза в неделю (чаще, чем большинство людей)
+                              Да
                             </Radio>
-                            <Radio name="58" value="half" id="58_half">
-                              примерно раз в неделю (как большинство)
-                            </Radio>
+
+
                             <Radio name="58" value="false" id="58_false">
-                              реже одного раза в неделю (реже, чем большинство)
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1447,7 +1400,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      59. Я думаю, что личная свобода в поведении важнее хороших манер и соблюдения этикета.
+                      59. Что-то мешает мне понять себя по-настоящему.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1455,15 +1408,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="59" value="true" id="59_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="59" value="half" id="59_half">
-                              не уверен
-                            </Radio>
+
+
                             <Radio name="59" value="false" id="59_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1471,7 +1425,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      60. В присутствии людей, более значительных, чем я (людей старше меня, или с большим опытом, или с более высоким положением), я склонен держаться скромно.
+                      60. Во мне есть немало такого, что вряд ли вызывает симпатию.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1479,15 +1433,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="60" value="true" id="60_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="60" value="half" id="60_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="60" value="false" id="60_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1495,7 +1450,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      61. Мне трудно рассказать что-либо большой группе людей или выступать перед большой аудиторией.
+                      61. В сложных обстоятельствах я обычно не жду, пока проблемы решатся сами собой.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1503,15 +1458,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="61" value="true" id="61_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="61" value="half" id="61_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="61" value="false" id="61_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1519,7 +1475,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      62. Я хорошо ориентируюсь в незнакомой местности: легко могу сказать, где север, где юг, где восток или запад:
+                      62. Иногда я пытаюсь выдать себя не за того, кто я есть.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1527,15 +1483,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="62" value="true" id="62_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="62" value="half" id="62_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="62" value="false" id="62_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1543,7 +1500,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      63. Если бы кто-то разозлился на меня:
+                      63. Быть снисходительным к собственным слабостям вполне естественно.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1551,15 +1508,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="63" value="true" id="63_true">
-                              я постарался бы его успокоить
+                              Да
                             </Radio>
-                            <Radio name="63" value="half" id="63_half">
-                              не знаю, что бы я предпринял
-                            </Radio>
+
+
                             <Radio name="63" value="false" id="63_false">
-                              это вызвало бы у меня раздражение
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1567,7 +1525,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      64. Когда я вижу статью, которую считаю несправедливой, я скорее склонен забыть об этом, чем с возмущением ответить автору
+                      64. Я убедился, что глубокое проникновение в себя мало приятное и довольно рискованное занятие.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1575,15 +1533,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="64" value="true" id="64_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="64" value="half" id="64_half">
-                              не уверен
-                            </Radio>
+
+
                             <Radio name="64" value="false" id="64_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1591,7 +1550,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      65. В моей памяти не задерживаются надолго несущественные мелочи, например, названия улиц, магазинов.
+                      65. Я никогда не раздражаюсь и не злюсь без особых на то причин.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1599,15 +1558,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="65" value="true" id="65_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="65" value="half" id="65_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="65" value="false" id="65_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1615,7 +1575,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      66. Мне могла бы понравиться профессия ветеринара, который лечит и оперирует животных.
+                      66. У меня бывали такие моменты, когда я понимал, что и меня есть за что презирать.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1623,15 +1583,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="66" value="true" id="66_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="66" value="half" id="66_half">
-                              трудно сказать
-                            </Radio>
+
+
                             <Radio name="66" value="false" id="66_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1639,7 +1600,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      67. Я ем с наслаждением и не всегда столь тщательно забочусь о своих манерах, как это делают другие люди.
+                      67. Я часто чувствую, что мало влияю на то, что со мной происходит.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1647,15 +1608,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="67" value="true" id="67_true">
-                              да, это верно
+                              Да
                             </Radio>
-                            <Radio name="67" value="half" id="67_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="67" value="false" id="67_false">
-                              нет, это не верно
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1663,7 +1625,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      68. Бывают периоды, когда мне ни с кем не хочется встречаться.
+                      68. Именно богатство и глубина моего внутреннего мира и определяют мою ценность как личности.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1671,15 +1633,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="67" value="true" id="67_true">
-                              очень редко
+
+                            <Radio name="68" value="true" id="68_true">
+                              Да
                             </Radio>
-                            <Radio name="67" value="half" id="67_half">
-                              верно нечто среднее
+
+
+                            <Radio name="68" value="false" id="68_false">
+                              Нет
                             </Radio>
-                            <Radio name="67" value="false" id="67_false">
-                              довольно часто
-                            </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1687,7 +1650,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      69. Иногда мне говорят, что мой голос и вид слишком явно выдают мое волнение.
+                      69. Долгие споры с собой чаще всего оставляют горький осадок в моей душе, чем приносят облегчение.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1695,15 +1658,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="69" value="true" id="69_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="69" value="half" id="69_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="69" value="false" id="69_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1711,7 +1675,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      70. Когда я был подростком и мое мнение расходилось с родительским, я обычно:
+                      70. Думаю, что общение со мной доставляет людям удовольствие.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1719,15 +1683,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="70" value="true" id="70_true">
-                              оставался при своем мнении
+                              Да
                             </Radio>
-                            <Radio name="70" value="half" id="70_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="70" value="false" id="70_false">
-                              уступал, признавая их авторитет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1735,7 +1700,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      71. Мне хотелось бы работать в отдельной комнате, а не вместе с коллегами.
+                      71. Если говорить откровенно, иногда я бываю очень неприятен.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1743,15 +1708,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="71" value="true" id="71_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="71" value="half" id="71_half">
-                              не уверен
-                            </Radio>
+
+
                             <Radio name="71" value="false" id="71_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1759,7 +1725,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      72. Я предпочел бы жить тихо, так, как мне нравится, нежели быть предметом восхищения благодаря своим успехам.
+                      72. Можно сказать, что я себе нравлюсь.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1767,15 +1733,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="72" value="true" id="72_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="72" value="half" id="72_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="72" value="false" id="72_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1783,7 +1750,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      73. Во многих отношениях я считаю себя вполне зрелым человеком.
+                      73. Я - человек ненадежный.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1791,15 +1758,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="73" value="true" id="73_true">
-                              это верно
+                              Да
                             </Radio>
-                            <Radio name="73" value="half" id="73_half">
-                              не уверен
-                            </Radio>
+
+
                             <Radio name="73" value="false" id="73_false">
-                              это неверно
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1807,7 +1775,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      74. Критика в том виде, в каком ее осуществляют многие люди, скорее выбивает меня из колеи, чем помогает.
+                      74. Осуществление моих желаний мало зависит от везения.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1815,15 +1783,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="74" value="true" id="74_true">
-                              часто
+                              Да
                             </Radio>
-                            <Radio name="74" value="half" id="74_half">
-                              изредка
-                            </Radio>
+
+
                             <Radio name="74" value="false" id="74_false">
-                              никогда
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1831,7 +1800,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      75. Я всегда в состоянии строго контролировать проявление своих чувств.
+                      75. Мое внутреннее Я всегда мне интересно.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1839,15 +1808,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="75" value="true" id="75_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="75" value="half" id="75_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="75" value="false" id="75_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1855,7 +1825,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      76. Если бы я сделал полезное изобретение, я предпочел бы:
+                      76. Мне очень просто убедить себя не расстраиваться по пустякам.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1863,15 +1833,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="76" value="true" id="76_true">
-                              работать над ним в лаборатории дальше
+                              Да
                             </Radio>
-                            <Radio name="76" value="half" id="76_half">
-                              трудно выбрать
-                            </Radio>
+
+
                             <Radio name="76" value="false" id="76_false">
-                              позаботиться о его практическом использовании
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1879,7 +1850,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      77. Слово «удивление» так относится к слову «необычный», как слово «страх» к слову:
+                      77. Близким людям свойственно недооценивать меня.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1887,15 +1858,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="77" value="true" id="77_true">
-                              храбрый
+                              Да
                             </Radio>
-                            <Radio name="77" value="half" id="77_half">
-                              беспокойный
-                            </Radio>
+
+
                             <Radio name="77" value="false" id="77_false">
-                              ужасный
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1903,7 +1875,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      78. Какая из следующих дробей не подходит к двум остальным:
+                      78. У меня в жизни нередко бывают минуты, когда я сам себе противен.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1911,15 +1883,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="78" value="true" id="78_true">
-                              3/7
+                              Да
                             </Radio>
-                            <Radio name="78" value="half" id="78_half">
-                              3/9
-                            </Radio>
+
+
                             <Radio name="78" value="false" id="78_false">
-                              3/11
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1927,7 +1900,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      79. Мне кажется, что некоторые люди не замечают или избегают меня, хотя и не знаю, почему.
+                      79. Мне кажется, что я все-таки не умею злиться на себя по- настоящему.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1935,15 +1908,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="79" value="true" id="79_true">
-                              верно
+                              Да
                             </Radio>
-                            <Radio name="79" value="half" id="79_half">
-                              не уверен
-                            </Radio>
+
+
                             <Radio name="79" value="false" id="79_false">
-                              неверно
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1951,7 +1925,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      80. Люди относятся ко мне более доброжелательно, чем я того заслуживаю своим добрым к ним отношением.
+                      80. Я убедился, что в серьезных делах на меня лучше не рассчитывать.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1959,15 +1933,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="80" value="true" id="80_true">
-                              очень часто
+                              Да
                             </Radio>
-                            <Radio name="80" value="half" id="80_half">
-                              иногда
-                            </Radio>
+
+
                             <Radio name="80" value="false" id="80_false">
-                              никогда
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1975,7 +1950,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      81. Употребление нецензурных выражений мне всегда противно (даже если при этом нет лица другого пола)
+                      81. Порой мне кажется, что я какой-то странный.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1983,15 +1958,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="81" value="true" id="81_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="81" value="half" id="81_half">
-                              среднее между
-                            </Radio>
+
+
                             <Radio name="81" value="false" id="81_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -1999,7 +1975,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      82. У меня безусловно меньше друзей, чем у большинства людей.
+                      82. Я не склонен пасовать перед трудностями.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2007,15 +1983,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="82" value="true" id="82_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="82" value="half" id="82_half">
-                              среднее между
-                            </Radio>
+
+
                             <Radio name="82" value="false" id="82_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -2023,7 +2000,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      83. Очень не люблю бывать там, где не с кем поговорить.
+                      83. Мое собственное Я не представляется мне чем-то достойным глубокого внимания.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2031,15 +2008,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="83" value="true" id="83_true">
-                              верно
+                              Да
                             </Radio>
-                            <Radio name="83" value="half" id="83_half">
-                              не уверен
-                            </Radio>
+
+
                             <Radio name="83" value="false" id="83_false">
-                              неверно
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -2047,7 +2025,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      84. Люди иногда называют меня легкомысленным, хотя и считают приятным человеком.
+                      84. Мне кажется, что глубоко обдумывая свои внутренние проблемы, я научился гораздо лучше себя понимать.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2055,15 +2033,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="84" value="true" id="84_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="84" value="half" id="84_half">
-                              среднее между
-                            </Radio>
+
+
                             <Radio name="84" value="false" id="84_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -2071,7 +2050,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      85. В различных ситуациях в обществе я испытывал волнение, похожее на то, которое испытывает человек перед выходом на сцену.
+                      85. Сомневаюсь, что вызываю симпатию у большинства окружающих.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2079,15 +2058,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="85" value="true" id="85_true">
-                              довольно часто
+                              Да
                             </Radio>
-                            <Radio name="85" value="half" id="85_half">
-                              изредка
-                            </Radio>
+
+
                             <Radio name="85" value="false" id="85_false">
-                              едва ли когда-нибудь
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -2095,7 +2075,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      86. Находясь в небольшой группе людей, я довольствуюсь тем, что держусь в стороне и по большей части предоставляю говорить другим.
+                      86. Мне случалось совершать такие поступки, которым вряд ли можно найти оправдание.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2103,15 +2083,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="86" value="true" id="86_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="86" value="half" id="86_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="86" value="false" id="86_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -2119,7 +2100,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      87. Мне больше нравится читать:
+                      87. Где-то в глубине души я считаю себя слабаком.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2127,15 +2108,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="87" value="true" id="87_true">
-                              еалистические описания острых военных и политических конфликтов
+                              Да
                             </Radio>
-                            <Radio name="87" value="half" id="87_half">
-                              не знаю, что выбрать
-                            </Radio>
+
+
                             <Radio name="87" value="false" id="87_false">
-                              роман, возбуждающий воображения и чувства
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -2143,7 +2125,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      88. Когда мною пытаются командовать, я нарочно делаю все наоборот.
+                      88. Если я искренне обвиняю себя в чем-то, то, как правило, обличительного запала хватает ненадолго.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2151,15 +2133,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="88" value="true" id="88_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="88" value="half" id="88_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="88" value="false" id="88_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -2167,7 +2150,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      89. Если начальство или члены семьи в чем-то меня упрекают, то, как правило, только за дело.
+                      89. Мой характер, каким бы он ни был, вполне меня устраивает.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2175,15 +2158,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="89" value="true" id="89_true">
-                              верно
+                              Да
                             </Radio>
-                            <Radio name="89" value="half" id="89_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="89" value="false" id="89_false">
-                              неверно
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -2191,7 +2175,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      90. Мне не нравится манера некоторых людей «уставится» и бесцеремонно смотреть на человека в магазине или на улице.
+                      90. Я вполне представляю себе, что меня ждет впереди.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2199,15 +2183,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="90" value="true" id="90_true">
-                              верно
+                              Да
                             </Radio>
-                            <Radio name="90" value="half" id="90_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="90" value="false" id="90_false">
-                              неверно
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -2215,7 +2200,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      91. Во время продолжительного путешествия я предпочел бы:
+                      91. Иногда мне бывает трудно найти общий язык со своим внутренним Я.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2223,15 +2208,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="91" value="true" id="91_true">
-                              читать что-нибудь сложное, но интересное
+                              Да
                             </Radio>
-                            <Radio name="91" value="half" id="91_half">
-                              не знаю, что выбрал бы
-                            </Radio>
+
+
                             <Radio name="91" value="false" id="91_false">
-                              провести время, беседуя с попутчиком
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -2239,7 +2225,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      92. В шутках о смерти нет ничего дурного или противного хорошему вкусу.
+                      92. Мои мысли о себе в большей части сводятся к обвинениям в собственный адрес.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2247,15 +2233,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="92" value="true" id="92_true">
-                              верно
+                              Да
                             </Radio>
-                            <Radio name="92" value="half" id="92_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="92" value="false" id="92_false">
-                              неверно
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -2263,7 +2250,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      93. Если мои знакомые плохо обращаются со мной и не скрывают своей неприязни:
+                      93. Я не хотел бы сильно меняться даже в лучшую сторону, потому что каждое изменение есть потеря какой-то частицы самого себя.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2271,15 +2258,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="93" value="true" id="93_true">
-                              это нисколько меня не угнетает
+                              Да
                             </Radio>
-                            <Radio name="93" value="half" id="93_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="93" value="false" id="93_false">
-                              я падаю духом
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -2287,7 +2275,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      94. Мне становится не по себе, когда мне говорят комплименты и хвалят в лицо.
+                      94. В результате моих действий слишком часто получается совсем не то, на что я рассчитывал.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2295,15 +2283,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="94" value="true" id="94_true">
-                              верно
+                              Да
                             </Radio>
-                            <Radio name="94" value="half" id="94_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="94" value="false" id="94_false">
-                              неверно
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -2311,7 +2300,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      95. Я предпочел бы иметь работу:
+                      95. Вряд ли во мне есть что-то, чего бы я не знал.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2319,15 +2308,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="95" value="true" id="95_true">
-                              с четко определенным и постоянным заработком
+                              Да
                             </Radio>
-                            <Radio name="95" value="half" id="95_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="95" value="false" id="95_false">
-                              с более высокой зарплатой, которая бы зависела от моих усилий и продуктивности
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -2335,7 +2325,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      96. Мне легче решить трудный вопрос или проблему:
+                      96. Мне еще многого не хватает, чтобы с уверенностью сказать себе: "Да, я вполне созрел как личность".
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2343,15 +2333,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="96" value="true" id="96_true">
-                              если я обсуждаю их с другими
+                              Да
                             </Radio>
-                            <Radio name="96" value="half" id="96_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="96" value="false" id="96_false">
-                              если я обдумываю их в одиночестве
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -2359,7 +2350,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      97. Я охотно участвую в общественной жизни, в работе разных комиссий и т.д.
+                      97. Во мне вполне мирно уживаются как мои достоинства, так и мои недостатки.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2367,15 +2358,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="97" value="true" id="97_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="97" value="half" id="97_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="97" value="false" id="97_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -2383,7 +2375,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      98. Выполняя какую-либо работу, я не успокаиваюсь, пока не будут учтены даже самые незначительные детали.
+                      98. Иногда я оказываю "бескорыстную" помощь людям только для того, чтобы лучше выглядеть в собственных глазах.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2391,15 +2383,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="98" value="true" id="98_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="98" value="half" id="98_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="98" value="false" id="98_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -2407,7 +2400,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      99. Иногда совсем незначительные препятствия очень сильно раздражают меня.
+                      99. Мне слишком часто и безуспешно приходится оправдываться перед самим собой.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2415,15 +2408,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="99" value="true" id="99_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="99" value="half" id="99_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="99" value="false" id="99_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -2431,7 +2425,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      100. Я сплю крепко, никогда не разговариваю во сне.
+                      100. Те, кто меня не любит, просто не знают, что я за человек.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2439,15 +2433,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="100" value="true" id="100_true">
-                              да
+                              Да
                             </Radio>
-                            <Radio name="100" value="half" id="100_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="100" value="false" id="100_false">
-                              нет
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -2455,7 +2450,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      101. Если бы я работал в хозяйственной сфере, мне было бы интереснее:
+                      101. Убедить себя в чем-то не составляет для меня особого труда.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2463,15 +2458,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="101" value="true" id="101_true">
-                              работать с клиентами
+                              Да
                             </Radio>
-                            <Radio name="101" value="half" id="101_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="101" value="false" id="101_false">
-                              работать с документацией
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -2479,7 +2475,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      102. Слово «размер» так относится к слову «длина», как слово «нечестный» к слову:
+                      102. Я не испытываю недостатка в близких и понимающих меня людях.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2487,15 +2483,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="102" value="true" id="102_true">
-                              тюрьма
+                              Да
                             </Radio>
-                            <Radio name="102" value="half" id="102_half">
-                              грешный
-                            </Radio>
+
+
                             <Radio name="102" value="false" id="102_false">
-                              укравший
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -2503,7 +2500,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      103. АБ так относится к ГВ, как СР к:
+                      103. Мне кажется, что мало кто уважает меня по-настоящему.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2511,15 +2508,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="103" value="true" id="103_true">
-                              ПО
+                              Да
                             </Radio>
-                            <Radio name="103" value="half" id="103_half">
-                              ОП
-                            </Radio>
+
+
                             <Radio name="103" value="false" id="103_false">
-                              ТУ
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -2527,7 +2525,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      104. Когда люди ведут себя неблагоразумно и безрассудно:
+                      104. Если не мелочиться, то в целом меня не в чем упрекнуть.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2535,15 +2533,16 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="104" value="true" id="104_true">
-                              я отношусь к этому спокойно
+                              Да
                             </Radio>
-                            <Radio name="104" value="half" id="104_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="104" value="false" id="104_false">
-                              испытываю к ним чувство презрения
+                              Нет
                             </Radio>
+
                           </RadioGroup>
                         )}
                       />
@@ -2551,7 +2550,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      105. Когда я слушаю музыку, а рядом громко разговаривают:
+                      105. Я сам создал себя таким, каков я есть.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2559,15 +2558,141 @@ export const Cattel = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
+
                             <Radio name="105" value="true" id="105_true">
-                              это мне не мешает, я могу сосредоточиться
+                              Да
                             </Radio>
-                            <Radio name="105" value="half" id="105_half">
-                              верно нечто среднее
-                            </Radio>
+
+
                             <Radio name="105" value="false" id="105_false">
-                              это портит мне все удовольствие и злит меня
+                              Нет
                             </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      106. Мнение других обо мне вполне совпадает с моим собственным.
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="105"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="106" value="true" id="106_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="106" value="false" id="106_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      107. Мне бы очень хотелось во многом себя переделать.
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="107"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="107" value="true" id="107_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="107" value="false" id="107_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      108. Ко мне относятся так, как я того заслуживаю.
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="108"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="108" value="true" id="108_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="108" value="false" id="108_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      109. Думаю, что моя судьба сложится все равно не так, как бы мне хотелось теперь.
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="105"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="105" value="true" id="105_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="105" value="false" id="105_false">
+                              Нет
+                            </Radio>
+
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      110. Уверен, что в жизни я на своем месте.
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="110"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+
+                            <Radio name="110" value="true" id="110_true">
+                              Да
+                            </Radio>
+
+
+                            <Radio name="110" value="false" id="110_false">
+                              Нет
+                            </Radio>
+
                           </RadioGroup>
                         )}
                       />

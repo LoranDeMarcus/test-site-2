@@ -4,15 +4,27 @@
   "homepage": ".",
   "private": true,
   "dependencies": {
+    "@hookform/resolvers": "^2.8.10",
     "@linaria/babel-preset": "^3.0.0-beta.15",
     "@linaria/core": "^3.0.0-beta.15",
     "@linaria/react": "^3.0.0-beta.15",
     "@linaria/shaker": "^3.0.0-beta.15",
+    "axios": "^0.27.2",
+    "jwt-decode": "^3.1.2",
+    "mobx": "^6.6.0",
+    "mobx-react-lite": "^3.4.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-hook-form": "^7.30.0",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "react-use-cookie": "^1.4.0",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@linaria/webpack-loader": "^3.0.0-beta.16",
+    "customize-cra": "^1.0.0",
+    "react-app-rewired": "^2.2.1"
   },
   "scripts": {
     "start": "react-app-rewired start",
@@ -36,10 +48,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@linaria/webpack-loader": "^3.0.0-beta.16",
-    "customize-cra": "^1.0.0",
-    "react-app-rewired": "^2.2.1"
   }
 }

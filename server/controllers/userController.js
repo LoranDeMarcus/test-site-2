@@ -6,7 +6,7 @@ const generateJWT = require('../utils/generateJWT')
 class UserController {
   async registration(req, res, next) {
     const {
-      login, password, name, lastName, middleName, department, role
+      login, password, name, lastName, middleName, department, course
     } = req.body
 
     if (!login || !password) {
@@ -35,11 +35,12 @@ class UserController {
         lastName,
         middleName,
         department,
-        role
+        course
       })
+    console.log(user)
     const userResult = UserResult.create({ userId: user.id })
 
-    const token = generateJWT(user.id, user.login, user.role)
+    const token = generateJWT(user.id, user.login, user.course)
 
     return res.json({ token })
   }
@@ -58,12 +59,12 @@ class UserController {
       return next(ApiError.internal('Указан неверный пароль'))
     }
 
-    const token = generateJWT(user.id, user.login, user.role)
+    const token = generateJWT(user.id, user.login, user.course)
     return res.json({ token })
   }
 
   async authCheck(req, res, next) {
-    const token = generateJWT(req.user.id, req.user.login, req.user.role)
+    const token = generateJWT(req.user.id, req.user.login, req.user.course)
     return res.json({ token })
   }
 }

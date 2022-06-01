@@ -1,13 +1,11 @@
 import React from 'react'
-import Header from '../../components/Header'
 import Container from '../../components/Container'
 import * as s from './styles'
 import Card from '../../components/Card/Card'
 
-export const TestingPage = () => {
+export const Testing = () => {
   return (
     <div>
-      <Header />
       <s.Section>
         <Container>
           <s.Title>
@@ -26,7 +24,7 @@ export const TestingPage = () => {
             <Card to='/testing/pantileev'>
               Тест-опросник самоотношения (Столин, Пантелеев)
             </Card>
-            <Card to='/testing/kott'>
+            <Card to='/testing/kot'>
               Краткий отборочный тест КОТ, форма А
             </Card>
             <Card to='/testing/luscher'>

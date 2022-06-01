@@ -2,13 +2,12 @@ import React, { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { Button } from '../../../components/Button'
 import Container from '../../../components/Container'
-import Header from '../../../components/Header'
 
 import { PageWrapper, Wrapper } from '../styles'
 import * as s from './styles'
 import { Radio, RadioGroup } from '../../../components/Radio'
 
-export const Pantileev = () => {
+export const BussDurkee = () => {
   const [hasReadDescription, setHasReadDescription] = useState(true)
   const { control, handleSubmit, formState: { errors } } = useForm()
 
@@ -20,17 +19,19 @@ export const Pantileev = () => {
 
   return (
     <PageWrapper>
-      <Header />
       <Container>
         <Wrapper>
           <s.Tittle>
-            Опросник исследования самоотношения С.Р. Пантилеева
+            Опросник Басса-Дарки
           </s.Tittle>
           {hasReadDescription
             ? (
               <>
                 <s.Subtitle>
-                   text
+                  Данный опросник делает диагностику по состоянию агрессии личности.
+                  Опросник включает в себя 56 утверждений, на которые необходимо ответить «ДА» или «НЕТ».
+                  Ответы на утверждения человек дает, основываясь на себя, своей реакции на других людей или же на какие-то события.
+                  Отметьте «да», если вы согласны с утверждением, и «нет» - если не согласны. Старайтесь долго над вопросами не раздумывать.
                 </s.Subtitle>
                 <Button onClick={() => setHasReadDescription(false)} className={s.StartButton}>
                   Начать тестирование
@@ -44,7 +45,7 @@ export const Pantileev = () => {
                 <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
                   <s.QuestionWrapper>
                     <s.Question>
-                      1. Мои слова довольно редко расходятся с делом.
+                      1. Временами я не могу справиться с желанием причинить вред другим
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -65,7 +66,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      2. Случайному человеку я скорее всего покажусь человеком приятным.
+                      2. Иногда сплетничаю о людях, которых не люблю
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -86,7 +87,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      3. К чужим проблемам я всегда отношусь с тем же пониманием, что и к своим.
+                      3. Я легко раздражаюсь, но быстро успокаиваюсь
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -107,7 +108,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      4. У меня нередко возникает чувство, что то, о чем я с собой мысленно разговариваю, мне неприятно.
+                      4. Если меня не попросят по-хорошему, я не выполню
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -128,7 +129,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      5. Думаю, что все мои знакомые относятся ко мне с симпатией.
+                      5. Я не всегда получаю то, что мне положено
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -149,7 +150,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      6. Самое разумное, что может сделать человек в своей жизни это не противиться своей судьбе.
+                      6. Я не знаю, что люди говорят обо мне за моей спиной
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -170,7 +171,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      7. У меня достаточно способностей и энергии воплотить в жизнь задуманное.
+                      7. Если я не одобряю поведение друзей, я даю им это почувствовать
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -191,7 +192,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      8. Если бы я раздвоился, то мне было бы довольно интересно общаться со своим двойником.
+                      8. Когда мне случалось обмануть кого-нибудь, я испытывал мучительные угрызения совести
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -212,7 +213,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      9. Я не способен причинять душевную боль самым родным и любимым мною людям.
+                      9. Мне кажется, что я не способен ударить человека
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -233,7 +234,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      10. Я считаю, что не грех пожалеть иногда самого себя.
+                      10. Я никогда не раздражаюсь настолько, чтобы кидаться предметами
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -254,7 +255,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      11. Совершив какой-то промах, я часто не могу понять, как мне могло прийти в голову, что из задуманного могло получиться что-то хорошее.
+                      11. Я всегда снисходителен к чужим недостаткам
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -275,7 +276,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      12. Чаще всего я одобряю свои планы и поступки.
+                      12. Если мне не нравится установленное правило, мне хочется нарушить его
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -296,7 +297,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      13. В моей личности есть, наверное, что-то такое, что способно вызвать у других острую неприязнь.
+                      13. Другие умеют почти всегда пользоваться благоприятными обстоятельствами
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -317,7 +318,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      14. Когда я пытаюсь оценить себя, я прежде всего вижу свои недостатки.
+                      14. Я держусь настороженно с людьми, которые относятся ко мне несколько более дружественно, чем я ожидал
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -338,7 +339,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      15. Я не могу быть для любимого человека интересным длительное время.
+                      15. Я часто бываю не согласен с людьми
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -359,7 +360,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      16. Можно сказать, что я ценю себя достаточно высоко.
+                      16. Иногда мне на ум приходят мысли, которых я стыжусь
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -380,7 +381,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      17. Мой внутренний голос редко подсказывает мне то, с чем бы я в конце концов не согласился.
+                      17. Если кто-нибудь первым ударит меня, я не отвечу ему
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -401,7 +402,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      18. Многие мои знакомые не принимают меня всерьез.
+                      18. Когда я раздражаюсь, я хлопаю дверьми
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -422,7 +423,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      19. Бывало и не раз, что я сам остро ненавидел себя.
+                      19. Я гораздо более раздражителен, чем кажется
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -443,7 +444,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      20. Мне очень мешает недостаток энергии, волн и целеустремленности.
+                      20. Если кто-то воображает себя начальником, я всегда поступаю ему наперекор
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -464,7 +465,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      21. В моей жизни возникали такие обстоятельства, когда я шел на сделку с собственной совестью.
+                      21. Меня немного огорчает моя судьба
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -485,7 +486,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      22. Иногда я сам себя плохо понимаю.
+                      22. Я думаю, что многие люди не любят меня
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -506,7 +507,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      23. Порой бывает мучительно больно общаться с самим собой.
+                      23. Я не могу удержаться от спора, если люди не согласны со мной
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -527,7 +528,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      24. Думаю, что без труда смог бы найти общий язык с любым разумным и знающим человеком.
+                      24. Люди, увиливающие от работы, должны испытывать чувство вины
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -552,7 +553,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      25. Если я и отношусь к кому-нибудь с укоризной, то прежде всего к самому себе.
+                      25. Тот, кто оскорбляет меня и мою семью, напрашивается на драку
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -577,7 +578,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      26. Иногда я сомневаюсь, можно ли любить меня по-настоящему.
+                      26. Я не способен на грубые шутки
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -602,7 +603,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      27. Нередко мои споры с самим собой обрываются мыслью, что все равно выйдет не так, как я решил.
+                      27. Меня охватывает ярость, когда надо мной насмехаются
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -627,7 +628,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      28. Мое отношение к самому себе можно назвать дружеским.
+                      28. Когда люди строят из себя начальников, я делаю все, чтобы они не зазнавались
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -652,7 +653,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      29. Вряд ли найдутся люди, которым я не по душе.
+                      29. Почти каждую неделю я вижу кого-нибудь, кто мне не нравится
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -677,7 +678,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      30. Часто я не без издевки подшучиваю над собой.
+                      30. Довольно многие люди завидуют мне
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -702,7 +703,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      31. Если бы мое второе Я существовало, то для меня это был бы довольно скучный партнер в общении.
+                      31. Я требую, чтобы люди уважали меня
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -727,7 +728,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      32. Мне представляется, что я сложился как личность и поэтому не трачу много сил на то, чтобы в чем-то стать другим.
+                      32. Меня угнетает то, что я мало делаю для своих родителей
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -752,7 +753,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      33. В целом меня устраивает то, какой я есть.
+                      33. Люди, которые постоянно изводят вас, стоят того, чтобы их "щелкнули по носу"
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -777,7 +778,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      34. К сожалению, слишком многие не разделяют моих взглядов на жизнь.
+                      34. Я никогда не бываю мрачен от злости
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -802,7 +803,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      35. Я вполне могу сказать, что уважаю себя.
+                      35. Если ко мне относятся хуже, чем я того заслуживаю, я не расстраиваюсь
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -827,7 +828,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      36. Я думаю, что имею умного и надежного советчика в своем лице.
+                      36. Если кто-то выводит меня из себя, я не обращаю внимания
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -852,7 +853,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      37. Сам у себя я довольно часто вызываю раздражение.
+                      37. Хотя я и не показываю этого, меня иногда гложет зависть
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -877,7 +878,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      38. Я часто, но довольно безуспешно, пытаюсь в себе что-то изменить.
+                      38. Иногда мне кажется, что надо мной смеются
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -902,7 +903,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      39. Я думаю, что моя личность гораздо интереснее и богаче, чем это может показаться на первый взгляд.
+                      39. Даже если я злюсь, я не прибегаю к "сильным" выражениям
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -927,7 +928,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      40. Мои достоинства более значительны, чем недостатки.
+                      40. Мне хочется, чтобы мои грехи были прощены
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -952,7 +953,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      41. Я редко остаюсь непонятным в самом важном для меня.
+                      41. Я редко даю сдачи, даже если кто-нибудь ударит меня
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -977,7 +978,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      42. Думаю, что другие в целом оценивают меня достаточно высоко.
+                      42. Когда получается не по-моему, я иногда обижаюсь
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1002,7 +1003,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      43. Ко всему, что со мной случается, я приложил старание.
+                      43. Иногда люди раздражают меня одним своим присутствием
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1027,7 +1028,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      44. Если я спорю с собой, то уверен, что найду единственно правильное решение.
+                      44. Нет людей, которых бы я по-настоящему ненавидел
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1052,7 +1053,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      45. Когда со мной случаются неприятности, я говорю: "И поделом тебе!".
+                      45. Мой принцип: "Никогда не доверять "чужакам"
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1077,7 +1078,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      46. Я не считаю, что достаточно интересен духовно для того, чтобы быть притягательным для многих людей.
+                      46. Если кто-нибудь раздражает меня, я готов сказать, что я о нем думаю
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1102,7 +1103,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      47. У меня нередко возникает сомнение: таков ли я на самом деле, каким себе кажусь.
+                      47. Я делаю много такого, о чем впоследствии жалею
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1127,7 +1128,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      48. Я не способен на измену даже в мыслях.
+                      48. Если я разозлюсь, я могу ударить кого-нибудь
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1152,7 +1153,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      49. Чаще всего я думаю о себе с дружеской иронией.
+                      49. С детства я никогда не проявлял вспышек гнева
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1177,7 +1178,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      50. Мне кажется, что мало кто может подумать обо мне плохо.
+                      50. Я часто чувствую себя как пороховая бочка, готовая взорваться
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1202,7 +1203,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      51. Уверен, что на меня можно положиться в самых ответственных делах.
+                      51. Если бы все знали, что я чувствую, меня бы считали человеком, с которым нелегко
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1227,7 +1228,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      52. Я могу сказать, что в целом контролирую свою судьбу.
+                      52. Я всегда думаю о том, какие тайные причины заставляют людей делать что-нибудь приятное для меня
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1252,7 +1253,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      53. Я никогда не выдаю чужие мысли за свои.
+                      53. Когда на меня кричат, я начинаю кричать в ответ
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1277,7 +1278,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      54. Каким бы я ни казался окружающим, я-то знаю, что в глубине души я лучше, чем большинство других.
+                      54. Неудачи огорчают меня
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1302,7 +1303,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      55. Я хотел бы оставаться таким, какой есть.
+                      55. Я дерусь не реже и не чаще, чем другие
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1327,7 +1328,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      56. Я всегда рад критике в свой адрес, если она обоснована и справедлива.
+                      56. Я могу вспомнить случаи, когда я был настолько зол, что хватал попавшуюся мне под руку вещь и ломал
+                      ее
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1352,7 +1354,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      57. Мне кажется, что если бы таких людей, как я, было больше, то жизнь изменилась бы в лучшую сторону.
+                      57. Иногда я чувствую, что готов первым начать драку
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1377,7 +1379,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      58. Мое мнение имеет достаточный вес в глазах окружающих.
+                      58. Иногда я чувствую, что жизнь поступает со мной несправедливо
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1402,7 +1404,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      59. Что-то мешает мне понять себя по-настоящему.
+                      59. Раньше я думал, что большинство людей говорит правду, но теперь я в это не верю
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1427,7 +1429,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      60. Во мне есть немало такого, что вряд ли вызывает симпатию.
+                      60. Я ругаюсь только со злости
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1452,7 +1454,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      61. В сложных обстоятельствах я обычно не жду, пока проблемы решатся сами собой.
+                      61. Когда я поступаю неправильно, меня мучает совесть
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1477,7 +1479,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      62. Иногда я пытаюсь выдать себя не за того, кто я есть.
+                      62. Если для защиты своих прав мне нужно применить физическую силу, я применяю ее
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1502,7 +1504,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      63. Быть снисходительным к собственным слабостям вполне естественно.
+                      63. Иногда я выражаю свой гнев тем, что стучу кулаком по столу
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1527,7 +1529,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      64. Я убедился, что глубокое проникновение в себя мало приятное и довольно рискованное занятие.
+                      64. Я бываю грубоват по отношению к людям, которые мне не нравятся
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1552,7 +1554,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      65. Я никогда не раздражаюсь и не злюсь без особых на то причин.
+                      65. У меня нет врагов, которые бы хотели мне навредить
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1577,7 +1579,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      66. У меня бывали такие моменты, когда я понимал, что и меня есть за что презирать.
+                      66. Я не умею поставить человека на место, даже если он того заслуживает
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1602,7 +1604,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      67. Я часто чувствую, что мало влияю на то, что со мной происходит.
+                      67. Я часто думаю, что жил неправильно
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1627,7 +1629,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      68. Именно богатство и глубина моего внутреннего мира и определяют мою ценность как личности.
+                      68. Я знаю людей, которые способны довести меня до драки
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1652,7 +1654,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      69. Долгие споры с собой чаще всего оставляют горький осадок в моей душе, чем приносят облегчение.
+                      Я не огорчаюсь из-за мелочей
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1677,7 +1679,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      70. Думаю, что общение со мной доставляет людям удовольствие.
+                      70. Мне редко приходит в голову, что люди пытаются разозлить или оскорбить меня
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1702,7 +1704,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      71. Если говорить откровенно, иногда я бываю очень неприятен.
+                      71. Я часто только угрожаю людям, хотя и не собираюсь приводить угрозы в исполнение
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1727,7 +1729,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      72. Можно сказать, что я себе нравлюсь.
+                      72. В последнее время я стал занудой
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1752,7 +1754,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      73. Я - человек ненадежный.
+                      73. В споре я часто повышаю голос
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1777,7 +1779,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      74. Осуществление моих желаний мало зависит от везения.
+                      74. Я стараюсь обычно скрывать свое плохое отношение к людям
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1802,7 +1804,7 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      75. Мое внутреннее Я всегда мне интересно.
+                      75. Я лучше соглашусь с чем-либо, чем стану спорить
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1817,881 +1819,6 @@ export const Pantileev = () => {
 
 
                             <Radio name="75" value="false" id="75_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      76. Мне очень просто убедить себя не расстраиваться по пустякам.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="76"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="76" value="true" id="76_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="76" value="false" id="76_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      77. Близким людям свойственно недооценивать меня.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="77"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="77" value="true" id="77_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="77" value="false" id="77_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      78. У меня в жизни нередко бывают минуты, когда я сам себе противен.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="78"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="78" value="true" id="78_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="78" value="false" id="78_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      79. Мне кажется, что я все-таки не умею злиться на себя по- настоящему.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="79"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="79" value="true" id="79_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="79" value="false" id="79_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      80. Я убедился, что в серьезных делах на меня лучше не рассчитывать.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="80"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="80" value="true" id="80_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="80" value="false" id="80_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      81. Порой мне кажется, что я какой-то странный.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="81"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="81" value="true" id="81_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="81" value="false" id="81_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      82. Я не склонен пасовать перед трудностями.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="82"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="82" value="true" id="82_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="82" value="false" id="82_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      83. Мое собственное Я не представляется мне чем-то достойным глубокого внимания.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="83"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="83" value="true" id="83_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="83" value="false" id="83_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      84. Мне кажется, что глубоко обдумывая свои внутренние проблемы, я научился гораздо лучше себя понимать.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="84"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="84" value="true" id="84_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="84" value="false" id="84_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      85. Сомневаюсь, что вызываю симпатию у большинства окружающих.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="85"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="85" value="true" id="85_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="85" value="false" id="85_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      86. Мне случалось совершать такие поступки, которым вряд ли можно найти оправдание.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="86"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="86" value="true" id="86_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="86" value="false" id="86_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      87. Где-то в глубине души я считаю себя слабаком.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="87"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="87" value="true" id="87_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="87" value="false" id="87_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      88. Если я искренне обвиняю себя в чем-то, то, как правило, обличительного запала хватает ненадолго.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="88"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="88" value="true" id="88_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="88" value="false" id="88_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      89. Мой характер, каким бы он ни был, вполне меня устраивает.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="89"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="89" value="true" id="89_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="89" value="false" id="89_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      90. Я вполне представляю себе, что меня ждет впереди.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="90"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="90" value="true" id="90_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="90" value="false" id="90_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      91. Иногда мне бывает трудно найти общий язык со своим внутренним Я.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="91"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="91" value="true" id="91_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="91" value="false" id="91_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      92. Мои мысли о себе в большей части сводятся к обвинениям в собственный адрес.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="92"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="92" value="true" id="92_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="92" value="false" id="92_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      93. Я не хотел бы сильно меняться даже в лучшую сторону, потому что каждое изменение есть потеря какой-то частицы самого себя.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="93"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="93" value="true" id="93_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="93" value="false" id="93_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      94. В результате моих действий слишком часто получается совсем не то, на что я рассчитывал.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="94"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="94" value="true" id="94_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="94" value="false" id="94_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      95. Вряд ли во мне есть что-то, чего бы я не знал.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="95"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="95" value="true" id="95_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="95" value="false" id="95_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      96. Мне еще многого не хватает, чтобы с уверенностью сказать себе: "Да, я вполне созрел как личность".
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="96"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="96" value="true" id="96_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="96" value="false" id="96_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      97. Во мне вполне мирно уживаются как мои достоинства, так и мои недостатки.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="97"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="97" value="true" id="97_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="97" value="false" id="97_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      98. Иногда я оказываю "бескорыстную" помощь людям только для того, чтобы лучше выглядеть в собственных глазах.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="98"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="98" value="true" id="98_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="98" value="false" id="98_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      99. Мне слишком часто и безуспешно приходится оправдываться перед самим собой.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="99"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="99" value="true" id="99_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="99" value="false" id="99_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      100. Те, кто меня не любит, просто не знают, что я за человек.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="100"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="100" value="true" id="100_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="100" value="false" id="100_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      101. Убедить себя в чем-то не составляет для меня особого труда.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="101"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="101" value="true" id="101_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="101" value="false" id="101_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      102. Я не испытываю недостатка в близких и понимающих меня людях.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="102"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="102" value="true" id="102_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="102" value="false" id="102_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      103. Мне кажется, что мало кто уважает меня по-настоящему.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="103"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="103" value="true" id="103_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="103" value="false" id="103_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      104. Если не мелочиться, то в целом меня не в чем упрекнуть.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="104"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="104" value="true" id="104_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="104" value="false" id="104_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      105. Я сам создал себя таким, каков я есть.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="105"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="105" value="true" id="105_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="105" value="false" id="105_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      106. Мнение других обо мне вполне совпадает с моим собственным.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="105"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="106" value="true" id="106_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="106" value="false" id="106_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      107. Мне бы очень хотелось во многом себя переделать.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="107"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="107" value="true" id="107_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="107" value="false" id="107_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      108. Ко мне относятся так, как я того заслуживаю.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="108"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="108" value="true" id="108_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="108" value="false" id="108_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      109. Думаю, что моя судьба сложится все равно не так, как бы мне хотелось теперь.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="105"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="105" value="true" id="105_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="105" value="false" id="105_false">
-                              Нет
-                            </Radio>
-
-                          </RadioGroup>
-                        )}
-                      />
-                    </s.Answers>
-                  </s.QuestionWrapper>
-                  <s.QuestionWrapper>
-                    <s.Question>
-                      110. Уверен, что в жизни я на своем месте.
-                    </s.Question>
-                    <s.Answers>
-                      <Controller
-                        name="110"
-                        control={control}
-                        render={({ field: { onChange, value } }) => (
-                          <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="110" value="true" id="110_true">
-                              Да
-                            </Radio>
-
-
-                            <Radio name="110" value="false" id="110_false">
                               Нет
                             </Radio>
 

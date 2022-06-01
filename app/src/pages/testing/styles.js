@@ -2,12 +2,12 @@ import { styled } from '@linaria/react'
 import { colors } from '../../assets/constants'
 
 export const PageWrapper = styled.div`
+  padding-top: 80px;
   background-color: ${colors.blue};
   padding-bottom: 80px;
 `
 
 export const Wrapper = styled.div`
-  margin-top: 80px;
 `
 
 export const Section = styled.section`

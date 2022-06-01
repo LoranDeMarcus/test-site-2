@@ -2,13 +2,12 @@ import React, { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { Button } from '../../../components/Button'
 import Container from '../../../components/Container'
-import Header from '../../../components/Header'
 
 import { PageWrapper, Wrapper } from '../styles'
 import * as s from './styles'
 import { Radio, RadioGroup } from '../../../components/Radio'
 
-export const Rusalov = () => {
+export const Cattel = () => {
   const [hasReadDescription, setHasReadDescription] = useState(true)
   const { control, handleSubmit, formState: { errors } } = useForm()
 
@@ -20,21 +19,27 @@ export const Rusalov = () => {
 
   return (
     <PageWrapper>
-      <Header />
       <Container>
         <Wrapper>
           <s.Tittle>
-            Тест темперамента В.М. Русалова
+            Личностный опросник Кеттела
           </s.Tittle>
           {hasReadDescription
             ? (
               <>
                 <s.Subtitle>
-                  Вам предлагается ответить на 105 вопросов. Вопросы направлены на выявление Вашего обычного способа поведения.
-                  Постарайтесь представить типичные ситуации и дайте первый "естественный" ответ, который придет Вам в голову.
-                  Отвечайте быстро и точно. Помните, нет "хороших" или "плохих" ответов. Если Вы выбрали ответ "Да",
-                  поставьте крестик (или галочку) в графе "Да" на бланке для ответов возле соответствующего номера вопроса.
-                  Если Вы выбрали ответ "Нет", поставьте крестик (галочку) соответственно в графе "Нет".
+                  Bам будет задан ряд вопросов, на каждый из которых Вы должны выбрать один из трех предлагаемых ответов,
+                  - тот, который в наибольшей степени соответствует Вашим взглядам, Вашему мнению о себе.
+                  Обязательно отвечайте на все вопросы подряд, ничего не пропуская. Не нужно много времени тратить на обдумывание ответов.
+                  Давайте тот ответ, который первым приходит Вам в голову. Отвечать надо приблизительно на 5-6 вопросов за минуту.
+                  Прохождение теста должно занять у Вас около 50 мин. Возможно, некоторые вопросы покажутся вам неясными
+                  или сформулированными не так подробно, как Вам хотелось бы. В таких случаях, отвечая, старайтесь
+                  представить "среднюю", наиболее обычную ситуацию, которая соответствует смыслу вопроса, и на основе
+                  этого выбирайте свой ответ. Старайтесь не прибегать слишком часто к промежуточным, неопределенным ответам,
+                  типа "не знаю", "нечто среднее" и т.п. Отвечайте честно и искренне. Не стремитесь произвести хорошее
+                  впечатление своими ответами. Здесь не может быть ответов "правильных" или "ошибочных". Люди различны,
+                  и каждый может высказать свое мнение. Ваши ответы должны соответствовать действительности - в этом случае
+                  Вы сможете лучше узнать себя.
                 </s.Subtitle>
                 <Button onClick={() => setHasReadDescription(false)} className={s.StartButton}>
                   Начать тестирование
@@ -48,7 +53,7 @@ export const Rusalov = () => {
                 <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
                   <s.QuestionWrapper>
                     <s.Question>
-                      1.	Подвижный ли Вы человек?
+                      1.	Я хорошо понял инструкцию к этому опроснику
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -57,10 +62,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="1" value="true" id="1_true">
-                              Да
+                              да
+                            </Radio>
+                            <Radio name="1" value="half" id="1_half">
+                              не уверен
                             </Radio>
                             <Radio name="1" value="false" id="1_false">
-                              Нет
+                              нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -69,7 +77,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      2.	Всегда ли Вы готовы с ходу, не раздумывая, включиться в разговор?
+                      2.	Я готов как можно искренней ответить на вопросы
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -78,10 +86,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="2" value="true" id="2_true">
-                              Да
+                              да
+                            </Radio>
+                            <Radio name="2" value="half" id="2_half">
+                              не уверен
                             </Radio>
                             <Radio name="2" value="false" id="2_false">
-                              Нет
+                              нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -90,7 +101,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      3.	Предпочитаете ли Вы уединение большой компании?
+                      3.	Я предпочел бы иметь дачу
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -99,10 +110,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="3" value="true" id="3_true">
-                              Да
+                              в оживленном дачном поселке
+                            </Radio>
+                            <Radio name="3" value="half" id="3_half">
+                              нечто среднее
                             </Radio>
                             <Radio name="3" value="false" id="3_false">
-                              Нет
+                              уединенную, в лесу
                             </Radio>
                           </RadioGroup>
                         )}
@@ -111,7 +125,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      4.	Испытываете ли Вы постоянную жажду деятельности?
+                      4. Я могу найти в себе достаточно сил, чтобы справиться с жизненными трудностями.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -120,10 +134,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="4" value="true" id="4_true">
-                              Да
+                              всегда
+                            </Radio>
+                            <Radio name="4" value="half" id="4_half">
+                              обычно
                             </Radio>
                             <Radio name="4" value="false" id="4_false">
-                              Нет
+                              редко
                             </Radio>
                           </RadioGroup>
                         )}
@@ -132,7 +149,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      5.	Ваша речь обычно медленна и нетороплива?
+                      5. При виде диких животных мне становится несколько не по себе, даже если они надежно заперты в клетках.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -141,10 +158,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="5" value="true" id="5_true">
-                              Да
+                              да, это верно
+                            </Radio>
+                            <Radio name="5" value="half" id="5_half">
+                              не уверен
                             </Radio>
                             <Radio name="5" value="false" id="5_false">
-                              Нет
+                              нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -153,7 +173,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      6.	Ранимый ли Вы человек?
+                      6.	Я воздерживаюсь от критики людей и их взглядов
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -162,10 +182,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="6" value="true" id="6_true">
-                              Да
+                              да
+                            </Radio>
+                            <Radio name="6" value="half" id="6_half">
+                              иногда
                             </Radio>
                             <Radio name="6" value="false" id="6_false">
-                              Нет
+                              нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -174,7 +197,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      7.	Часто ли Вам не спится из-за того, что Вы поспорили с друзьями?
+                      7.	Я делаю людям резкие, критические замечания, если мне кажется, что они этого заслуживают
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -183,10 +206,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="7" value="true" id="7_true">
-                              Да
+                              обычно
+                            </Radio>
+                            <Radio name="7" value="half" id="7_half">
+                              иногда
                             </Radio>
                             <Radio name="7" value="false" id="7_false">
-                              Нет
+                              никогда не делаю
                             </Radio>
                           </RadioGroup>
                         )}
@@ -195,7 +221,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      8.	В свободное время Вам всегда хочется заняться чем-либо?
+                      8. Я предпочитаю несложную классическую музыку современным популярным мелодиям
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -204,10 +230,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="8" value="true" id="8_true">
-                              Да
+                              верно
+                            </Radio>
+                            <Radio name="8" value="half" id="8_half">
+                              не уверен
                             </Radio>
                             <Radio name="8" value="false" id="8_false">
-                              Нет
+                              неверно
                             </Radio>
                           </RadioGroup>
                         )}
@@ -216,7 +245,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      9.	В разговоре с другими людьми Ваша речь часто опережает Вашу мысль?
+                      9. Если бы я увидел ссорящихся не на шутку соседских детей
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -225,10 +254,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="9" value="true" id="9_true">
-                              Да
+                              я предоставил бы им самим выяснить свои отношения
+                            </Radio>
+                            <Radio name="9" value="half" id="9_half">
+                              не знаю, что предпринял бы
                             </Radio>
                             <Radio name="9" value="false" id="9_false">
-                              Нет
+                              я постарался бы разобраться в их ссоре
                             </Radio>
                           </RadioGroup>
                         )}
@@ -237,7 +269,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      10. Раздражает ли Вас быстрая речь собеседника?
+                      10. На собраниях и в компаниях:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -246,10 +278,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="10" value="true" id="10_true">
-                              Да
+                              я легко выхожу вперед
+                            </Radio>
+                            <Radio name="10" value="half" id="10_half">
+                              верно нечто среднее
                             </Radio>
                             <Radio name="10" value="false" id="10_false">
-                              Нет
+                              я предпочитаю держаться в стороне
                             </Radio>
                           </RadioGroup>
                         )}
@@ -258,7 +293,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      Чувствовали бы Вы себя несчастным человеком, если бы на длительное время были лишены возможности общения с людьми?
+                      11. По-моему, интереснее быть:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -267,10 +302,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="11" value="true" id="11_true">
-                              Да
+                              инженером – конструктором
+                            </Radio>
+                            <Radio name="11" value="half" id="11_false">
+                              не знаю, что предпочесть
                             </Radio>
                             <Radio name="11" value="false" id="11_false">
-                              Нет
+                              драматургом
                             </Radio>
                           </RadioGroup>
                         )}
@@ -279,7 +317,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      12. Вы когда-нибудь опаздывали на свидание или на работу?
+                      12. На улице я скорее остановлюсь, чтобы посмотреть, как работает художник, чем стану наблюдать за уличной ссорой.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -288,10 +326,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="12" value="true" id="12_true">
-                              Да
+                              да, это верно
+                            </Radio>
+                            <Radio name="12" value="half" id="12_half">
+                              не уверен
                             </Radio>
                             <Radio name="12" value="false" id="12_false">
-                              Нет
+                              нет, это не верно
                             </Radio>
                           </RadioGroup>
                         )}
@@ -300,7 +341,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      13. Нравится ли Вам быстро бегать?
+                      13. Обычно я спокойно переношу самодовольство людей, даже когда они хвастаются или другим образом показывают, что они высокого мнения о себе
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -309,10 +350,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="13" value="true" id="13_true">
-                              Да
+                              да
+                            </Radio>
+                            <Radio name="13" value="half" id="13_half">
+                              верно нечто среднее
                             </Radio>
                             <Radio name="13" value="false" id="13_false">
-                              Нет
+                              нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -321,7 +365,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      14. Сильно ли Вы переживаете неполадки в своей работе?
+                      14. Если человек обманывает, я почти всегда могу заметить это по выражению его лицаю
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -330,10 +374,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="14" value="true" id="14_true">
-                              Да
+                              да
+                            </Radio>
+                            <Radio name="14" value="half" id="14_half">
+                              верно нечто среднее
                             </Radio>
                             <Radio name="14" value="false" id="14_false">
-                              Нет
+                              нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -351,10 +398,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="15" value="true" id="15_true">
-                              Да
+                              согласен
+                            </Radio>
+                            <Radio name="15" value="half" id="15_half">
+                              не уверен
                             </Radio>
                             <Radio name="15" value="false" id="15_false">
-                              Нет
+                              не согласен
                             </Radio>
                           </RadioGroup>
                         )}
@@ -363,7 +413,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      16. Трудно ли Вам говорить очень быстро?
+                      16. Я предпочел бы взяться за работу:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -372,10 +422,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="16" value="true" id="16_true">
-                              Да
+                              где можно много зарабатывать, даже если заработки не постоянны
+                            </Radio>
+                            <Radio name="16" value="half" id="16_half">
+                              не знаю, что выбрать
                             </Radio>
                             <Radio name="16" value="false" id="16_false">
-                              Нет
+                              с постоянной, но относительно невысокой зарплатой
                             </Radio>
                           </RadioGroup>
                         )}
@@ -384,7 +437,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      17. Часто ли Вы испытываете тревоги, что выполнили работу не так, как нужно?
+                      17. Я говорю о своих чувствах:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -393,10 +446,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="17" value="true" id="17_true">
-                              Да
+                              только в случае необходимости
+                            </Radio>
+                            <Radio name="17" value="half" id="17_half">
+                              верно нечто среднее
                             </Radio>
                             <Radio name="17" value="false" id="17_false">
-                              Нет
+                              охотно, когда предоставляется возможность
                             </Radio>
                           </RadioGroup>
                         )}
@@ -405,7 +461,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      18. Часто ли Ваши мысли перескакивают с одной на другую во время разговора?
+                      18. Изредка я испытываю чувство внезапного страха или неопределенного беспокойства, сам не знаю от чего
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -414,10 +470,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="18" value="true" id="18_true">
-                              Да
+                              да
+                            </Radio>
+                            <Radio name="18" value="half" id="18_half">
+                              верно нечто среднее
                             </Radio>
                             <Radio name="18" value="false" id="18_false">
-                              Нет
+                              нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -426,7 +485,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      19. Нравятся ли Вам игры, требующие быстроты и ловкости?
+                      19. Когда меня несправедливо критикуют за то, в чем я не виноват:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -435,10 +494,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="19" value="true" id="19_true">
-                              Да
+                              никакого чувства вины у меня не возникает
+                            </Radio>
+                            <Radio name="19" value="half" id="19_half">
+                              верно нечто среднее
                             </Radio>
                             <Radio name="19" value="false" id="19_false">
-                              Нет
+                              я все же чувствую себя немного виноватым
                             </Radio>
                           </RadioGroup>
                         )}
@@ -447,7 +509,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      20. Легко ли Вы можете найти другие варианты решения известной задачи?
+                      20. На работе у меня бывает больше затруднений с людьми, которые:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -456,10 +518,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="20" value="true" id="20_true">
-                              Да
+                              отказываюсь использовать современные методы
+                            </Radio>
+                            <Radio name="20" value="half" id="20_half">
+                              не знаю, что выбрать
                             </Radio>
                             <Radio name="20" value="false" id="20_false">
-                              Нет
+                              постоянно пытаюсь что-то изменить в работе, которая и так идет нормально
                             </Radio>
                           </RadioGroup>
                         )}
@@ -468,7 +533,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      21. Испытываете ли Вы чувство беспокойства, что Вас неправильно поняли в разговоре?
+                      21.  Принимая решения, я руководствуюсь больше:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -477,10 +542,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="21" value="true" id="21_true">
-                              Да
+                              сердцем
+                            </Radio>
+                            <Radio name="21" value="half" id="21_half">
+                              сердцем и рассудком в равной иерее
                             </Radio>
                             <Radio name="21" value="false" id="21_false">
-                              Нет
+                              рассудком
                             </Radio>
                           </RadioGroup>
                         )}
@@ -489,7 +557,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      22. Охотно ли Вы выполняете сложную, ответственную работу?
+                      22. Люди были бы счастливее, если бы они больше времени проводили в обществе своих друзей.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -498,10 +566,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="22" value="true" id="22_true">
-                              Да
+                              да
+                            </Radio>
+                            <Radio name="22" value="half" id="22_half">
+                              верно нечто среднее
                             </Radio>
                             <Radio name="22" value="false" id="22_false">
-                              Нет
+                              нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -510,7 +581,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      23. Бывает ли, что Вы говорите о вещах, в которых не разбираетесь?
+                      23. Строя планы на будущее, я часто рассчитываю на удачу.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -519,10 +590,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="23" value="true" id="23_true">
-                              Да
+                              да
+                            </Radio>
+                            <Radio name="23" value="half" id="23_half">
+                              затрудняюсь ответить
                             </Radio>
                             <Radio name="23" value="false" id="23_false">
-                              Нет
+                              нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -531,7 +605,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      24. Легко ли Вы воспринимаете быструю речь?
+                      24. Разговаривая, я склонен:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -540,10 +614,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="24" value="true" id="24_true">
-                              Да
+                              высказывать свои мысли сразу, как только они приходят
+                            </Radio>
+                            <Radio name="24" value="half" id="24_half">
+                              верно нечто среднее
                             </Radio>
                             <Radio name="24" value="false" id="24_false">
-                              Нет
+                              прежде хорошенько собраться с мыслями
                             </Radio>
                           </RadioGroup>
                         )}
@@ -552,7 +629,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      25. Легко ли Вам делать одновременно очень много дел?
+                      25. Даже если я чем-нибудь сильно взбешен, я успокаиваюсь довольно быстро.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -561,10 +638,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="25" value="true" id="25_true">
-                              Да
+                              да
+                            </Radio>
+                            <Radio name="25" value="half" id="25_half">
+                              верно
                             </Radio>
                             <Radio name="25" value="false" id="25_false">
-                              Нет
+                              нет
                             </Radio>
                           </RadioGroup>
                         )}
@@ -573,7 +653,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      26. Возникают ли у Вас конфликты с Вашими друзьями из-за того, что Вы сказали им что-то, не подумав заранее?
+                      26. При равной продолжительности рабочего дня и одинаковой зарплате мне было бы интереснее работать:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -582,10 +662,13 @@ export const Rusalov = () => {
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
                             <Radio name="26" value="true" id="26_true">
-                              Да
+                              столяром или поваром
+                            </Radio>
+                            <Radio name="26" value="half" id="26_half">
+                              не знаю, что выбрать
                             </Radio>
                             <Radio name="26" value="false" id="26_false">
-                              Нет
+                              официантом в хорошем ресторане
                             </Radio>
                           </RadioGroup>
                         )}
@@ -594,7 +677,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      27. Вы предпочитаете делать несложные дела, не требующие от Вас большой энергии?
+                      27. У меня было:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -602,16 +685,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="27" value="true" id="27_true">
-                              Да
+                              очень мало выборных должностей
                             </Radio>
-
-
+                            <Radio name="27" value="half" id="27_half">
+                              несколько
+                            </Radio>
                             <Radio name="27" value="false" id="27_false">
-                              Нет
+                              много выборных должностей
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -619,7 +701,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      28. Легко ли Вы расстраиваетесь, когда обнаруживаете незначительные недостатки в своей работе?
+                      28. Слово «Лопата» так относится к слову «копать», как слово «нож» к слову:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -627,16 +709,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="28" value="true" id="28_true">
-                              Да
+                              острый
                             </Radio>
-
-
+                            <Radio name="28" value="half" id="28_half">
+                              резать
+                            </Radio>
                             <Radio name="28" value="false" id="28_false">
-                              Нет
+                              точить
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -644,7 +725,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      29. Любите ли Вы сидячую работу?
+                      29. Иногда какая-нибудь навязчивая мысль не дает мне заснуть.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -652,16 +733,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="29" value="true" id="29_true">
-                              Да
+                              да, это верно
                             </Radio>
-
-
+                            <Radio name="29" value="half" id="29_half">
+                              не уверен
+                            </Radio>
                             <Radio name="29" value="false" id="29_false">
-                              Нет
+                              нет, это не верно
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -669,7 +749,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      30. Легко ли Вам общаться с разными людьми?
+                      30. В своей жизни я, как правило, достигаю тех целей, которые ставлю перед собой.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -677,16 +757,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="30" value="true" id="30_true">
-                              Да
+                              да, это верно
                             </Radio>
-
-
+                            <Radio name="30" value="half" id="30_half">
+                              не уверен
+                            </Radio>
                             <Radio name="30" value="false" id="30_false">
-                              Нет
+                              нет, это не верно
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -694,7 +773,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      31. Вы обычно предпочитаете подумать, взвесить и лишь потом высказаться?
+                      31.            Устаревший закон должен быть изменен:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -702,16 +781,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="31" value="true" id="31_true">
-                              Да
+                              только после основательного обсуждения
                             </Radio>
-
-
+                            <Radio name="31" value="half" id="31_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="31" value="false" id="31_false">
-                              Нет
+                              немедленно
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -719,7 +797,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      32. Все ли Ваши привычки хороши и желательны?
+                      32.            Мне становится не по себе, когда дело требует от меня быстрых действий, которые как-то влияют на других людей.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -727,16 +805,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="32" value="true" id="32_true">
-                              Да
+                              да, это верно
                             </Radio>
-
-
+                            <Radio name="32" value="half" id="32_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="32" value="false" id="32_false">
-                              Нет
+                              нет, это не верно
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -744,7 +821,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      33. Быстры ли у Вас движения рук?
+                      33.            Большинство знакомых считают меня веселым собеседником.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -752,16 +829,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="33" value="true" id="33_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="33" value="half" id="33_half">
+                              не уверен
+                            </Radio>
                             <Radio name="33" value="false" id="33_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -769,7 +845,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      34. Вы обычно молчите и не вступаете в контакты, когда находитесь в обществе малознакомых людей?
+                      34.  Когда я вижу неопрятных, неряшливых людей:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -777,16 +853,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="34" value="true" id="34_true">
-                              Да
+                              Меня это не волнует
                             </Radio>
-
-
+                            <Radio name="34" value="half" id="34_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="34" value="false" id="34_false">
-                              Нет
+                              верно нечто среднее
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -794,7 +869,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      35. Легко ли Вам переключиться от одного варианта решения задачи на другой?
+                      35. Я слегка теряюсь, неожиданно оказавшись в центре внимания.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -802,16 +877,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="35" value="true" id="35_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="35" value="half" id="35_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="35" value="false" id="35_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -819,7 +893,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      36. Склонны ли Вы иногда преувеличивать в своем воображении негативное отношение близких Вам людей?
+                      36. Я всегда рад присоединиться к большой компании, например: встретится вечером с друзьями, пойти на танцы, принять участие в интересном общественном мероприятии.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -827,16 +901,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="36" value="true" id="36_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="36" value="half" id="36_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="36" value="false" id="36_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -844,7 +917,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      37. Разговорчивый ли Вы человек?
+                      37. В школе я предпочитал:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -852,16 +925,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="37" value="true" id="37_true">
-                              Да
+                              уроки музыки (пения)
                             </Radio>
-
-
+                            <Radio name="37" value="half" id="37_half">
+                              затрудняюсь сказать
+                            </Radio>
                             <Radio name="37" value="false" id="37_false">
-                              Нет
+                              занятия в мастерских, ручной тру
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -869,7 +941,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      38. Вам обычно легко выполнять дело, требующее мгновенных реакций?
+                      38. Если меня назначают ответственным за что-либо, я настаиваю, чтобы мои распоряжения строго выполнялись, а иначе я отказываюсь от поручения.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -877,16 +949,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="38" value="true" id="38_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="38" value="half" id="38_half">
+                              иногда
+                            </Radio>
                             <Radio name="38" value="false" id="38_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -894,7 +965,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      40. Беспокоят ли Вас страхи, что Вы не справитесь с работой?
+                      39. Важнее, чтобы родители:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -902,16 +973,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="39" value="true" id="39_true">
-                              Да
+                              способствовали тонкому развитию чувств у своих детей
                             </Radio>
-
-
+                            <Radio name="39" value="half" id="39_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="39" value="false" id="39_false">
-                              Нет
+                              учили детей управлять своими чувствами
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -919,7 +989,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      41. Легко ли Вы обижаетесь, когда близкие люди указывают на Ваши личные недостатки?
+                      40. Участвуя в коллективной работе, я предпочел бы:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -927,16 +997,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="40" value="true" id="40_true">
-                              Да
+                              попытаться внести улучшения в организацию работы
                             </Radio>
-
-
+                            <Radio name="40" value="half" id="40_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="40" value="false" id="40_false">
-                              Нет
+                              вести записи и следить за тем, чтобы соблюдались правила
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -944,7 +1013,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      42. Испытываете ли Вы тягу к напряженной, ответственной деятельности?
+                      41. Время от времени я чувствую потребность заняться чем-нибудь, что требует значительных физических усилий
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -952,16 +1021,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="41" value="true" id="41_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="41" value="half" id="41_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="41" value="false" id="41_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -969,7 +1037,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      43. Считаете ли Вы свои движения медленными и неторопливыми?
+                      42. Я предпочел бы общаться с людьми вежливыми и деликатными, чем с грубоватыми и прямолинейными.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -977,16 +1045,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="42" value="true" id="42_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="42" value="half" id="42_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="42" value="false" id="42_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -994,7 +1061,31 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      44. Бывают ли у Вас мысли, которые Вы хотели бы скрыть от других?
+                      43. Когда меня критикуют на людях, это меня крайне угнетает.
+                    </s.Question>
+                    <s.Answers>
+                      <Controller
+                        name="43"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                          <RadioGroup value={value} onChange={onChange}>
+                            <Radio name="43" value="true" id="43_true">
+                              да
+                            </Radio>
+                            <Radio name="43" value="half" id="43_half">
+                              верно нечто среднее
+                            </Radio>
+                            <Radio name="43" value="false" id="43_false">
+                              нет
+                            </Radio>
+                          </RadioGroup>
+                        )}
+                      />
+                    </s.Answers>
+                  </s.QuestionWrapper>
+                  <s.QuestionWrapper>
+                    <s.Question>
+                      44. Если меня вызывает к себе начальник, я :
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1002,16 +1093,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="44" value="true" id="44_true">
-                              Да
+                              использую этот случай, чтобы попросить о том, что мне нужно
                             </Radio>
-
-
+                            <Radio name="44" value="half" id="44_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="44" value="false" id="44_false">
-                              Нет
+                              беспокоюсь, что сделал что-то не так
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1019,7 +1109,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      45. Можете ли Вы без долгих раздумий задать щекотливый вопрос другому человеку?
+                      45. Я считаю, что люди должны очень серьезно подумать прежде чем отказываться от опыта прошлых веков.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1027,16 +1117,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="45" value="true" id="45_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="45" value="half" id="45_half">
+                              не уверен
+                            </Radio>
                             <Radio name="45" value="false" id="45_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1044,7 +1133,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      46. Доставляют ли Вам удовольствие быстрые движения?
+                      46. Читая что-либо, я всегда хорошо осознаю скрытое намерение автора убедить меня в чем-то.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1052,16 +1141,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="46" value="true" id="46_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="46" value="half" id="46_half">
+                              не уверен
+                            </Radio>
                             <Radio name="46" value="false" id="46_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1069,7 +1157,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      47. Легко ли Вы "генерируете" новые идеи?
+                      47. Когда я учился в 9 – 11 классах, я участвовал в спортивной жизни школы:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1077,16 +1165,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="47" value="true" id="47_true">
-                              Да
+                              очень редко
                             </Radio>
-
-
+                            <Radio name="47" value="half" id="47_half">
+                              от случая к случаю
+                            </Radio>
                             <Radio name="47" value="false" id="47_false">
-                              Нет
+                              довольно часто
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1094,7 +1181,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      48. Сосет ли у Вас под ложечкой перед ответственным разговором?
+                      48. Я поддерживаю дома хороший порядок и почти всегда знаю, что где лежит.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1102,16 +1189,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="48" value="true" id="48_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="48" value="half" id="48_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="48" value="false" id="48_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1119,7 +1205,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      49. Можно ли сказать, что Вы быстро выполняете порученное Вам дело?
+                      49. Когда я думаю о том, что произошло в течении дня, я нередко испытываю беспокойство.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1127,16 +1213,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="49" value="true" id="49_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="49" value="half" id="49_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="49" value="false" id="49_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1144,7 +1229,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      50. Любите ли Вы браться за большие дела самостоятельно?
+                      50. Иногда я сомневаюсь, действительно ли люди, с которыми я беседую, интересуются тем, что я говорю.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1152,16 +1237,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="50" value="true" id="50_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="50" value="half" id="50_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="50" value="false" id="50_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1169,7 +1253,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      51. Богатая ли у Вас мимика в разговоре?
+                      51. Если бы мне пришлось выбирать, я предпочел бы быть:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1177,16 +1261,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="51" value="true" id="51_true">
-                              Да
+                              лесничим
                             </Radio>
-
-
+                            <Radio name="51" value="half" id="51_half">
+                              трудно выбрать
+                            </Radio>
                             <Radio name="51" value="false" id="51_false">
-                              Нет
+                              учителем старших классов
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1194,7 +1277,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      52. Если Вы обещали что-то сделать, всегда ли Вы выполняете свое обещание независимо от того, удобно Вам это или нет
+                      52.  Ко дню рождения, к праздникам:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1202,16 +1285,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="52" value="true" id="52_true">
-                              Да
+                              я люблю делать подарки
                             </Radio>
-
-
+                            <Radio name="52" value="half" id="52_half">
+                              затрудняюсь ответить
+                            </Radio>
                             <Radio name="52" value="false" id="52_false">
-                              Нет
+                              считаю, что покупка подарков – несколько неприятная обязанность
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1219,7 +1301,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      53. Испытываете ли Вы чувство обиды от того, что окружающие Вас люди обходятся с Вами хуже, чем следовало бы?
+                      53. Слово «усталый» так относится к слову «работа», как слово «гордый» к слову:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1227,16 +1309,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="53" value="true" id="53_true">
-                              Да
+                              улыбка
                             </Radio>
-
-
+                            <Radio name="53" value="half" id="53_half">
+                              успех
+                            </Radio>
                             <Radio name="53" value="false" id="53_false">
-                              Нет
+                              счастливый
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1244,7 +1325,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      54. Вы обычно предпочитаете выполнять одновременно только одну операцию?
+                      54. Какое из данных слов не подходит к двум остальным:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1252,16 +1333,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="54" value="true" id="54_true">
-                              Да
+                              свеча
                             </Radio>
-
-
+                            <Radio name="54" value="half" id="54_half">
+                              луна
+                            </Radio>
                             <Radio name="54" value="false" id="54_false">
-                              Нет
+                              лампа
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1269,7 +1349,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      55. Любите ли Вы игры в быстром темпе?
+                      55. Мои друзья:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1277,16 +1357,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="55" value="true" id="55_true">
-                              Да
+                              меня не подводили
                             </Radio>
-
-
+                            <Radio name="55" value="half" id="55_half">
+                              изредка
+                            </Radio>
                             <Radio name="55" value="false" id="55_false">
-                              Нет
+                              подводили довольно часто
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1294,7 +1373,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      56. Много ли в Вашей речи длительных пауз?
+                      56. У меня есть такие качества, по которым я определенно превосхожу других людей.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1302,16 +1381,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="56" value="true" id="56_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="56" value="half" id="56_half">
+                              не уверен
+                            </Radio>
                             <Radio name="56" value="false" id="56_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1319,7 +1397,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      57. Легко ли Вам внести оживление в компанию?
+                      57. Когда я расстроен, я всячески стараюсь скрыть свои чувства от других.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1327,16 +1405,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="57" value="true" id="57_true">
-                              Да
+                              да, это верно
                             </Radio>
-
-
+                            <Radio name="57" value="half" id="57_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="57" value="false" id="57_false">
-                              Нет
+                              нет, это не верно
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1344,7 +1421,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      58. Вы обычно чувствуете в себе избыток сил, и Вам хочется заняться каким-нибудь трудным делом?
+                      58. Мне хотелось бы ходить в кино, на разные представления и в другие места, где можно развлечься.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1352,16 +1429,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="58" value="true" id="58_true">
-                              Да
+                              чаще одного раза в неделю (чаще, чем большинство людей)
                             </Radio>
-
-
+                            <Radio name="58" value="half" id="58_half">
+                              примерно раз в неделю (как большинство)
+                            </Radio>
                             <Radio name="58" value="false" id="58_false">
-                              Нет
+                              реже одного раза в неделю (реже, чем большинство)
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1369,7 +1445,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      59. Обычно Вам трудно переключить внимание с одного дела на другое?
+                      59. Я думаю, что личная свобода в поведении важнее хороших манер и соблюдения этикета.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1377,16 +1453,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="59" value="true" id="59_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="59" value="half" id="59_half">
+                              не уверен
+                            </Radio>
                             <Radio name="59" value="false" id="59_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1394,7 +1469,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      60. Бывает ли, что у Вас надолго портится настроение от того, что сорвалось запланированное дело?
+                      60. В присутствии людей, более значительных, чем я (людей старше меня, или с большим опытом, или с более высоким положением), я склонен держаться скромно.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1402,16 +1477,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="60" value="true" id="60_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="60" value="half" id="60_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="60" value="false" id="60_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1419,7 +1493,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      61. Часто ли Вам не спится из-за того, что не ладятся дела, связанные непосредственно с работой?
+                      61. Мне трудно рассказать что-либо большой группе людей или выступать перед большой аудиторией.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1427,16 +1501,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="61" value="true" id="61_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="61" value="half" id="61_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="61" value="false" id="61_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1444,7 +1517,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      62. Любите ли Вы бывать в большой компании?
+                      62. Я хорошо ориентируюсь в незнакомой местности: легко могу сказать, где север, где юг, где восток или запад:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1452,16 +1525,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="62" value="true" id="62_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="62" value="half" id="62_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="62" value="false" id="62_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1469,7 +1541,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      63. Волнуетесь ли Вы, выясняя отношения с друзьями?
+                      63. Если бы кто-то разозлился на меня:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1477,16 +1549,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="63" value="true" id="63_true">
-                              Да
+                              я постарался бы его успокоить
                             </Radio>
-
-
+                            <Radio name="63" value="half" id="63_half">
+                              не знаю, что бы я предпринял
+                            </Radio>
                             <Radio name="63" value="false" id="63_false">
-                              Нет
+                              это вызвало бы у меня раздражение
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1494,7 +1565,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      64. Испытываете ли Вы потребность в работе, требующей полной отдачи сил?
+                      64. Когда я вижу статью, которую считаю несправедливой, я скорее склонен забыть об этом, чем с возмущением ответить автору
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1502,16 +1573,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="64" value="true" id="64_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="64" value="half" id="64_half">
+                              не уверен
+                            </Radio>
                             <Radio name="64" value="false" id="64_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1519,7 +1589,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      65. Выходите ли Вы иногда из себя, злитесь?
+                      65. В моей памяти не задерживаются надолго несущественные мелочи, например, названия улиц, магазинов.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1527,16 +1597,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="65" value="true" id="65_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="65" value="half" id="65_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="65" value="false" id="65_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1544,7 +1613,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      66. Склонны ли Вы решать много задач одновременно?
+                      66. Мне могла бы понравиться профессия ветеринара, который лечит и оперирует животных.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1552,16 +1621,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="66" value="true" id="66_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="66" value="half" id="66_half">
+                              трудно сказать
+                            </Radio>
                             <Radio name="66" value="false" id="66_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1569,7 +1637,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      67. Держитесь ли Вы свободно в большой компании?
+                      67. Я ем с наслаждением и не всегда столь тщательно забочусь о своих манерах, как это делают другие люди.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1577,16 +1645,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="67" value="true" id="67_true">
-                              Да
+                              да, это верно
                             </Radio>
-
-
+                            <Radio name="67" value="half" id="67_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="67" value="false" id="67_false">
-                              Нет
+                              нет, это не верно
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1594,7 +1661,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      68. Часто ли Вы высказываете свое первое впечатление, не подумав?
+                      68. Бывают периоды, когда мне ни с кем не хочется встречаться.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1602,16 +1669,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="68" value="true" id="68_true">
-                              Да
+                            <Radio name="67" value="true" id="67_true">
+                              очень редко
                             </Radio>
-
-
-                            <Radio name="68" value="false" id="68_false">
-                              Нет
+                            <Radio name="67" value="half" id="67_half">
+                              верно нечто среднее
                             </Radio>
-
+                            <Radio name="67" value="false" id="67_false">
+                              довольно часто
+                            </Radio>
                           </RadioGroup>
                         )}
                       />
@@ -1619,7 +1685,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      69. Беспокоит ли Вас чувство неуверенности в процессе выполнения работы?
+                      69. Иногда мне говорят, что мой голос и вид слишком явно выдают мое волнение.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1627,16 +1693,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="69" value="true" id="69_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="69" value="half" id="69_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="69" value="false" id="69_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1644,7 +1709,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      70. Медленны ли Ваши движения, когда Вы что-то мастерите?
+                      70. Когда я был подростком и мое мнение расходилось с родительским, я обычно:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1652,16 +1717,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="70" value="true" id="70_true">
-                              Да
+                              оставался при своем мнении
                             </Radio>
-
-
+                            <Radio name="70" value="half" id="70_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="70" value="false" id="70_false">
-                              Нет
+                              уступал, признавая их авторитет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1669,7 +1733,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      71. Легко ли Вы переключаетесь с одной работы на другую?
+                      71. Мне хотелось бы работать в отдельной комнате, а не вместе с коллегами.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1677,16 +1741,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="71" value="true" id="71_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="71" value="half" id="71_half">
+                              не уверен
+                            </Radio>
                             <Radio name="71" value="false" id="71_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1694,7 +1757,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      72. Быстро ли Вы читаете вслух?
+                      72. Я предпочел бы жить тихо, так, как мне нравится, нежели быть предметом восхищения благодаря своим успехам.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1702,16 +1765,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="72" value="true" id="72_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="72" value="half" id="72_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="72" value="false" id="72_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1719,7 +1781,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      73. Вы иногда сплетничаете?
+                      73. Во многих отношениях я считаю себя вполне зрелым человеком.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1727,16 +1789,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="73" value="true" id="73_true">
-                              Да
+                              это верно
                             </Radio>
-
-
+                            <Radio name="73" value="half" id="73_half">
+                              не уверен
+                            </Radio>
                             <Radio name="73" value="false" id="73_false">
-                              Нет
+                              это неверно
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1744,7 +1805,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      74. Молчаливы ли Вы, находясь в кругу друзей?
+                      74. Критика в том виде, в каком ее осуществляют многие люди, скорее выбивает меня из колеи, чем помогает.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1752,16 +1813,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="74" value="true" id="74_true">
-                              Да
+                              часто
                             </Radio>
-
-
+                            <Radio name="74" value="half" id="74_half">
+                              изредка
+                            </Radio>
                             <Radio name="74" value="false" id="74_false">
-                              Нет
+                              никогда
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1769,7 +1829,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      75. Нуждаетесь ли Вы в людях, которые бы Вас ободрили и утешили?
+                      75. Я всегда в состоянии строго контролировать проявление своих чувств.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1777,16 +1837,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="75" value="true" id="75_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="75" value="half" id="75_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="75" value="false" id="75_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1794,7 +1853,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      76. Охотно ли Вы выполняете множество разных поручений одновременно?
+                      76. Если бы я сделал полезное изобретение, я предпочел бы:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1802,16 +1861,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="76" value="true" id="76_true">
-                              Да
+                              работать над ним в лаборатории дальше
                             </Radio>
-
-
+                            <Radio name="76" value="half" id="76_half">
+                              трудно выбрать
+                            </Radio>
                             <Radio name="76" value="false" id="76_false">
-                              Нет
+                              позаботиться о его практическом использовании
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1819,7 +1877,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      77. Охотно ли Вы выполняете работу в быстром темпе?
+                      77. Слово «удивление» так относится к слову «необычный», как слово «страх» к слову:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1827,16 +1885,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="77" value="true" id="77_true">
-                              Да
+                              храбрый
                             </Radio>
-
-
+                            <Radio name="77" value="half" id="77_half">
+                              беспокойный
+                            </Radio>
                             <Radio name="77" value="false" id="77_false">
-                              Нет
+                              ужасный
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1844,7 +1901,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      78. В свободное время Вас обычно тянет пообщаться с людьми?
+                      78. Какая из следующих дробей не подходит к двум остальным:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1852,16 +1909,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="78" value="true" id="78_true">
-                              Да
+                              3/7
                             </Radio>
-
-
+                            <Radio name="78" value="half" id="78_half">
+                              3/9
+                            </Radio>
                             <Radio name="78" value="false" id="78_false">
-                              Нет
+                              3/11
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1869,7 +1925,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      79. Часто ли у Вас бывает бессонница при неудачах на работе?
+                      79. Мне кажется, что некоторые люди не замечают или избегают меня, хотя и не знаю, почему.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1877,16 +1933,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="79" value="true" id="79_true">
-                              Да
+                              верно
                             </Radio>
-
-
+                            <Radio name="79" value="half" id="79_half">
+                              не уверен
+                            </Radio>
                             <Radio name="79" value="false" id="79_false">
-                              Нет
+                              неверно
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1894,7 +1949,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      80. Дрожат ли у Вас иногда руки во время ссоры?
+                      80. Люди относятся ко мне более доброжелательно, чем я того заслуживаю своим добрым к ним отношением.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1902,16 +1957,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="80" value="true" id="80_true">
-                              Да
+                              очень часто
                             </Radio>
-
-
+                            <Radio name="80" value="half" id="80_half">
+                              иногда
+                            </Radio>
                             <Radio name="80" value="false" id="80_false">
-                              Нет
+                              никогда
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1919,7 +1973,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      81. Долго ли Вы мысленно готовитесь перед тем, как высказать свое мнение?
+                      81. Употребление нецензурных выражений мне всегда противно (даже если при этом нет лица другого пола)
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1927,16 +1981,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="81" value="true" id="81_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="81" value="half" id="81_half">
+                              среднее между
+                            </Radio>
                             <Radio name="81" value="false" id="81_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1944,7 +1997,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      82. Есть ли среди Ваших знакомых люди, которые Вам явно не нравятся?
+                      82. У меня безусловно меньше друзей, чем у большинства людей.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1952,16 +2005,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="82" value="true" id="82_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="82" value="half" id="82_half">
+                              среднее между
+                            </Radio>
                             <Radio name="82" value="false" id="82_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1969,7 +2021,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      83. Обычно Вы предпочитаете легкую работу?
+                      83. Очень не люблю бывать там, где не с кем поговорить.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1977,16 +2029,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="83" value="true" id="83_true">
-                              Да
+                              верно
                             </Radio>
-
-
+                            <Radio name="83" value="half" id="83_half">
+                              не уверен
+                            </Radio>
                             <Radio name="83" value="false" id="83_false">
-                              Нет
+                              неверно
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1994,7 +2045,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      84. Легко ли Вас обидеть в разговоре по пустякам?
+                      84. Люди иногда называют меня легкомысленным, хотя и считают приятным человеком.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2002,16 +2053,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="84" value="true" id="84_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="84" value="half" id="84_half">
+                              среднее между
+                            </Radio>
                             <Radio name="84" value="false" id="84_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -2019,7 +2069,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      85. Обычно Вы первым в компании решаетесь начать разговор?
+                      85. В различных ситуациях в обществе я испытывал волнение, похожее на то, которое испытывает человек перед выходом на сцену.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2027,16 +2077,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="85" value="true" id="85_true">
-                              Да
+                              довольно часто
                             </Radio>
-
-
+                            <Radio name="85" value="half" id="85_half">
+                              изредка
+                            </Radio>
                             <Radio name="85" value="false" id="85_false">
-                              Нет
+                              едва ли когда-нибудь
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -2044,7 +2093,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      86. Испытываете ли Вы тягу к людям?
+                      86. Находясь в небольшой группе людей, я довольствуюсь тем, что держусь в стороне и по большей части предоставляю говорить другим.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2052,16 +2101,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="86" value="true" id="86_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="86" value="half" id="86_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="86" value="false" id="86_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -2069,7 +2117,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      87. Склонны ли Вы вначале поразмыслить, а потом говорить?
+                      87. Мне больше нравится читать:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2077,16 +2125,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="87" value="true" id="87_true">
-                              Да
+                              еалистические описания острых военных и политических конфликтов
                             </Radio>
-
-
+                            <Radio name="87" value="half" id="87_half">
+                              не знаю, что выбрать
+                            </Radio>
                             <Radio name="87" value="false" id="87_false">
-                              Нет
+                              роман, возбуждающий воображения и чувства
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -2094,7 +2141,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      88. Часто ли Вы волнуетесь по поводу своей работы?
+                      88. Когда мною пытаются командовать, я нарочно делаю все наоборот.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2102,16 +2149,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="88" value="true" id="88_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="88" value="half" id="88_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="88" value="false" id="88_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -2119,7 +2165,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      89. Всегда ли Вы платили бы за провоз багажа на транспорте, если бы не опасались проверки?
+                      89. Если начальство или члены семьи в чем-то меня упрекают, то, как правило, только за дело.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2127,16 +2173,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="89" value="true" id="89_true">
-                              Да
+                              верно
                             </Radio>
-
-
+                            <Radio name="89" value="half" id="89_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="89" value="false" id="89_false">
-                              Нет
+                              неверно
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -2144,7 +2189,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      90. Держитесь ли Вы обычно обособленно на вечеринках или в компаниях?
+                      90. Мне не нравится манера некоторых людей «уставится» и бесцеремонно смотреть на человека в магазине или на улице.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2152,16 +2197,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="90" value="true" id="90_true">
-                              Да
+                              верно
                             </Radio>
-
-
+                            <Radio name="90" value="half" id="90_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="90" value="false" id="90_false">
-                              Нет
+                              неверно
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -2169,7 +2213,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      91. Склонны ли Вы преувеличивать в своем воображении неудачи, связанные с работой?
+                      91. Во время продолжительного путешествия я предпочел бы:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2177,16 +2221,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="91" value="true" id="91_true">
-                              Да
+                              читать что-нибудь сложное, но интересное
                             </Radio>
-
-
+                            <Radio name="91" value="half" id="91_half">
+                              не знаю, что выбрал бы
+                            </Radio>
                             <Radio name="91" value="false" id="91_false">
-                              Нет
+                              провести время, беседуя с попутчиком
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -2194,7 +2237,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      92. Нравится ли Вам быстро говорить?
+                      92. В шутках о смерти нет ничего дурного или противного хорошему вкусу.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2202,16 +2245,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="92" value="true" id="92_true">
-                              Да
+                              верно
                             </Radio>
-
-
+                            <Radio name="92" value="half" id="92_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="92" value="false" id="92_false">
-                              Нет
+                              неверно
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -2219,7 +2261,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      93. Легко ли Вам удержаться от высказывания неожиданно возникшей идеи?
+                      93. Если мои знакомые плохо обращаются со мной и не скрывают своей неприязни:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2227,16 +2269,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="93" value="true" id="93_true">
-                              Да
+                              это нисколько меня не угнетает
                             </Radio>
-
-
+                            <Radio name="93" value="half" id="93_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="93" value="false" id="93_false">
-                              Нет
+                              я падаю духом
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -2244,7 +2285,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      94. Предпочитаете ли Вы работать медленно?
+                      94. Мне становится не по себе, когда мне говорят комплименты и хвалят в лицо.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2252,16 +2293,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="94" value="true" id="94_true">
-                              Да
+                              верно
                             </Radio>
-
-
+                            <Radio name="94" value="half" id="94_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="94" value="false" id="94_false">
-                              Нет
+                              неверно
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -2269,7 +2309,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      95. Переживаете ли Вы из-за малейших неполадок на работе?
+                      95. Я предпочел бы иметь работу:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2277,16 +2317,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="95" value="true" id="95_true">
-                              Да
+                              с четко определенным и постоянным заработком
                             </Radio>
-
-
+                            <Radio name="95" value="half" id="95_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="95" value="false" id="95_false">
-                              Нет
+                              с более высокой зарплатой, которая бы зависела от моих усилий и продуктивности
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -2294,7 +2333,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      96. Вы предпочитаете медленный? спокойный разговор?
+                      96. Мне легче решить трудный вопрос или проблему:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2302,16 +2341,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="96" value="true" id="96_true">
-                              Да
+                              если я обсуждаю их с другими
                             </Radio>
-
-
+                            <Radio name="96" value="half" id="96_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="96" value="false" id="96_false">
-                              Нет
+                              если я обдумываю их в одиночестве
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -2319,7 +2357,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      97. Часто ли Вы волнуетесь из-за ошибок в работе, которые были Вами допущены?
+                      97. Я охотно участвую в общественной жизни, в работе разных комиссий и т.д.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2327,16 +2365,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="97" value="true" id="97_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="97" value="half" id="97_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="97" value="false" id="97_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -2344,7 +2381,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      98. Способны ли Вы успешно выполнять длительную трудовую работу?
+                      98. Выполняя какую-либо работу, я не успокаиваюсь, пока не будут учтены даже самые незначительные детали.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2352,16 +2389,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="98" value="true" id="98_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="98" value="half" id="98_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="98" value="false" id="98_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -2369,7 +2405,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      99. Можете ли Вы, не долго думая, обратиться с просьбой к другому человеку?
+                      99. Иногда совсем незначительные препятствия очень сильно раздражают меня.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2377,16 +2413,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="99" value="true" id="99_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="99" value="half" id="99_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="99" value="false" id="99_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -2394,7 +2429,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      100. Часто ли Вас беспокоит чувство неуверенности в себе при общении с людьми?
+                      100. Я сплю крепко, никогда не разговариваю во сне.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2402,16 +2437,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="100" value="true" id="100_true">
-                              Да
+                              да
                             </Radio>
-
-
+                            <Radio name="100" value="half" id="100_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="100" value="false" id="100_false">
-                              Нет
+                              нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -2419,7 +2453,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      101. Легко ли Вы беретесь за выполнение новых заданий?
+                      101. Если бы я работал в хозяйственной сфере, мне было бы интереснее:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2427,16 +2461,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="101" value="true" id="101_true">
-                              Да
+                              работать с клиентами
                             </Radio>
-
-
+                            <Radio name="101" value="half" id="101_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="101" value="false" id="101_false">
-                              Нет
+                              работать с документацией
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -2444,7 +2477,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      102. Устаете ли Вы, когда Вам приходится говорить долго?
+                      102. Слово «размер» так относится к слову «длина», как слово «нечестный» к слову:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2452,16 +2485,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="102" value="true" id="102_true">
-                              Да
+                              тюрьма
                             </Radio>
-
-
+                            <Radio name="102" value="half" id="102_half">
+                              грешный
+                            </Radio>
                             <Radio name="102" value="false" id="102_false">
-                              Нет
+                              укравший
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -2469,7 +2501,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      103. Вы предпочитаете работать с прохладцей, без особого напряжения?
+                      103. АБ так относится к ГВ, как СР к:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2477,16 +2509,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="103" value="true" id="103_true">
-                              Да
+                              ПО
                             </Radio>
-
-
+                            <Radio name="103" value="half" id="103_half">
+                              ОП
+                            </Radio>
                             <Radio name="103" value="false" id="103_false">
-                              Нет
+                              ТУ
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -2494,7 +2525,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      104. Нравится ли Вам разнообразная работа, требующая переключения внимания?
+                      104. Когда люди ведут себя неблагоразумно и безрассудно:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2502,16 +2533,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="104" value="true" id="104_true">
-                              Да
+                              я отношусь к этому спокойно
                             </Radio>
-
-
+                            <Radio name="104" value="half" id="104_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="104" value="false" id="104_false">
-                              Нет
+                              испытываю к ним чувство презрения
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -2519,7 +2549,7 @@ export const Rusalov = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      105. Любите ли Вы подолгу бывать наедине с собой?
+                      105. Когда я слушаю музыку, а рядом громко разговаривают:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2527,16 +2557,15 @@ export const Rusalov = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
                             <Radio name="105" value="true" id="105_true">
-                              Да
+                              это мне не мешает, я могу сосредоточиться
                             </Radio>
-
-
+                            <Radio name="105" value="half" id="105_half">
+                              верно нечто среднее
+                            </Radio>
                             <Radio name="105" value="false" id="105_false">
-                              Нет
+                              это портит мне все удовольствие и злит меня
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />

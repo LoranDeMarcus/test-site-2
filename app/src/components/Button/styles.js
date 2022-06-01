@@ -6,7 +6,7 @@ export const Wrapper = styled.button`
   align-items: center;
   justify-content: center;
   color: ${colors.white};
-  background: ${colors.orange};
+  background: ${({ theme }) => theme === 'primary' ? colors.orange : colors.blue };
   border: none;
   font-size: 14px;
   font-weight: 600;
@@ -19,6 +19,22 @@ export const Wrapper = styled.button`
   text-decoration: none;
 
   &:hover {
-    background-color: ${colors.lightOrange};
+    background-color: ${({ theme }) => theme === 'primary' ? colors.lightOrange : colors.lighBlue };
+  }
+`
+
+export const GhostButton = styled.button`
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: ${colors.blue};
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: ${colors.dark}
   }
 `
