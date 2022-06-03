@@ -5,5 +5,6 @@ export const colors = {
   lighBlue: '#0e67b3',
   dark: '#081828',
   orange: '#ec8802',
-  lightOrange: '#ECB102'
+  lightOrange: '#ECB102',
+  gray: '#f0f0f0'
 }

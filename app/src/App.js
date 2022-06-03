@@ -1,5 +1,6 @@
 import React from 'react'
 import { HashRouter, Route, Routes } from 'react-router-dom'
+import Header from './components/Header'
 import { HomePage } from './pages/home'
 import { Testing } from './pages/testing'
 import { Cabinet } from './pages/cabinet'
@@ -9,7 +10,7 @@ import { Cattel } from './pages/testing/Cattel'
 import { Pantileev } from './pages/testing/Pantileev'
 import { KOT } from './pages/testing/KOT'
 import { Vark } from './pages/testing/Vark'
-import Header from './components/Header'
+import { Luscher } from './pages/testing/Lusher'
 
 // todo: добавить описание в Pantileev
 
@@ -27,6 +28,7 @@ function App() {
         <Route path='/testing/pantileev' element={<Pantileev />} />
         <Route path='/testing/kot' element={<KOT />} />
         <Route path='/testing/vark' element={<Vark />} />
+        <Route path='/testing/luscher' element={<Luscher />} />
       </Routes>
     </HashRouter>
   )
