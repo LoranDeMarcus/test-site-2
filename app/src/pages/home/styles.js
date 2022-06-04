@@ -100,3 +100,9 @@ export const Card = styled.div`
     border-style: solid;
   }
 `
+
+export const certificate = css`
+  display: block;
+  margin: 0 auto;
+  height: 900px;
+`

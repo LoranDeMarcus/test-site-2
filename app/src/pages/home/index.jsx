@@ -2,6 +2,7 @@ import React from 'react'
 import Container from '../../components/Container'
 import * as s from './styles'
 import Main from '../../assets/main.jpg'
+import Certificate from '../../assets/cert.jpg'
 
 export const HomePage = () => {
   return (
@@ -97,6 +98,9 @@ export const HomePage = () => {
           </s.TextDark>
         </Container>
       </s.TransparentSection>
+      <s.Section>
+        <img src={Certificate} alt='certificate' className={s.certificate} />
+      </s.Section>
     </>
   )
 }
