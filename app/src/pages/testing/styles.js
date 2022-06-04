@@ -27,8 +27,17 @@ export const Title = styled.h3`
   border-bottom: 1px solid ${colors.white};
 `
 
+export const Subtitle = styled.span`
+  display: block;
+  margin-top: 40px;
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 400;
+  color: ${colors.white}
+`
+
 export const CardsWrapper = styled.div`
-  margin-top: 60px;
+  margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;

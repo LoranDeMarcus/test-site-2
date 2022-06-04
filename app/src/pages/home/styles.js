@@ -39,6 +39,7 @@ export const Text = styled.p`
   margin-bottom: 18px;
   font-size: 18px;
   line-height: 24px;
+  font-weight: ${({ bold }) => bold ? 700 : 400};
   color: ${colors.white};
 `
 
@@ -64,7 +65,7 @@ export const TitleThird = styled.h3`
 `
 
 export const Wrapper = styled.div`
-  margin-top: 50px;
+  margin-top: 40px;
 `
 
 export const CardsContainer = styled.div`
