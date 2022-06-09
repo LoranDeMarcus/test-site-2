@@ -1,0 +1,227 @@
+/*! ./constants/bad-colors */
+
+/*! ./constants/good-colors */
+
+/*! ./constants/luscher-colors */
+
+/*! ./constants/minus-function-titles */
+
+/*! ./helpers/get-interpretation */
+
+/*! ./helpers/validate-selection */
+
+/*! ./single-stage-test */
+
+/*! ./two-stage-test */
+
+/*! ./types/enums/color-hex.enum */
+
+/*! ./types/enums/emotional-state.enum */
+
+/*! ./types/enums/interpretation-language.enum */
+
+/*! ./types/enums/main-color.enum */
+
+/*! ./types/enums/sign.enum */
+
+/*! @/types/enums/color-hex.enum */
+
+/*! @/types/enums/main-color.enum */
+
+/*! @/types/enums/sign.enum */
+
+/*! exports provided: 0, 1, 2, 3, 4, 5, 6, 7, 10, 12, 13, 14, 15, 16, 17, 20, 21, 23, 24, 25, 26, 27, 30, 31, 32, 34, 35, 36, 37, 40, 41, 42, 43, 45, 46, 47, 50, 51, 52, 53, 54, 56, 57, 60, 61, 62, 63, 64, 65, 67, 70, 71, 72, 73, 74, 75, 76, 01, 02, 03, 04, 05, 06, 07, default */
+
+/*! exports provided: 0, 1, 2, 3, 4, 5, 6, 7, 10, 12, 13, 14, 15, 16, 17, 20, 21, 23, 24, 25, 26, 27, 30, 31, 32, 34, 35, 36, 37, 40, 41, 42, 43, 45, 46, 47, 50, 51, 52, 53, 54, 56, 57, 60, 61, 62, 63, 64, 65, 67, 70, 71, 72, 73, 74, 75, 76, title, 01, 02, 03, 04, 05, 06, 07, default */
+
+/*! no static exports found */
+
+/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
+
+/*!**********************!*\
+      !*** ./src/index.ts ***!
+      \**********************/
+
+/*!*******************************!*\
+      !*** ./src/two-stage-test.ts ***!
+      \*******************************/
+
+/*!**********************************!*\
+      !*** ./src/single-stage-test.ts ***!
+      \**********************************/
+
+/*!*************************************!*\
+      !*** ./src/constants/bad-colors.ts ***!
+      \*************************************/
+
+/*!**************************************!*\
+      !*** ./src/constants/good-colors.ts ***!
+      \**************************************/
+
+/*!**************************************!*\
+      !*** ./src/types/enums/sign.enum.ts ***!
+      \**************************************/
+
+/*!*****************************************!*\
+      !*** ./src/assets/i18n/en/en.plus.json ***!
+      \*****************************************/
+
+/*!*****************************************!*\
+      !*** ./src/assets/i18n/ru/ru.plus.json ***!
+      \*****************************************/
+
+/*!*****************************************!*\
+      !*** ./src/constants/luscher-colors.ts ***!
+      \*****************************************/
+
+/*!******************************************!*\
+      !*** ./src/assets/i18n/en/en.equal.json ***!
+      \******************************************/
+
+/*!******************************************!*\
+      !*** ./src/assets/i18n/en/en.minus.json ***!
+      \******************************************/
+
+/*!******************************************!*\
+      !*** ./src/assets/i18n/ru/ru.equal.json ***!
+      \******************************************/
+
+/*!******************************************!*\
+      !*** ./src/assets/i18n/ru/ru.minus.json ***!
+      \******************************************/
+
+/*!*******************************************!*\
+      !*** ./src/helpers/get-interpretation.ts ***!
+      \*******************************************/
+
+/*!*******************************************!*\
+      !*** ./src/helpers/validate-selection.ts ***!
+      \*******************************************/
+
+/*!*******************************************!*\
+      !*** ./src/types/enums/color-hex.enum.ts ***!
+      \*******************************************/
+
+/*!********************************************!*\
+      !*** ./src/assets/i18n/template.plus.json ***!
+      \********************************************/
+
+/*!********************************************!*\
+      !*** ./src/types/enums/main-color.enum.ts ***!
+      \********************************************/
+
+/*!*********************************************!*\
+      !*** ./src/assets/i18n/en/en.asterisk.json ***!
+      \*********************************************/
+
+/*!*********************************************!*\
+      !*** ./src/assets/i18n/ru/ru.asterisk.json ***!
+      \*********************************************/
+
+/*!*********************************************!*\
+      !*** ./src/assets/i18n/template.equal.json ***!
+      \*********************************************/
+
+/*!*********************************************!*\
+      !*** ./src/assets/i18n/template.minus.json ***!
+      \*********************************************/
+
+/*!***********************************************!*\
+      !*** ./src/assets/i18n/multi/multi.plus.json ***!
+      \***********************************************/
+
+/*!************************************************!*\
+      !*** ./src/assets/i18n/multi/multi.equal.json ***!
+      \************************************************/
+
+/*!************************************************!*\
+      !*** ./src/assets/i18n/multi/multi.minus.json ***!
+      \************************************************/
+
+/*!************************************************!*\
+      !*** ./src/assets/i18n/template.asterisk.json ***!
+      \************************************************/
+
+/*!************************************************!*\
+      !*** ./src/constants/minus-function-titles.ts ***!
+      \************************************************/
+
+/*!*************************************************!*\
+      !*** ./src/types/enums/emotional-state.enum.ts ***!
+      \*************************************************/
+
+/*!***************************************************!*\
+      !*** ./src/assets/i18n sync ^\.\/.*\.plus\.json$ ***!
+      \***************************************************/
+
+/*!***************************************************!*\
+      !*** ./src/assets/i18n/multi/multi.asterisk.json ***!
+      \***************************************************/
+
+/*!****************************************************!*\
+      !*** ./src/assets/i18n sync ^\.\/.*\.equal\.json$ ***!
+      \****************************************************/
+
+/*!****************************************************!*\
+      !*** ./src/assets/i18n sync ^\.\/.*\.minus\.json$ ***!
+      \****************************************************/
+
+/*!*******************************************************!*\
+      !*** ./src/assets/i18n sync ^\.\/.*\.asterisk\.json$ ***!
+      \*******************************************************/
+
+/*!*********************************************************!*\
+      !*** ./src/types/enums/interpretation-language.enum.ts ***!
+      \*********************************************************/
+
+/**
+ * @license React
+ * react-dom.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * @license React
+ * react.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * @license React
+ * scheduler.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * React Router DOM v6.3.0
+ *
+ * Copyright (c) Remix Software Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.md file in the root directory of this source tree.
+ *
+ * @license MIT
+ */
+
+/**
+ * React Router v6.3.0
+ *
+ * Copyright (c) Remix Software Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.md file in the root directory of this source tree.
+ *
+ * @license MIT
+ */
