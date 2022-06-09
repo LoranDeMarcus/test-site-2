@@ -74,3 +74,14 @@ export const ListItem = styled.li`
     margin-left: 15px;
   }
 `
+
+export const LuscherWrapper = styled.div`
+  margin: 50px auto 0;
+  padding: ${({ isDone }) => isDone ? '0' : '60px'};
+  width: ${({ isDone }) => isDone ? '100%' : '700px'};
+  height: ${({ isDone }) => isDone ? 'auto' : '400px'};
+  background-color: ${({ isDone }) => isDone ? colors.blue : colors.white};
+  font-size: 18px;
+  line-height: 22px;
+  color: ${colors.white};
+`
