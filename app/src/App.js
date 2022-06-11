@@ -11,8 +11,8 @@ import { Pantileev } from './pages/testing/Pantileev'
 import { KOT } from './pages/testing/KOT'
 import { Vark } from './pages/testing/Vark'
 import { Luscher } from './pages/testing/Lusher'
-
-// todo: добавить описание в Pantileev
+import { Registration } from './pages/cabinet/Registration'
+import { Login } from './pages/cabinet/Login'
 
 function App() {
   return (
@@ -22,6 +22,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path='/cabinet' element={<Cabinet />} />
         <Route path='/testing' element={<Testing />} />
+        <Route path='/registration' element={<Registration />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/testing/buss-durkee' element={<BussDurkee />} />
         <Route path='/testing/rusalov' element={<Rusalov />} />
         <Route path='/testing/cattel' element={<Cattel />} />

@@ -46,3 +46,8 @@ export const link = css`
     color: ${colors.orange};
   }
 `
+
+export const CabinetWrapper = styled.div`
+  display: flex;
+  gap: 25px;
+`

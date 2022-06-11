@@ -6,12 +6,12 @@ import Container from '../../../components/Container'
 import { PageWrapper, Wrapper } from '../styles'
 import * as s from './styles'
 import { Radio, RadioGroup } from '../../../components/Radio'
+import { Result } from './result'
 
 export const BussDurkee = () => {
   const [hasReadDescription, setHasReadDescription] = useState(true)
+  const [isDone, setIsDone] = useState(false)
   const { control, handleSubmit, formState: { errors } } = useForm()
-
-  console.log(errors)
 
   const onSubmit = (data) => {
     console.log(data)
@@ -24,8 +24,7 @@ export const BussDurkee = () => {
           <s.Tittle>
             Опросник Басса-Дарки
           </s.Tittle>
-          {hasReadDescription
-            ? (
+          {hasReadDescription && !isDone && (
               <>
                 <s.Subtitle>
                   Данный опросник делает диагностику по состоянию агрессии личности.
@@ -37,7 +36,8 @@ export const BussDurkee = () => {
                   Начать тестирование
                 </Button>
               </>
-            ) : (
+            )}
+          {!hasReadDescription && !isDone && (
               <>
                 <Button onClick={() => setHasReadDescription(true)} className={s.ReturnButton}>
                   Вернуться к описанию
@@ -53,10 +53,10 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="1" value="true" id="1_true">
+                            <Radio name="1" value={true} id="1_true">
                               Да
                             </Radio>
-                            <Radio name="1" value="false" id="1_false">
+                            <Radio name="1" value={false} id="1_false">
                               Нет
                             </Radio>
                           </RadioGroup>
@@ -74,10 +74,10 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="2" value="true" id="2_true">
+                            <Radio name="2" value={true} id="2_true">
                               Да
                             </Radio>
-                            <Radio name="2" value="false" id="2_false">
+                            <Radio name="2" value={false} id="2_false">
                               Нет
                             </Radio>
                           </RadioGroup>
@@ -95,10 +95,10 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="3" value="true" id="3_true">
+                            <Radio name="3" value={true} id="3_true">
                               Да
                             </Radio>
-                            <Radio name="3" value="false" id="3_false">
+                            <Radio name="3" value={false} id="3_false">
                               Нет
                             </Radio>
                           </RadioGroup>
@@ -116,10 +116,10 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="4" value="true" id="4_true">
+                            <Radio name="4" value={true} id="4_true">
                               Да
                             </Radio>
-                            <Radio name="4" value="false" id="4_false">
+                            <Radio name="4" value={false} id="4_false">
                               Нет
                             </Radio>
                           </RadioGroup>
@@ -137,10 +137,10 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="5" value="true" id="5_true">
+                            <Radio name="5" value={true} id="5_true">
                               Да
                             </Radio>
-                            <Radio name="5" value="false" id="5_false">
+                            <Radio name="5" value={false} id="5_false">
                               Нет
                             </Radio>
                           </RadioGroup>
@@ -158,10 +158,10 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="6" value="true" id="6_true">
+                            <Radio name="6" value={true} id="6_true">
                               Да
                             </Radio>
-                            <Radio name="6" value="false" id="6_false">
+                            <Radio name="6" value={false} id="6_false">
                               Нет
                             </Radio>
                           </RadioGroup>
@@ -179,10 +179,10 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="7" value="true" id="7_true">
+                            <Radio name="7" value={true} id="7_true">
                               Да
                             </Radio>
-                            <Radio name="7" value="false" id="7_false">
+                            <Radio name="7" value={false} id="7_false">
                               Нет
                             </Radio>
                           </RadioGroup>
@@ -200,10 +200,10 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="8" value="true" id="8_true">
+                            <Radio name="8" value={true} id="8_true">
                               Да
                             </Radio>
-                            <Radio name="8" value="false" id="8_false">
+                            <Radio name="8" value={false} id="8_false">
                               Нет
                             </Radio>
                           </RadioGroup>
@@ -221,10 +221,10 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="9" value="true" id="9_true">
+                            <Radio name="9" value={true} id="9_true">
                               Да
                             </Radio>
-                            <Radio name="9" value="false" id="9_false">
+                            <Radio name="9" value={false} id="9_false">
                               Нет
                             </Radio>
                           </RadioGroup>
@@ -242,10 +242,10 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="10" value="true" id="10_true">
+                            <Radio name="10" value={true} id="10_true">
                               Да
                             </Radio>
-                            <Radio name="10" value="false" id="10_false">
+                            <Radio name="10" value={false} id="10_false">
                               Нет
                             </Radio>
                           </RadioGroup>
@@ -263,10 +263,10 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="11" value="true" id="11_true">
+                            <Radio name="11" value={true} id="11_true">
                               Да
                             </Radio>
-                            <Radio name="11" value="false" id="11_false">
+                            <Radio name="11" value={false} id="11_false">
                               Нет
                             </Radio>
                           </RadioGroup>
@@ -284,10 +284,10 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="12" value="true" id="12_true">
+                            <Radio name="12" value={true} id="12_true">
                               Да
                             </Radio>
-                            <Radio name="12" value="false" id="12_false">
+                            <Radio name="12" value={false} id="12_false">
                               Нет
                             </Radio>
                           </RadioGroup>
@@ -305,10 +305,10 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="13" value="true" id="13_true">
+                            <Radio name="13" value={true} id="13_true">
                               Да
                             </Radio>
-                            <Radio name="13" value="false" id="13_false">
+                            <Radio name="13" value={false} id="13_false">
                               Нет
                             </Radio>
                           </RadioGroup>
@@ -326,10 +326,10 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="14" value="true" id="14_true">
+                            <Radio name="14" value={true} id="14_true">
                               Да
                             </Radio>
-                            <Radio name="14" value="false" id="14_false">
+                            <Radio name="14" value={false} id="14_false">
                               Нет
                             </Radio>
                           </RadioGroup>
@@ -347,10 +347,10 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="15" value="true" id="15_true">
+                            <Radio name="15" value={true} id="15_true">
                               Да
                             </Radio>
-                            <Radio name="15" value="false" id="15_false">
+                            <Radio name="15" value={false} id="15_false">
                               Нет
                             </Radio>
                           </RadioGroup>
@@ -368,10 +368,10 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="16" value="true" id="16_true">
+                            <Radio name="16" value={true} id="16_true">
                               Да
                             </Radio>
-                            <Radio name="16" value="false" id="16_false">
+                            <Radio name="16" value={false} id="16_false">
                               Нет
                             </Radio>
                           </RadioGroup>
@@ -389,10 +389,10 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="17" value="true" id="17_true">
+                            <Radio name="17" value={true} id="17_true">
                               Да
                             </Radio>
-                            <Radio name="17" value="false" id="17_false">
+                            <Radio name="17" value={false} id="17_false">
                               Нет
                             </Radio>
                           </RadioGroup>
@@ -410,10 +410,10 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="18" value="true" id="18_true">
+                            <Radio name="18" value={true} id="18_true">
                               Да
                             </Radio>
-                            <Radio name="18" value="false" id="18_false">
+                            <Radio name="18" value={false} id="18_false">
                               Нет
                             </Radio>
                           </RadioGroup>
@@ -431,10 +431,10 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="19" value="true" id="19_true">
+                            <Radio name="19" value={true} id="19_true">
                               Да
                             </Radio>
-                            <Radio name="19" value="false" id="19_false">
+                            <Radio name="19" value={false} id="19_false">
                               Нет
                             </Radio>
                           </RadioGroup>
@@ -452,10 +452,10 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="20" value="true" id="20_true">
+                            <Radio name="20" value={true} id="20_true">
                               Да
                             </Radio>
-                            <Radio name="20" value="false" id="20_false">
+                            <Radio name="20" value={false} id="20_false">
                               Нет
                             </Radio>
                           </RadioGroup>
@@ -473,10 +473,10 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="21" value="true" id="21_true">
+                            <Radio name="21" value={true} id="21_true">
                               Да
                             </Radio>
-                            <Radio name="21" value="false" id="21_false">
+                            <Radio name="21" value={false} id="21_false">
                               Нет
                             </Radio>
                           </RadioGroup>
@@ -494,10 +494,10 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="22" value="true" id="22_true">
+                            <Radio name="22" value={true} id="22_true">
                               Да
                             </Radio>
-                            <Radio name="22" value="false" id="22_false">
+                            <Radio name="22" value={false} id="22_false">
                               Нет
                             </Radio>
                           </RadioGroup>
@@ -515,10 +515,10 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-                            <Radio name="23" value="true" id="23_true">
+                            <Radio name="23" value={true} id="23_true">
                               Да
                             </Radio>
-                            <Radio name="23" value="false" id="23_false">
+                            <Radio name="23" value={false} id="23_false">
                               Нет
                             </Radio>
                           </RadioGroup>
@@ -536,16 +536,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="24" value="true" id="24_true">
+                            <Radio name="24" value={true} id="24_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="24" value="false" id="24_false">
+                            <Radio name="24" value={false} id="24_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -561,16 +557,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="25" value="true" id="25_true">
+                            <Radio name="25" value={true} id="25_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="25" value="false" id="25_false">
+                            <Radio name="25" value={false} id="25_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -586,16 +578,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="26" value="true" id="26_true">
+                            <Radio name="26" value={true} id="26_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="26" value="false" id="26_false">
+                            <Radio name="26" value={false} id="26_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -611,16 +599,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="27" value="true" id="27_true">
+                            <Radio name="27" value={true} id="27_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="27" value="false" id="27_false">
+                            <Radio name="27" value={false} id="27_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -636,16 +620,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="28" value="true" id="28_true">
+                            <Radio name="28" value={true} id="28_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="28" value="false" id="28_false">
+                            <Radio name="28" value={false} id="28_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -661,16 +641,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="29" value="true" id="29_true">
+                            <Radio name="29" value={true} id="29_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="29" value="false" id="29_false">
+                            <Radio name="29" value={false} id="29_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -686,16 +662,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="30" value="true" id="30_true">
+                            <Radio name="30" value={true} id="30_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="30" value="false" id="30_false">
+                            <Radio name="30" value={false} id="30_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -711,16 +683,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="31" value="true" id="31_true">
+                            <Radio name="31" value={true} id="31_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="31" value="false" id="31_false">
+                            <Radio name="31" value={false} id="31_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -736,16 +704,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="32" value="true" id="32_true">
+                            <Radio name="32" value={true} id="32_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="32" value="false" id="32_false">
+                            <Radio name="32" value={false} id="32_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -761,16 +725,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="33" value="true" id="33_true">
+                            <Radio name="33" value={true} id="33_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="33" value="false" id="33_false">
+                            <Radio name="33" value={false} id="33_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -786,16 +746,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="34" value="true" id="34_true">
+                            <Radio name="34" value={true} id="34_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="34" value="false" id="34_false">
+                            <Radio name="34" value={false} id="34_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -811,16 +767,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="35" value="true" id="35_true">
+                            <Radio name="35" value={true} id="35_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="35" value="false" id="35_false">
+                            <Radio name="35" value={false} id="35_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -836,16 +788,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="36" value="true" id="36_true">
+                            <Radio name="36" value={true} id="36_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="36" value="false" id="36_false">
+                            <Radio name="36" value={false} id="36_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -861,16 +809,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="37" value="true" id="37_true">
+                            <Radio name="37" value={true} id="37_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="37" value="false" id="37_false">
+                            <Radio name="37" value={false} id="37_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -886,16 +830,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="38" value="true" id="38_true">
+                            <Radio name="38" value={true} id="38_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="38" value="false" id="38_false">
+                            <Radio name="38" value={false} id="38_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -911,16 +851,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="39" value="true" id="39_true">
+                            <Radio name="39" value={true} id="39_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="39" value="false" id="39_false">
+                            <Radio name="39" value={false} id="39_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -936,16 +872,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="40" value="true" id="40_true">
+                            <Radio name="40" value={true} id="40_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="40" value="false" id="40_false">
+                            <Radio name="40" value={false} id="40_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -961,16 +893,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="41" value="true" id="41_true">
+                            <Radio name="41" value={true} id="41_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="41" value="false" id="41_false">
+                            <Radio name="41" value={false} id="41_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -986,16 +914,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="42" value="true" id="42_true">
+                            <Radio name="42" value={true} id="42_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="42" value="false" id="42_false">
+                            <Radio name="42" value={false} id="42_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1011,16 +935,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="43" value="true" id="43_true">
+                            <Radio name="43" value={true} id="43_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="43" value="false" id="43_false">
+                            <Radio name="43" value={false} id="43_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1036,16 +956,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="44" value="true" id="44_true">
+                            <Radio name="44" value={true} id="44_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="44" value="false" id="44_false">
+                            <Radio name="44" value={false} id="44_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1061,16 +977,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="45" value="true" id="45_true">
+                            <Radio name="45" value={true} id="45_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="45" value="false" id="45_false">
+                            <Radio name="45" value={false} id="45_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1086,16 +998,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="46" value="true" id="46_true">
+                            <Radio name="46" value={true} id="46_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="46" value="false" id="46_false">
+                            <Radio name="46" value={false} id="46_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1111,16 +1019,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="47" value="true" id="47_true">
+                            <Radio name="47" value={true} id="47_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="47" value="false" id="47_false">
+                            <Radio name="47" value={false} id="47_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1136,16 +1040,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="48" value="true" id="48_true">
+                            <Radio name="48" value={true} id="48_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="48" value="false" id="48_false">
+                            <Radio name="48" value={false} id="48_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1161,16 +1061,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="49" value="true" id="49_true">
+                            <Radio name="49" value={true} id="49_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="49" value="false" id="49_false">
+                            <Radio name="49" value={false} id="49_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1186,16 +1082,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="50" value="true" id="50_true">
+                            <Radio name="50" value={true} id="50_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="50" value="false" id="50_false">
+                            <Radio name="50" value={false} id="50_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1211,16 +1103,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="51" value="true" id="51_true">
+                            <Radio name="51" value={true} id="51_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="51" value="false" id="51_false">
+                            <Radio name="51" value={false} id="51_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1236,16 +1124,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="52" value="true" id="52_true">
+                            <Radio name="52" value={true} id="52_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="52" value="false" id="52_false">
+                            <Radio name="52" value={false} id="52_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1261,16 +1145,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="53" value="true" id="53_true">
+                            <Radio name="53" value={true} id="53_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="53" value="false" id="53_false">
+                            <Radio name="53" value={false} id="53_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1286,16 +1166,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="54" value="true" id="54_true">
+                            <Radio name="54" value={true} id="54_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="54" value="false" id="54_false">
+                            <Radio name="54" value={false} id="54_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1311,16 +1187,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="55" value="true" id="55_true">
+                            <Radio name="55" value={true} id="55_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="55" value="false" id="55_false">
+                            <Radio name="55" value={false} id="55_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1337,16 +1209,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="56" value="true" id="56_true">
+                            <Radio name="56" value={true} id="56_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="56" value="false" id="56_false">
+                            <Radio name="56" value={false} id="56_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1362,16 +1230,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="57" value="true" id="57_true">
+                            <Radio name="57" value={true} id="57_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="57" value="false" id="57_false">
+                            <Radio name="57" value={false} id="57_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1387,16 +1251,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="58" value="true" id="58_true">
+                            <Radio name="58" value={true} id="58_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="58" value="false" id="58_false">
+                            <Radio name="58" value={false} id="58_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1412,16 +1272,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="59" value="true" id="59_true">
+                            <Radio name="59" value={true} id="59_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="59" value="false" id="59_false">
+                            <Radio name="59" value={false} id="59_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1437,16 +1293,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="60" value="true" id="60_true">
+                            <Radio name="60" value={true} id="60_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="60" value="false" id="60_false">
+                            <Radio name="60" value={false} id="60_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1462,16 +1314,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="61" value="true" id="61_true">
+                            <Radio name="61" value={true} id="61_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="61" value="false" id="61_false">
+                            <Radio name="61" value={false} id="61_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1487,16 +1335,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="62" value="true" id="62_true">
+                            <Radio name="62" value={true} id="62_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="62" value="false" id="62_false">
+                            <Radio name="62" value={false} id="62_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1512,16 +1356,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="63" value="true" id="63_true">
+                            <Radio name="63" value={true} id="63_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="63" value="false" id="63_false">
+                            <Radio name="63" value={false} id="63_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1537,16 +1377,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="64" value="true" id="64_true">
+                            <Radio name="64" value={true} id="64_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="64" value="false" id="64_false">
+                            <Radio name="64" value={false} id="64_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1562,16 +1398,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="65" value="true" id="65_true">
+                            <Radio name="65" value={true} id="65_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="65" value="false" id="65_false">
+                            <Radio name="65" value={false} id="65_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1587,16 +1419,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="66" value="true" id="66_true">
+                            <Radio name="66" value={true} id="66_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="66" value="false" id="66_false">
+                            <Radio name="66" value={false} id="66_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1612,16 +1440,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="67" value="true" id="67_true">
+                            <Radio name="67" value={true} id="67_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="67" value="false" id="67_false">
+                            <Radio name="67" value={false} id="67_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1637,16 +1461,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="68" value="true" id="68_true">
+                            <Radio name="68" value={true} id="68_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="68" value="false" id="68_false">
+                            <Radio name="68" value={false} id="68_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1662,16 +1482,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="69" value="true" id="69_true">
+                            <Radio name="69" value={true} id="69_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="69" value="false" id="69_false">
+                            <Radio name="69" value={false} id="69_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1687,16 +1503,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="70" value="true" id="70_true">
+                            <Radio name="70" value={true} id="70_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="70" value="false" id="70_false">
+                            <Radio name="70" value={false} id="70_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1712,16 +1524,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="71" value="true" id="71_true">
+                            <Radio name="71" value={true} id="71_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="71" value="false" id="71_false">
+                            <Radio name="71" value={false} id="71_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1737,16 +1545,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="72" value="true" id="72_true">
+                            <Radio name="72" value={true} id="72_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="72" value="false" id="72_false">
+                            <Radio name="72" value={false} id="72_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1762,16 +1566,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="73" value="true" id="73_true">
+                            <Radio name="73" value={true} id="73_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="73" value="false" id="73_false">
+                            <Radio name="73" value={false} id="73_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1787,16 +1587,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="74" value="true" id="74_true">
+                            <Radio name="74" value={true} id="74_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="74" value="false" id="74_false">
+                            <Radio name="74" value={false} id="74_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />
@@ -1812,16 +1608,12 @@ export const BussDurkee = () => {
                         control={control}
                         render={({ field: { onChange, value } }) => (
                           <RadioGroup value={value} onChange={onChange}>
-
-                            <Radio name="75" value="true" id="75_true">
+                            <Radio name="75" value={true} id="75_true">
                               Да
                             </Radio>
-
-
-                            <Radio name="75" value="false" id="75_false">
+                            <Radio name="75" value={false} id="75_false">
                               Нет
                             </Radio>
-
                           </RadioGroup>
                         )}
                       />

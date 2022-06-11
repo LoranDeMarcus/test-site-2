@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { ColorHex, MainColor, TwoStageTest } from 'luscher-test'
 import * as s  from './styles'
 import { Button } from '../Button'
-import { LightText } from './styles'
 
 const initialColors = Object.values(ColorHex)
 

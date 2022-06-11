@@ -35,7 +35,7 @@ export const HomePage = () => {
       <s.TransparentSection>
         <Container>
           <s.TitleThird>
-            Инофрмация о тестировании
+            Иноформация о тестировании
           </s.TitleThird>
           <s.Wrapper>
             <s.TextDark>
