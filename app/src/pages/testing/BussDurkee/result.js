@@ -21,4 +21,3 @@ export const Result = (data) => {
   }
 }
 
-Result(data)

@@ -10,12 +10,15 @@ const RadioGroupContext = createContext({
 const Radio = ({ children, name, value, id, size = 's', ref, disabled = false }) => {
   const { onChange, _value } = useContext(RadioGroupContext)
   return (
-    <s.RadioWrapper checked={value === _value}>
+    <s.RadioWrapper
+      checked={value === _value}
+      onClick={() => onChange(value)}
+    >
       <input
         id={id}
-        onChange={() => onChange(value)}
         ref={ref}
         checked={value === _value}
+        onChange={() => null}
         type="radio"
         name={name}
         disabled={disabled}

@@ -2,87 +2,8 @@ import React from 'react'
 import Container from '../../components/Container'
 import * as s from './styles'
 import student from '../../assets/student.svg'
-import {
-  Chart as ChartJS,
-  RadialLinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  Tooltip,
-  Legend,
-} from 'chart.js'
-import { Radar } from 'react-chartjs-2'
-
-ChartJS.register(
-  RadialLinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  Tooltip,
-  Legend
-)
-
-const labels = [
-  ['Диагностика состояния агрессии:', 'Опросник Басса-Дарка'],
-  ['Тест темперамента В.М. Русалова'],
-  ['Личностный опросник Кеттела'],
-  ['Тест-опросник самоотношения', '(Столин, Пантелеев)'],
-  ['Краткий отборочный тест', 'КОТ, форма А'],
-  ['Цветовой тест Люшера'],
-  ['Опросник Vark'],
-]
 
 export const Cabinet = () => {
-  const data = {
-    labels,
-    datasets: [
-      {
-        label: '% правильных ответов',
-        data: [0, 0, 71, 0, 0, 0, 0],
-        backgroundColor: 'transparent',
-        borderColor: 'rgba(255, 99, 132, 1)',
-        borderWidth: 6,
-      }
-    ]
-  }
-
-  const options = {
-    responsive: true,
-    tooltip: {
-      enabled: true,
-    },
-    layout: {
-      beginAtZero: true,
-      padding: {
-        right: 35,
-        bottom: 60
-      }
-    },
-    scales: {
-      r: {
-        min: 0,
-        max: 100,
-        gridLines: {
-          circular: false
-        },
-        ticks: {
-          callback: (value) => {
-            return `${value}%`;
-          },
-        },
-        pointLabels: {
-          maxWidth: 100,
-          padding: 10,
-          font: {
-            size: 14
-          },
-          callback(value) {
-            return value
-          }
-        }
-      }
-    },
-  }
 
   return (
     <s.Section>
@@ -162,9 +83,6 @@ export const Cabinet = () => {
             </s.Tr>
           </tbody>
         </s.Table>
-       {/* <s.ChartWrapper>
-          <Radar type='radar' data={data} options={options} />
-        </s.ChartWrapper> */}
       </Container>
     </s.Section>
   )

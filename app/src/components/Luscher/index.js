@@ -78,7 +78,6 @@ export const Luscher = ({ setIsDone }) => {
 
     const test = new TwoStageTest(firstResultArray, secondResultArray)
     const testInterpretation = await test.getInterpretation('ru')
-    console.log(interpretation)
     setInterpretation(testInterpretation)
     setIsFinished(true)
     setIsDone(true)

@@ -118,8 +118,3 @@ export const Th = styled.th`
   color: #fff;
   font-weight: normal;
 `
-
-export const ChartWrapper = styled.div`
-  margin: 40px auto 0;
-  width: 80%;
-`
