@@ -6,6 +6,93 @@ import Container from '../../../components/Container'
 import { PageWrapper, Wrapper } from '../styles'
 import * as s from './styles'
 import { Radio, RadioGroup } from '../../../components/Radio'
+import { Pie } from 'react-chartjs-2'
+
+const labels = [
+  'Замкнутость/общительность',
+  'Интеллект',
+  'Эмоц. стабильность',
+  'Подчиненность/доминантность',
+  'Сдержанность/экспрессивность',
+  'Моральная нормативность',
+  'Робость/смелость',
+  'Практицизм/чувствительность',
+  'Доверчивость/подозрительность',
+  'Практичность/мечтательность',
+  'Прямолинейность/дипломатичность',
+  'Спокойствие/тревожность',
+  'Консерватизм/радикализм',
+  'Конформизм/нонконформизм',
+  'Самоконтроль',
+  'Расслабленность/напряженность',
+  'Тревога',
+  'Интроверсия/экстраверсия',
+  'Чувствительность/уравновешенность',
+  'Конформность/независимость',
+]
+
+const resultData = [
+  Math.ceil(Math.random() * 10),
+  Math.ceil(Math.random() * 10),
+  Math.ceil(Math.random() * 10),
+  Math.ceil(Math.random() * 10),
+  Math.ceil(Math.random() * 10),
+  Math.ceil(Math.random() * 10),
+  Math.ceil(Math.random() * 10),
+  Math.ceil(Math.random() * 10),
+  Math.ceil(Math.random() * 10),
+  Math.ceil(Math.random() * 10),
+  Math.ceil(Math.random() * 10),
+  Math.ceil(Math.random() * 10),
+  Math.ceil(Math.random() * 10),
+  Math.ceil(Math.random() * 10),
+  Math.ceil(Math.random() * 10),
+  Math.ceil(Math.random() * 10),
+  Math.ceil(Math.random() * 10),
+  Math.ceil(Math.random() * 10),
+  Math.ceil(Math.random() * 10),
+  Math.ceil(Math.random() * 10),
+]
+
+const colors = [
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+]
+
+const data = {
+  labels,
+  datasets: [{
+    data: resultData,
+    backgroundColor: colors,
+    hoverOffset: 4
+  }]
+
+}
+
+const options = {
+  plugins: {
+    legend: false
+  },
+  elements: {}
+}
 
 export const Cattel = () => {
   const [hasReadDescription, setHasReadDescription] = useState(true)
@@ -24,6 +111,40 @@ export const Cattel = () => {
           <s.Tittle>
             Личностный опросник Кеттела
           </s.Tittle>
+          <s.ResultWrapper>
+            <s.ResultTitle>
+              Результаты тестирования:
+            </s.ResultTitle>
+            <s.TestResultWrapper>
+              <s.TestResult>
+                {labels.map((item, index) => {
+                  return (
+                    <s.TestResultText key={item}>
+                      <s.Color bgc={colors[index]} />
+                      {item} - {resultData[index]}
+                    </s.TestResultText>
+                  )
+                })}
+              </s.TestResult>
+              <s.ChartWrapper>
+                <Pie type="pie" data={data} options={options} />
+              </s.ChartWrapper>
+            </s.TestResultWrapper>
+            <s.Recommendations>
+              Рекоммендации для преподавателя:
+              <s.List>
+                <li>
+                  Избегать агрссивных форм общения со студентом (агрессия порождает агрессию)
+                </li>
+                <li>
+                  Построение взаимотношений не по типу вторжения, а на основе совета
+                </li>
+                <li>
+                  Поощрение и одобрение инициативы
+                </li>
+              </s.List>
+            </s.Recommendations>
+          </s.ResultWrapper>
           {hasReadDescription
             ? (
               <>

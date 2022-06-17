@@ -6,6 +6,50 @@ import Container from '../../../components/Container'
 import { PageWrapper, Wrapper } from '../styles'
 import * as s from './styles'
 import { Radio, RadioGroup } from '../../../components/Radio'
+import { Pie } from 'react-chartjs-2'
+
+const labels = [
+  'Шкала открытость-закрытость',
+  'Шкала самообвинение',
+  'Шкала внутренняя конфликтность',
+  'Шкала самопривязанность',
+  'Шкала самопринятие',
+  'Шкала самоценность',
+  'Шкала отраженное самоотношение',
+  'Шкала самоуверенность',
+]
+
+const resultData = [8, 2, 5, 4, 7, 3, 6, 6]
+
+const colors = [
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+]
+
+const data = {
+  labels,
+  datasets: [{
+    data: resultData,
+    backgroundColor: colors,
+    hoverOffset: 4
+  }]
+
+}
+
+const options = {
+  plugins: {
+    legend: false
+  },
+  elements: {}
+}
+
 
 export const Pantileev = () => {
   const [hasReadDescription, setHasReadDescription] = useState(true)
@@ -24,6 +68,56 @@ export const Pantileev = () => {
           <s.Tittle>
             Опросник исследования самоотношения С.Р. Пантилеева
           </s.Tittle>
+          <s.ResultWrapper>
+            <s.ResultTitle>
+              Результаты тестирования:
+            </s.ResultTitle>
+            <s.TestResultWrapper>
+              <s.TestResult>
+                <s.TestResultText>
+                  <s.Color bgc={colors[0]} /> Шкала открытость-закрытость - 8
+                </s.TestResultText>
+                <s.TestResultText>
+                  <s.Color bgc={colors[1]} /> Шкала самообвинение - 2
+                </s.TestResultText>
+                <s.TestResultText>
+                  <s.Color bgc={colors[2]} /> Шкала внутренняя конфликтность - 4
+                </s.TestResultText>
+                <s.TestResultText>
+                  <s.Color bgc={colors[3]} /> Шкала самопривязанность - 4
+                </s.TestResultText>
+                <s.TestResultText>
+                  <s.Color bgc={colors[4]} /> Шкала самопринятие - 7
+                </s.TestResultText>
+                <s.TestResultText>
+                  <s.Color bgc={colors[5]} /> Шкала самоценность - 3
+                </s.TestResultText>
+                <s.TestResultText>
+                  <s.Color bgc={colors[6]} /> Шкала отраженное самоотношение - 4
+                </s.TestResultText>
+                <s.TestResultText>
+                  <s.Color bgc={colors[7]} /> Шкала самоуверенность - 6
+                </s.TestResultText>
+              </s.TestResult>
+              <s.ChartWrapper>
+                <Pie type="pie" data={data} options={options} />
+              </s.ChartWrapper>
+            </s.TestResultWrapper>
+            <s.Recommendations>
+              Рекоммендации для преподавателя:
+              <s.ListRes>
+                <li>
+                  Избегать агрссивных форм общения со студентом (агрессия порождает агрессию)
+                </li>
+                <li>
+                  Построение взаимотношений не по типу вторжения, а на основе совета
+                </li>
+                <li>
+                  Поощрение и одобрение инициативы
+                </li>
+              </s.ListRes>
+            </s.Recommendations>
+          </s.ResultWrapper>
           {hasReadDescription
             ? (
               <>
