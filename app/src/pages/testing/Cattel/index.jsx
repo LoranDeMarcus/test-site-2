@@ -55,26 +55,26 @@ const resultData = [
 ]
 
 const colors = [
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
 ]
 
 const data = {
@@ -97,10 +97,12 @@ const options = {
 export const Cattel = () => {
   const [hasReadDescription, setHasReadDescription] = useState(true)
   const { control, handleSubmit, formState: { errors } } = useForm()
+  const [isDone, setIsDone] = useState(false)
 
   console.log(errors)
 
   const onSubmit = (data) => {
+    setIsDone(true)
     console.log(data)
   }
 
@@ -111,55 +113,68 @@ export const Cattel = () => {
           <s.Tittle>
             Личностный опросник Кеттела
           </s.Tittle>
-          <s.ResultWrapper>
-            <s.ResultTitle>
-              Результаты тестирования:
-            </s.ResultTitle>
-            <s.TestResultWrapper>
-              <s.TestResult>
-                {labels.map((item, index) => {
-                  return (
-                    <s.TestResultText key={item}>
-                      <s.Color bgc={colors[index]} />
-                      {item} - {resultData[index]}
-                    </s.TestResultText>
-                  )
-                })}
-              </s.TestResult>
-              <s.ChartWrapper>
-                <Pie type="pie" data={data} options={options} />
-              </s.ChartWrapper>
-            </s.TestResultWrapper>
-            <s.Recommendations>
-              Рекоммендации для преподавателя:
-              <s.List>
-                <li>
-                  Избегать агрссивных форм общения со студентом (агрессия порождает агрессию)
-                </li>
-                <li>
-                  Построение взаимотношений не по типу вторжения, а на основе совета
-                </li>
-                <li>
-                  Поощрение и одобрение инициативы
-                </li>
-              </s.List>
-            </s.Recommendations>
-          </s.ResultWrapper>
+          {hasReadDescription && isDone && (
+            <s.ResultWrapper>
+              <s.ResultTitle>
+                Результаты тестирования:
+              </s.ResultTitle>
+              <s.TestResultWrapper>
+                <s.TestResult>
+                  {labels.map((item, index) => {
+                    return (
+                      <s.TestResultText key={item}>
+                        <s.Color bgc={colors[index]} />
+                        {item} - {resultData[index]}
+                      </s.TestResultText>
+                    )
+                  })}
+                </s.TestResult>
+                <s.ChartWrapper>
+                  <Pie type="pie" data={data} options={options} />
+                </s.ChartWrapper>
+              </s.TestResultWrapper>
+              <s.Recommendations>
+                Рекоммендации для преподавателя:
+                <s.List>
+                  <li>
+                    Избегать агрссивных форм общения со студентом (агрессия порождает агрессию)
+                  </li>
+                  <li>
+                    Построение взаимотношений не по типу вторжения, а на основе совета
+                  </li>
+                  <li>
+                    Поощрение и одобрение инициативы
+                  </li>
+                </s.List>
+              </s.Recommendations>
+            </s.ResultWrapper>
+          )}
           {hasReadDescription
             ? (
               <>
                 <s.Subtitle>
-                  Bам будет задан ряд вопросов, на каждый из которых Вы должны выбрать один из трех предлагаемых ответов,
-                  - тот, который в наибольшей степени соответствует Вашим взглядам, Вашему мнению о себе.
-                  Обязательно отвечайте на все вопросы подряд, ничего не пропуская. Не нужно много времени тратить на обдумывание ответов.
-                  Давайте тот ответ, который первым приходит Вам в голову. Отвечать надо приблизительно на 5-6 вопросов за минуту.
-                  Прохождение теста должно занять у Вас около 50 мин. Возможно, некоторые вопросы покажутся вам неясными
-                  или сформулированными не так подробно, как Вам хотелось бы. В таких случаях, отвечая, старайтесь
-                  представить "среднюю", наиболее обычную ситуацию, которая соответствует смыслу вопроса, и на основе
-                  этого выбирайте свой ответ. Старайтесь не прибегать слишком часто к промежуточным, неопределенным ответам,
-                  типа "не знаю", "нечто среднее" и т.п. Отвечайте честно и искренне. Не стремитесь произвести хорошее
-                  впечатление своими ответами. Здесь не может быть ответов "правильных" или "ошибочных". Люди различны,
-                  и каждый может высказать свое мнение. Ваши ответы должны соответствовать действительности - в этом случае
+                  Bам будет задан ряд вопросов, на каждый из которых Вы должны выбрать один из трех
+                  предлагаемых ответов,
+                  - тот, который в наибольшей степени соответствует Вашим взглядам, Вашему мнению о
+                  себе.
+                  Обязательно отвечайте на все вопросы подряд, ничего не пропуская. Не нужно много
+                  времени тратить на обдумывание ответов.
+                  Давайте тот ответ, который первым приходит Вам в голову. Отвечать надо
+                  приблизительно на 5-6 вопросов за минуту.
+                  Прохождение теста должно занять у Вас около 50 мин. Возможно, некоторые вопросы
+                  покажутся вам неясными
+                  или сформулированными не так подробно, как Вам хотелось бы. В таких случаях,
+                  отвечая, старайтесь
+                  представить "среднюю", наиболее обычную ситуацию, которая соответствует смыслу
+                  вопроса, и на основе
+                  этого выбирайте свой ответ. Старайтесь не прибегать слишком часто к промежуточным,
+                  неопределенным ответам,
+                  типа "не знаю", "нечто среднее" и т.п. Отвечайте честно и искренне. Не стремитесь
+                  произвести хорошее
+                  впечатление своими ответами. Здесь не может быть ответов "правильных" или
+                  "ошибочных". Люди различны,
+                  и каждый может высказать свое мнение. Ваши ответы должны соответствовать
+                  действительности - в этом случае
                   Вы сможете лучше узнать себя.
                 </s.Subtitle>
                 <Button onClick={() => setHasReadDescription(false)} className={s.StartButton}>
@@ -174,7 +189,7 @@ export const Cattel = () => {
                 <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
                   <s.QuestionWrapper>
                     <s.Question>
-                      1.	Я хорошо понял инструкцию к этому опроснику
+                      1. Я хорошо понял инструкцию к этому опроснику
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -198,7 +213,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      2.	Я готов как можно искренней ответить на вопросы
+                      2. Я готов как можно искренней ответить на вопросы
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -222,7 +237,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      3.	Я предпочел бы иметь дачу
+                      3. Я предпочел бы иметь дачу
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -246,7 +261,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      4. Я могу найти в себе достаточно сил, чтобы справиться с жизненными трудностями.
+                      4. Я могу найти в себе достаточно сил, чтобы справиться с жизненными
+                      трудностями.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -270,7 +286,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      5. При виде диких животных мне становится несколько не по себе, даже если они надежно заперты в клетках.
+                      5. При виде диких животных мне становится несколько не по себе, даже если они
+                      надежно заперты в клетках.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -294,7 +311,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      6.	Я воздерживаюсь от критики людей и их взглядов
+                      6. Я воздерживаюсь от критики людей и их взглядов
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -318,7 +335,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      7.	Я делаю людям резкие, критические замечания, если мне кажется, что они этого заслуживают
+                      7. Я делаю людям резкие, критические замечания, если мне кажется, что они
+                      этого заслуживают
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -438,7 +456,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      12. На улице я скорее остановлюсь, чтобы посмотреть, как работает художник, чем стану наблюдать за уличной ссорой.
+                      12. На улице я скорее остановлюсь, чтобы посмотреть, как работает художник,
+                      чем стану наблюдать за уличной ссорой.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -462,7 +481,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      13. Обычно я спокойно переношу самодовольство людей, даже когда они хвастаются или другим образом показывают, что они высокого мнения о себе
+                      13. Обычно я спокойно переношу самодовольство людей, даже когда они хвастаются
+                      или другим образом показывают, что они высокого мнения о себе
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -486,7 +506,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      14. Если человек обманывает, я почти всегда могу заметить это по выражению его лицаю
+                      14. Если человек обманывает, я почти всегда могу заметить это по выражению его
+                      лицаю
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -510,7 +531,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      15. Легко ли Вам выполнять работу, требующую длительного внимания и большой сосредоточенности?
+                      15. Легко ли Вам выполнять работу, требующую длительного внимания и большой
+                      сосредоточенности?
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -582,7 +604,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      18. Изредка я испытываю чувство внезапного страха или неопределенного беспокойства, сам не знаю от чего
+                      18. Изредка я испытываю чувство внезапного страха или неопределенного
+                      беспокойства, сам не знаю от чего
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -645,7 +668,8 @@ export const Cattel = () => {
                               не знаю, что выбрать
                             </Radio>
                             <Radio name="20" value="false" id="20_false">
-                              постоянно пытаюсь что-то изменить в работе, которая и так идет нормально
+                              постоянно пытаюсь что-то изменить в работе, которая и так идет
+                              нормально
                             </Radio>
                           </RadioGroup>
                         )}
@@ -654,7 +678,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      21.  Принимая решения, я руководствуюсь больше:
+                      21. Принимая решения, я руководствуюсь больше:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -678,7 +702,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      22. Люди были бы счастливее, если бы они больше времени проводили в обществе своих друзей.
+                      22. Люди были бы счастливее, если бы они больше времени проводили в обществе
+                      своих друзей.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -774,7 +799,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      26. При равной продолжительности рабочего дня и одинаковой зарплате мне было бы интереснее работать:
+                      26. При равной продолжительности рабочего дня и одинаковой зарплате мне было
+                      бы интереснее работать:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -870,7 +896,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      30. В своей жизни я, как правило, достигаю тех целей, которые ставлю перед собой.
+                      30. В своей жизни я, как правило, достигаю тех целей, которые ставлю перед
+                      собой.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -894,7 +921,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      31.            Устаревший закон должен быть изменен:
+                      31. Устаревший закон должен быть изменен:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -918,7 +945,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      32.            Мне становится не по себе, когда дело требует от меня быстрых действий, которые как-то влияют на других людей.
+                      32. Мне становится не по себе, когда дело требует от меня быстрых действий,
+                      которые как-то влияют на других людей.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -942,7 +970,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      33.            Большинство знакомых считают меня веселым собеседником.
+                      33. Большинство знакомых считают меня веселым собеседником.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -966,7 +994,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      34.  Когда я вижу неопрятных, неряшливых людей:
+                      34. Когда я вижу неопрятных, неряшливых людей:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1014,7 +1042,9 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      36. Я всегда рад присоединиться к большой компании, например: встретится вечером с друзьями, пойти на танцы, принять участие в интересном общественном мероприятии.
+                      36. Я всегда рад присоединиться к большой компании, например: встретится
+                      вечером с друзьями, пойти на танцы, принять участие в интересном общественном
+                      мероприятии.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1062,7 +1092,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      38. Если меня назначают ответственным за что-либо, я настаиваю, чтобы мои распоряжения строго выполнялись, а иначе я отказываюсь от поручения.
+                      38. Если меня назначают ответственным за что-либо, я настаиваю, чтобы мои
+                      распоряжения строго выполнялись, а иначе я отказываюсь от поручения.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1134,7 +1165,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      41. Время от времени я чувствую потребность заняться чем-нибудь, что требует значительных физических усилий
+                      41. Время от времени я чувствую потребность заняться чем-нибудь, что требует
+                      значительных физических усилий
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1158,7 +1190,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      42. Я предпочел бы общаться с людьми вежливыми и деликатными, чем с грубоватыми и прямолинейными.
+                      42. Я предпочел бы общаться с людьми вежливыми и деликатными, чем с
+                      грубоватыми и прямолинейными.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1230,7 +1263,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      45. Я считаю, что люди должны очень серьезно подумать прежде чем отказываться от опыта прошлых веков.
+                      45. Я считаю, что люди должны очень серьезно подумать прежде чем отказываться
+                      от опыта прошлых веков.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1254,7 +1288,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      46. Читая что-либо, я всегда хорошо осознаю скрытое намерение автора убедить меня в чем-то.
+                      46. Читая что-либо, я всегда хорошо осознаю скрытое намерение автора убедить
+                      меня в чем-то.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1326,7 +1361,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      49. Когда я думаю о том, что произошло в течении дня, я нередко испытываю беспокойство.
+                      49. Когда я думаю о том, что произошло в течении дня, я нередко испытываю
+                      беспокойство.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1350,7 +1386,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      50. Иногда я сомневаюсь, действительно ли люди, с которыми я беседую, интересуются тем, что я говорю.
+                      50. Иногда я сомневаюсь, действительно ли люди, с которыми я беседую,
+                      интересуются тем, что я говорю.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1398,7 +1435,7 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      52.  Ко дню рождения, к праздникам:
+                      52. Ко дню рождения, к праздникам:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1422,7 +1459,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      53. Слово «усталый» так относится к слову «работа», как слово «гордый» к слову:
+                      53. Слово «усталый» так относится к слову «работа», как слово «гордый» к
+                      слову:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1494,7 +1532,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      56. У меня есть такие качества, по которым я определенно превосхожу других людей.
+                      56. У меня есть такие качества, по которым я определенно превосхожу других
+                      людей.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1542,7 +1581,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      58. Мне хотелось бы ходить в кино, на разные представления и в другие места, где можно развлечься.
+                      58. Мне хотелось бы ходить в кино, на разные представления и в другие места,
+                      где можно развлечься.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1566,7 +1606,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      59. Я думаю, что личная свобода в поведении важнее хороших манер и соблюдения этикета.
+                      59. Я думаю, что личная свобода в поведении важнее хороших манер и соблюдения
+                      этикета.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1590,7 +1631,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      60. В присутствии людей, более значительных, чем я (людей старше меня, или с большим опытом, или с более высоким положением), я склонен держаться скромно.
+                      60. В присутствии людей, более значительных, чем я (людей старше меня, или с
+                      большим опытом, или с более высоким положением), я склонен держаться скромно.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1614,7 +1656,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      61. Мне трудно рассказать что-либо большой группе людей или выступать перед большой аудиторией.
+                      61. Мне трудно рассказать что-либо большой группе людей или выступать перед
+                      большой аудиторией.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1638,7 +1681,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      62. Я хорошо ориентируюсь в незнакомой местности: легко могу сказать, где север, где юг, где восток или запад:
+                      62. Я хорошо ориентируюсь в незнакомой местности: легко могу сказать, где
+                      север, где юг, где восток или запад:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1686,7 +1730,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      64. Когда я вижу статью, которую считаю несправедливой, я скорее склонен забыть об этом, чем с возмущением ответить автору
+                      64. Когда я вижу статью, которую считаю несправедливой, я скорее склонен
+                      забыть об этом, чем с возмущением ответить автору
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1710,7 +1755,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      65. В моей памяти не задерживаются надолго несущественные мелочи, например, названия улиц, магазинов.
+                      65. В моей памяти не задерживаются надолго несущественные мелочи, например,
+                      названия улиц, магазинов.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1734,7 +1780,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      66. Мне могла бы понравиться профессия ветеринара, который лечит и оперирует животных.
+                      66. Мне могла бы понравиться профессия ветеринара, который лечит и оперирует
+                      животных.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1758,7 +1805,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      67. Я ем с наслаждением и не всегда столь тщательно забочусь о своих манерах, как это делают другие люди.
+                      67. Я ем с наслаждением и не всегда столь тщательно забочусь о своих манерах,
+                      как это делают другие люди.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1878,7 +1926,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      72. Я предпочел бы жить тихо, так, как мне нравится, нежели быть предметом восхищения благодаря своим успехам.
+                      72. Я предпочел бы жить тихо, так, как мне нравится, нежели быть предметом
+                      восхищения благодаря своим успехам.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1926,7 +1975,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      74. Критика в том виде, в каком ее осуществляют многие люди, скорее выбивает меня из колеи, чем помогает.
+                      74. Критика в том виде, в каком ее осуществляют многие люди, скорее выбивает
+                      меня из колеи, чем помогает.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1998,7 +2048,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      77. Слово «удивление» так относится к слову «необычный», как слово «страх» к слову:
+                      77. Слово «удивление» так относится к слову «необычный», как слово «страх» к
+                      слову:
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2046,7 +2097,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      79. Мне кажется, что некоторые люди не замечают или избегают меня, хотя и не знаю, почему.
+                      79. Мне кажется, что некоторые люди не замечают или избегают меня, хотя и не
+                      знаю, почему.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2070,7 +2122,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      80. Люди относятся ко мне более доброжелательно, чем я того заслуживаю своим добрым к ним отношением.
+                      80. Люди относятся ко мне более доброжелательно, чем я того заслуживаю своим
+                      добрым к ним отношением.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2094,7 +2147,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      81. Употребление нецензурных выражений мне всегда противно (даже если при этом нет лица другого пола)
+                      81. Употребление нецензурных выражений мне всегда противно (даже если при этом
+                      нет лица другого пола)
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2166,7 +2220,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      84. Люди иногда называют меня легкомысленным, хотя и считают приятным человеком.
+                      84. Люди иногда называют меня легкомысленным, хотя и считают приятным
+                      человеком.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2190,7 +2245,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      85. В различных ситуациях в обществе я испытывал волнение, похожее на то, которое испытывает человек перед выходом на сцену.
+                      85. В различных ситуациях в обществе я испытывал волнение, похожее на то,
+                      которое испытывает человек перед выходом на сцену.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2214,7 +2270,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      86. Находясь в небольшой группе людей, я довольствуюсь тем, что держусь в стороне и по большей части предоставляю говорить другим.
+                      86. Находясь в небольшой группе людей, я довольствуюсь тем, что держусь в
+                      стороне и по большей части предоставляю говорить другим.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2286,7 +2343,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      89. Если начальство или члены семьи в чем-то меня упрекают, то, как правило, только за дело.
+                      89. Если начальство или члены семьи в чем-то меня упрекают, то, как правило,
+                      только за дело.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2310,7 +2368,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      90. Мне не нравится манера некоторых людей «уставится» и бесцеремонно смотреть на человека в магазине или на улице.
+                      90. Мне не нравится манера некоторых людей «уставится» и бесцеремонно смотреть
+                      на человека в магазине или на улице.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2445,7 +2504,8 @@ export const Cattel = () => {
                               верно нечто среднее
                             </Radio>
                             <Radio name="95" value="false" id="95_false">
-                              с более высокой зарплатой, которая бы зависела от моих усилий и продуктивности
+                              с более высокой зарплатой, которая бы зависела от моих усилий и
+                              продуктивности
                             </Radio>
                           </RadioGroup>
                         )}
@@ -2502,7 +2562,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      98. Выполняя какую-либо работу, я не успокаиваюсь, пока не будут учтены даже самые незначительные детали.
+                      98. Выполняя какую-либо работу, я не успокаиваюсь, пока не будут учтены даже
+                      самые незначительные детали.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2598,7 +2659,8 @@ export const Cattel = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      102. Слово «размер» так относится к слову «длина», как слово «нечестный» к слову:
+                      102. Слово «размер» так относится к слову «длина», как слово «нечестный» к
+                      слову:
                     </s.Question>
                     <s.Answers>
                       <Controller

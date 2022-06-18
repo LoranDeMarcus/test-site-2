@@ -6,14 +6,59 @@ import Container from '../../../components/Container'
 import { PageWrapper, Wrapper } from '../styles'
 import * as s from './styles'
 import { Radio, RadioGroup } from '../../../components/Radio'
+import { Pie } from 'react-chartjs-2'
+
+const labels = [
+  'Шкала открытость-закрытость',
+  'Шкала самообвинение',
+  'Шкала внутренняя конфликтность',
+  'Шкала самопривязанность',
+  'Шкала самопринятие',
+  'Шкала самоценность',
+  'Шкала отраженное самоотношение',
+  'Шкала самоуверенность',
+]
+
+const resultData = [7, 5, 6, 8, 7, 5, 7, 9]
+
+const colors = [
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+]
+
+const data = {
+  labels,
+  datasets: [{
+    data: resultData,
+    backgroundColor: colors,
+    hoverOffset: 4
+  }]
+
+}
+
+const options = {
+  plugins: {
+    legend: false
+  },
+  elements: {}
+}
 
 export const Rusalov = () => {
   const [hasReadDescription, setHasReadDescription] = useState(true)
   const { control, handleSubmit, formState: { errors } } = useForm()
+  const [isDone, setIsDone] = useState(false)
 
   console.log(errors)
 
   const onSubmit = (data) => {
+    setIsDone(true)
     console.log(data)
   }
 
@@ -24,6 +69,58 @@ export const Rusalov = () => {
           <s.Tittle>
             Тест темперамента В.М. Русалова
           </s.Tittle>
+          {hasReadDescription && isDone && (
+            <s.ResultWrapper>
+              <s.ResultTitle>
+                Результаты тестирования:
+              </s.ResultTitle>
+              <s.TestResultWrapper>
+                <s.TestResult>
+                  <s.TestResultText>
+                    <s.Color bgc={colors[0]} /> Предметная эргичность - {resultData[0]}
+                  </s.TestResultText>
+                  <s.TestResultText>
+                    <s.Color bgc={colors[1]} /> Социальная эргичность - {resultData[1]}
+                  </s.TestResultText>
+                  <s.TestResultText>
+                    <s.Color bgc={colors[2]} /> Предметная пластичность - {resultData[2]}
+                  </s.TestResultText>
+                  <s.TestResultText>
+                    <s.Color bgc={colors[3]} /> Социальная пластичность - {resultData[3]}
+                  </s.TestResultText>
+                  <s.TestResultText>
+                    <s.Color bgc={colors[4]} /> Темп, или скорость - {resultData[4]}
+                  </s.TestResultText>
+                  <s.TestResultText>
+                    <s.Color bgc={colors[5]} /> Социальный темп - {resultData[5]}
+                  </s.TestResultText>
+                  <s.TestResultText>
+                    <s.Color bgc={colors[6]} /> Эмоциональность - {resultData[6]}
+                  </s.TestResultText>
+                  <s.TestResultText>
+                    <s.Color bgc={colors[7]} /> Соц. эмоциональность - {resultData[7]}
+                  </s.TestResultText>
+                </s.TestResult>
+                <s.ChartWrapper>
+                  <Pie type="pie" data={data} options={options} />
+                </s.ChartWrapper>
+              </s.TestResultWrapper>
+              <s.Recommendations>
+                Рекоммендации для преподавателя:
+                <s.ListRes>
+                  <li>
+                    Избегать агрссивных форм общения со студентом (агрессия порождает агрессию)
+                  </li>
+                  <li>
+                    Построение взаимотношений не по типу вторжения, а на основе совета
+                  </li>
+                  <li>
+                    Поощрение и одобрение инициативы
+                  </li>
+                </s.ListRes>
+              </s.Recommendations>
+            </s.ResultWrapper>
+          )}
           {hasReadDescription
             ? (
               <>

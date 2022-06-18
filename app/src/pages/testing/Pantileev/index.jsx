@@ -22,15 +22,15 @@ const labels = [
 const resultData = [8, 2, 5, 4, 7, 3, 6, 6]
 
 const colors = [
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
-  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`,
 ]
 
 const data = {
@@ -54,10 +54,12 @@ const options = {
 export const Pantileev = () => {
   const [hasReadDescription, setHasReadDescription] = useState(true)
   const { control, handleSubmit, formState: { errors } } = useForm()
+  const [isDone, setIsDone] = useState(false)
 
   console.log(errors)
 
   const onSubmit = (data) => {
+    setIsDone(true)
     console.log(data)
   }
 
@@ -68,82 +70,104 @@ export const Pantileev = () => {
           <s.Tittle>
             Опросник исследования самоотношения С.Р. Пантилеева
           </s.Tittle>
-          <s.ResultWrapper>
-            <s.ResultTitle>
-              Результаты тестирования:
-            </s.ResultTitle>
-            <s.TestResultWrapper>
-              <s.TestResult>
-                <s.TestResultText>
-                  <s.Color bgc={colors[0]} /> Шкала открытость-закрытость - 8
-                </s.TestResultText>
-                <s.TestResultText>
-                  <s.Color bgc={colors[1]} /> Шкала самообвинение - 2
-                </s.TestResultText>
-                <s.TestResultText>
-                  <s.Color bgc={colors[2]} /> Шкала внутренняя конфликтность - 4
-                </s.TestResultText>
-                <s.TestResultText>
-                  <s.Color bgc={colors[3]} /> Шкала самопривязанность - 4
-                </s.TestResultText>
-                <s.TestResultText>
-                  <s.Color bgc={colors[4]} /> Шкала самопринятие - 7
-                </s.TestResultText>
-                <s.TestResultText>
-                  <s.Color bgc={colors[5]} /> Шкала самоценность - 3
-                </s.TestResultText>
-                <s.TestResultText>
-                  <s.Color bgc={colors[6]} /> Шкала отраженное самоотношение - 4
-                </s.TestResultText>
-                <s.TestResultText>
-                  <s.Color bgc={colors[7]} /> Шкала самоуверенность - 6
-                </s.TestResultText>
-              </s.TestResult>
-              <s.ChartWrapper>
-                <Pie type="pie" data={data} options={options} />
-              </s.ChartWrapper>
-            </s.TestResultWrapper>
-            <s.Recommendations>
-              Рекоммендации для преподавателя:
-              <s.ListRes>
-                <li>
-                  Избегать агрссивных форм общения со студентом (агрессия порождает агрессию)
-                </li>
-                <li>
-                  Построение взаимотношений не по типу вторжения, а на основе совета
-                </li>
-                <li>
-                  Поощрение и одобрение инициативы
-                </li>
-              </s.ListRes>
-            </s.Recommendations>
-          </s.ResultWrapper>
+          {hasReadDescription && isDone && (
+            <s.ResultWrapper>
+              <s.ResultTitle>
+                Результаты тестирования:
+              </s.ResultTitle>
+              <s.TestResultWrapper>
+                <s.TestResult>
+                  <s.TestResultText>
+                    <s.Color bgc={colors[0]} />
+                    Шкала открытость-закрытость - 8
+                  </s.TestResultText>
+                  <s.TestResultText>
+                    <s.Color bgc={colors[1]} />
+                    Шкала самообвинение - 2
+                  </s.TestResultText>
+                  <s.TestResultText>
+                    <s.Color bgc={colors[2]} />
+                    Шкала внутренняя конфликтность - 4
+                  </s.TestResultText>
+                  <s.TestResultText>
+                    <s.Color bgc={colors[3]} />
+                    Шкала самопривязанность - 4
+                  </s.TestResultText>
+                  <s.TestResultText>
+                    <s.Color bgc={colors[4]} />
+                    Шкала самопринятие - 7
+                  </s.TestResultText>
+                  <s.TestResultText>
+                    <s.Color bgc={colors[5]} />
+                    Шкала самоценность - 3
+                  </s.TestResultText>
+                  <s.TestResultText>
+                    <s.Color bgc={colors[6]} />
+                    Шкала отраженное самоотношение - 4
+                  </s.TestResultText>
+                  <s.TestResultText>
+                    <s.Color bgc={colors[7]} />
+                    Шкала самоуверенность - 6
+                  </s.TestResultText>
+                </s.TestResult>
+                <s.ChartWrapper>
+                  <Pie type="pie" data={data} options={options} />
+                </s.ChartWrapper>
+              </s.TestResultWrapper>
+              <s.Recommendations>
+                Рекоммендации для преподавателя:
+                <s.ListRes>
+                  <li>
+                    Избегать агрссивных форм общения со студентом (агрессия порождает агрессию)
+                  </li>
+                  <li>
+                    Построение взаимотношений не по типу вторжения, а на основе совета
+                  </li>
+                  <li>
+                    Поощрение и одобрение инициативы
+                  </li>
+                </s.ListRes>
+              </s.Recommendations>
+            </s.ResultWrapper>
+          )}
           {hasReadDescription
             ? (
               <>
                 <s.Subtitle>
-                  Вам предлагается ответить на вопросы (в форме возможных утверждений) об особенностях Вашего
-                  характера, привычках, интересах и т.п. На эти вопросы не может быть "правильных" или "неправильных"
-                  ответов т.к. каждый человек имеет право на свою собственную точку зрения. Для того, чтобы полученные
-                  на основании Ваших ответов результаты оказались наиболее информативными и плодотворными
-                  для конкретизации собственного представления о себе, Вам нужно постараться выбрать наиболее
+                  Вам предлагается ответить на вопросы (в форме возможных утверждений) об
+                  особенностях Вашего
+                  характера, привычках, интересах и т.п. На эти вопросы не может быть "правильных"
+                  или "неправильных"
+                  ответов т.к. каждый человек имеет право на свою собственную точку зрения. Для
+                  того, чтобы полученные
+                  на основании Ваших ответов результаты оказались наиболее информативными и
+                  плодотворными
+                  для конкретизации собственного представления о себе, Вам нужно постараться выбрать
+                  наиболее
                   точные и правильные ответы. Отвечая, помните простые правила:
                 </s.Subtitle>
                 <s.List>
                   <s.ListItem>
-                    Вопросы составлены так, что особого времени на обдумывание не требуется. Давайте первым ответ,
-                    который придет Вам в голову (как правило, он оказывается наиболее естественным). Конечно,
-                    вопросы слишком коротки, чтобы в них содержались все необходимые подробности. Поэтому отвечайте,
+                    Вопросы составлены так, что особого времени на обдумывание не требуется. Давайте
+                    первым ответ,
+                    который придет Вам в голову (как правило, он оказывается наиболее естественным).
+                    Конечно,
+                    вопросы слишком коротки, чтобы в них содержались все необходимые подробности.
+                    Поэтому отвечайте,
                     представляя себе самые типичные ситуации, не задумываясь над деталями.
                   </s.ListItem>
                   <s.ListItem>
-                    Возможно, некоторые вопросы Вам трудно отнести к себе. В таком случае постарайтесь
+                    Возможно, некоторые вопросы Вам трудно отнести к себе. В таком случае
+                    постарайтесь
                     дать наилучший предположительный ответ.
                   </s.ListItem>
                   <s.ListItem>
-                    Помните, что - плохих ответов быть не может. Не пытайтесь произвести своими ответами
-                    благоприятное впечатление. Свободно выражайте свое собственное мнение. Читайте последовательно
-                    каждое из приведенных выше утверждений и решайте, верно оно по отношению к Вам или неверно.
+                    Помните, что - плохих ответов быть не может. Не пытайтесь произвести своими
+                    ответами
+                    благоприятное впечатление. Свободно выражайте свое собственное мнение. Читайте
+                    последовательно
+                    каждое из приведенных выше утверждений и решайте, верно оно по отношению к Вам
+                    или неверно.
                   </s.ListItem>
                 </s.List>
                 <Button onClick={() => setHasReadDescription(false)} className={s.StartButton}>
@@ -221,7 +245,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      4. У меня нередко возникает чувство, что то, о чем я с собой мысленно разговариваю, мне неприятно.
+                      4. У меня нередко возникает чувство, что то, о чем я с собой мысленно
+                      разговариваю, мне неприятно.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -263,7 +288,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      6. Самое разумное, что может сделать человек в своей жизни это не противиться своей судьбе.
+                      6. Самое разумное, что может сделать человек в своей жизни это не противиться
+                      своей судьбе.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -305,7 +331,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      8. Если бы я раздвоился, то мне было бы довольно интересно общаться со своим двойником.
+                      8. Если бы я раздвоился, то мне было бы довольно интересно общаться со своим
+                      двойником.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -368,7 +395,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      11. Совершив какой-то промах, я часто не могу понять, как мне могло прийти в голову, что из задуманного могло получиться что-то хорошее.
+                      11. Совершив какой-то промах, я часто не могу понять, как мне могло прийти в
+                      голову, что из задуманного могло получиться что-то хорошее.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -410,7 +438,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      13. В моей личности есть, наверное, что-то такое, что способно вызвать у других острую неприязнь.
+                      13. В моей личности есть, наверное, что-то такое, что способно вызвать у
+                      других острую неприязнь.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -494,7 +523,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      17. Мой внутренний голос редко подсказывает мне то, с чем бы я в конце концов не согласился.
+                      17. Мой внутренний голос редко подсказывает мне то, с чем бы я в конце концов
+                      не согласился.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -578,7 +608,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      21. В моей жизни возникали такие обстоятельства, когда я шел на сделку с собственной совестью.
+                      21. В моей жизни возникали такие обстоятельства, когда я шел на сделку с
+                      собственной совестью.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -641,7 +672,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      24. Думаю, что без труда смог бы найти общий язык с любым разумным и знающим человеком.
+                      24. Думаю, что без труда смог бы найти общий язык с любым разумным и знающим
+                      человеком.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -666,7 +698,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      25. Если я и отношусь к кому-нибудь с укоризной, то прежде всего к самому себе.
+                      25. Если я и отношусь к кому-нибудь с укоризной, то прежде всего к самому
+                      себе.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -716,7 +749,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      27. Нередко мои споры с самим собой обрываются мыслью, что все равно выйдет не так, как я решил.
+                      27. Нередко мои споры с самим собой обрываются мыслью, что все равно выйдет не
+                      так, как я решил.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -816,7 +850,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      31. Если бы мое второе Я существовало, то для меня это был бы довольно скучный партнер в общении.
+                      31. Если бы мое второе Я существовало, то для меня это был бы довольно скучный
+                      партнер в общении.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -841,7 +876,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      32. Мне представляется, что я сложился как личность и поэтому не трачу много сил на то, чтобы в чем-то стать другим.
+                      32. Мне представляется, что я сложился как личность и поэтому не трачу много
+                      сил на то, чтобы в чем-то стать другим.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1016,7 +1052,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      39. Я думаю, что моя личность гораздо интереснее и богаче, чем это может показаться на первый взгляд.
+                      39. Я думаю, что моя личность гораздо интереснее и богаче, чем это может
+                      показаться на первый взгляд.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1191,7 +1228,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      46. Я не считаю, что достаточно интересен духовно для того, чтобы быть притягательным для многих людей.
+                      46. Я не считаю, что достаточно интересен духовно для того, чтобы быть
+                      притягательным для многих людей.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1216,7 +1254,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      47. У меня нередко возникает сомнение: таков ли я на самом деле, каким себе кажусь.
+                      47. У меня нередко возникает сомнение: таков ли я на самом деле, каким себе
+                      кажусь.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1391,7 +1430,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      54. Каким бы я ни казался окружающим, я-то знаю, что в глубине души я лучше, чем большинство других.
+                      54. Каким бы я ни казался окружающим, я-то знаю, что в глубине души я лучше,
+                      чем большинство других.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1466,7 +1506,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      57. Мне кажется, что если бы таких людей, как я, было больше, то жизнь изменилась бы в лучшую сторону.
+                      57. Мне кажется, что если бы таких людей, как я, было больше, то жизнь
+                      изменилась бы в лучшую сторону.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1566,7 +1607,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      61. В сложных обстоятельствах я обычно не жду, пока проблемы решатся сами собой.
+                      61. В сложных обстоятельствах я обычно не жду, пока проблемы решатся сами
+                      собой.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1641,7 +1683,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      64. Я убедился, что глубокое проникновение в себя мало приятное и довольно рискованное занятие.
+                      64. Я убедился, что глубокое проникновение в себя мало приятное и довольно
+                      рискованное занятие.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1691,7 +1734,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      66. У меня бывали такие моменты, когда я понимал, что и меня есть за что презирать.
+                      66. У меня бывали такие моменты, когда я понимал, что и меня есть за что
+                      презирать.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1741,7 +1785,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      68. Именно богатство и глубина моего внутреннего мира и определяют мою ценность как личности.
+                      68. Именно богатство и глубина моего внутреннего мира и определяют мою
+                      ценность как личности.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -1766,7 +1811,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      69. Долгие споры с собой чаще всего оставляют горький осадок в моей душе, чем приносят облегчение.
+                      69. Долгие споры с собой чаще всего оставляют горький осадок в моей душе, чем
+                      приносят облегчение.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2116,7 +2162,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      83. Мое собственное Я не представляется мне чем-то достойным глубокого внимания.
+                      83. Мое собственное Я не представляется мне чем-то достойным глубокого
+                      внимания.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2141,7 +2188,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      84. Мне кажется, что глубоко обдумывая свои внутренние проблемы, я научился гораздо лучше себя понимать.
+                      84. Мне кажется, что глубоко обдумывая свои внутренние проблемы, я научился
+                      гораздо лучше себя понимать.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2191,7 +2239,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      86. Мне случалось совершать такие поступки, которым вряд ли можно найти оправдание.
+                      86. Мне случалось совершать такие поступки, которым вряд ли можно найти
+                      оправдание.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2241,7 +2290,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      88. Если я искренне обвиняю себя в чем-то, то, как правило, обличительного запала хватает ненадолго.
+                      88. Если я искренне обвиняю себя в чем-то, то, как правило, обличительного
+                      запала хватает ненадолго.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2341,7 +2391,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      92. Мои мысли о себе в большей части сводятся к обвинениям в собственный адрес.
+                      92. Мои мысли о себе в большей части сводятся к обвинениям в собственный
+                      адрес.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2366,7 +2417,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      93. Я не хотел бы сильно меняться даже в лучшую сторону, потому что каждое изменение есть потеря какой-то частицы самого себя.
+                      93. Я не хотел бы сильно меняться даже в лучшую сторону, потому что каждое
+                      изменение есть потеря какой-то частицы самого себя.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2391,7 +2443,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      94. В результате моих действий слишком часто получается совсем не то, на что я рассчитывал.
+                      94. В результате моих действий слишком часто получается совсем не то, на что я
+                      рассчитывал.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2441,7 +2494,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      96. Мне еще многого не хватает, чтобы с уверенностью сказать себе: "Да, я вполне созрел как личность".
+                      96. Мне еще многого не хватает, чтобы с уверенностью сказать себе: "Да, я
+                      вполне созрел как личность".
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2491,7 +2545,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      98. Иногда я оказываю "бескорыстную" помощь людям только для того, чтобы лучше выглядеть в собственных глазах.
+                      98. Иногда я оказываю "бескорыстную" помощь людям только для того, чтобы лучше
+                      выглядеть в собственных глазах.
                     </s.Question>
                     <s.Answers>
                       <Controller
@@ -2766,7 +2821,8 @@ export const Pantileev = () => {
                   </s.QuestionWrapper>
                   <s.QuestionWrapper>
                     <s.Question>
-                      109. Думаю, что моя судьба сложится все равно не так, как бы мне хотелось теперь.
+                      109. Думаю, что моя судьба сложится все равно не так, как бы мне хотелось
+                      теперь.
                     </s.Question>
                     <s.Answers>
                       <Controller
